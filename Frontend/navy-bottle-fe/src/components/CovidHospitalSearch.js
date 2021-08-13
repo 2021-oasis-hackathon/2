@@ -1,8 +1,20 @@
 import React from 'react';
-import { FixWrapper } from './fixComponent';
 import styled from 'styled-components';
 
-const CovidHospitalSearchBodyWrapper = styled.div`
+
+const FixWrapper =  styled.div`
+  position: absolute;
+  width: 100%;
+  zoom: ${props=>props.zoom_in};
+
+  ::before{
+    content: "";
+    display: flex;
+    padding-top: 56.25%;
+  }
+`
+
+const CovidHospitalSearchBodyWrapper =  styled.div`
   position: absolute;
   top: 77.12%;
   left: 78.02%;
@@ -22,9 +34,11 @@ const CovidHospitalSearchBody = styled.div`
   display: flex;
 `;
 
-const CovidHospitalSearch = () => {
+
+
+const CovidHospitalSearch = ({zoom_in}) => {
   return (
-    <FixWrapper>
+    <FixWrapper zoom_in={zoom_in}>
       <CovidHospitalSearchBodyWrapper>
         <CovidHospitalSearchBody></CovidHospitalSearchBody>
       </CovidHospitalSearchBodyWrapper>

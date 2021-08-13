@@ -1,8 +1,20 @@
 import React from 'react';
-import { FixWrapper } from './fixComponent';
 import styled from 'styled-components';
 
-const CovidCurrentStausBodyWrapper = styled.div`
+
+const FixWrapper =  styled.div`
+  position: absolute;
+  width: 100%;
+  zoom: ${props=>props.zoom_in};
+
+  ::before{
+    content: "";
+    display: flex;
+    padding-top: 56.25%;
+  }
+`
+
+const CovidCurrentStausBodyWrapper =  styled.div`
   position: absolute;
   top: 4.2%;
   left: 4.7%;
@@ -53,9 +65,10 @@ const CovidCurrentStausHorizontal = styled.div`
   justify-content: space-around;
 `;
 
-const CovidCurrentStaus = ({ city }) => {
+
+const CovidCurrentStaus = ({ city ,zoom_in}) => {
   return (
-    <FixWrapper>
+    <FixWrapper zoom_in={zoom_in}>
       <CovidCurrentStausBodyWrapper>
         <CovidCurrentStausBody>
           <CovidCurrentStausHorizontal>

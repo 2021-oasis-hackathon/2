@@ -6,7 +6,7 @@ export const FixWrapper =  styled.div`
 
   ::before{
     content: "";
-    display: block;
+    display: flex;
     padding-top: 56.25%;
   }
 `
