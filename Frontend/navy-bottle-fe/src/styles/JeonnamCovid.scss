@@ -5,24 +5,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url("../img/background/Jeonnam_covid_img.png.jpg");
-  background-size: contain;
-  background-position: right;
-  background-repeat: no-repeat;
-  background-color: #f3f3f3;
 }
 
 .jeonnam-covid-body {
   display: flex;
   width: 90.1%;
   height: 91.7%;
-}
-
-.dot {
-  position: absolute;
-  left: 500px;
-
-  width: 10px;
-  height: 10px;
-  background-color: black;
 }
