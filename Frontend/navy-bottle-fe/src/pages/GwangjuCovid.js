@@ -83,7 +83,7 @@ const GwangjuCovid = () => {
       ></CovidCurrentStaus>
       <CovidHospitalList zoom_in={zoom_in}></CovidHospitalList>
       <CovidHospitalSearch zoom_in={zoom_in}></CovidHospitalSearch>
-      <CovidSeriousPatient zoom_in={zoom_in}></CovidSeriousPatient>
+      <CovidSeriousPatient zoom_in={zoom_in} sick="1,203"></CovidSeriousPatient>
       <CovidMildPatient zoom_in={zoom_in} sick="2,123"></CovidMildPatient>
       <CovidRegionSelectBar zoom_in={zoom_in}></CovidRegionSelectBar>
     </div>
