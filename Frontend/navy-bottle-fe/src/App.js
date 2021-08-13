@@ -1,9 +1,9 @@
 import React from 'react';
 import {Route} from 'react-router-dom'
 import MainPage from './pages/MainPage'
-import Jeonbuk from './pages/Jeonbuk'
-import Jeonnam from './pages/Jeonnam'
-import Gwangju from './pages/Gwangju'  
+import Jeonbuk from './pages/JeonbukCovid'
+import Jeonnam from './pages/JeonnamCovid'
+import Gwangju from './pages/GwangjuCovid'  
 
 const App = () =>{
   return(
