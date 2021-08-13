@@ -33,6 +33,7 @@ const CovidSeriousPatientBody = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: 'Noto Sans KR', sans-serif;
+  box-shadow: 0px 3px 6px #00000029;
 `;
 
 const CovidSeriousPatientTitle = styled.div`

@@ -1,45 +1,44 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FixWrapper =  styled.div`
+const FixWrapper = styled.div`
   position: absolute;
   width: 100%;
-  zoom: ${props=>props.zoom_in};
+  zoom: ${(props) => props.zoom_in};
 
-  ::before{
-    content: "";
+  ::before {
+    content: '';
     display: flex;
     padding-top: 56.25%;
   }
-`
+`;
 
-const CovidHospitalListBodyWrapper =  styled.div`
+const CovidHospitalListBodyWrapper = styled.div`
   position: absolute;
-  top : 50.09%;
+  top: 50.09%;
   left: 4.7%;
   bottom: 0;
   right: 0;
   z-index: 10;
   width: 15.89%;
   height: 45.74%;
-`
+`;
 
 const CovidHospitalListBody = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius:10px;
-  background-color: #DDDDDD;
+  border-radius: 10px;
+  background-color: #dddddd;
+  box-shadow: 0px 3px 6px #00000029;
   display: flex;
 `;
 
-const CovidHospitalList = ({zoom_in}) => {
+const CovidHospitalList = ({ zoom_in }) => {
   return (
     <FixWrapper zoom_in={zoom_in}>
       <CovidHospitalListBodyWrapper>
-        <CovidHospitalListBody>
-
-        </CovidHospitalListBody>
+        <CovidHospitalListBody></CovidHospitalListBody>
       </CovidHospitalListBodyWrapper>
     </FixWrapper>
   );
