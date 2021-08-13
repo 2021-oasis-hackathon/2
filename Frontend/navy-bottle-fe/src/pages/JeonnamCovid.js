@@ -9,6 +9,7 @@ import CovidHospitalList from '../components/CovidHospitalList';
 import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
+import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 
 const FixWrapper =  styled.div`
   position: absolute;
@@ -57,6 +58,7 @@ const JeonnamCovid = () => {
       <CovidHospitalSearch zoom_in={zoom_in}></CovidHospitalSearch>
       <CovidSeriousPatient zoom_in={zoom_in}></CovidSeriousPatient>
       <CovidMildPatient zoom_in={zoom_in}></CovidMildPatient>
+      <CovidRegionSelectBar zoom_in={zoom_in}></CovidRegionSelectBar>
     </div>
   );
 };
