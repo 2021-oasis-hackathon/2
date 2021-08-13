@@ -1,20 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-const FixWrapper =  styled.div`
+const FixWrapper = styled.div`
   position: absolute;
   width: 100%;
-  zoom: ${props=>props.zoom_in};
+  zoom: ${(props) => props.zoom_in};
 
-  ::before{
-    content: "";
+  ::before {
+    content: '';
     display: flex;
     padding-top: 56.25%;
   }
-`
+`;
 
-const CovidCurrentStausBodyWrapper =  styled.div`
+const CovidCurrentStausBodyWrapper = styled.div`
   position: absolute;
   top: 4.2%;
   left: 4.7%;
@@ -29,7 +28,7 @@ const CovidCurrentStausBody = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius:10px;
+  border-radius: 10px;
   background-color: #dddddd;
   display: flex;
   flex-direction: column;
@@ -39,6 +38,7 @@ const CovidCurrentStausBody = styled.div`
 
 const CovidCurrentStausTitle = styled.h1`
   font-weight: bold;
+  font-size: 30px;
 `;
 
 const CovidCurrentStausDate = styled.text``;
@@ -65,8 +65,7 @@ const CovidCurrentStausHorizontal = styled.div`
   justify-content: space-around;
 `;
 
-
-const CovidCurrentStaus = ({ city ,zoom_in}) => {
+const CovidCurrentStaus = ({ city, zoom_in }) => {
   return (
     <FixWrapper zoom_in={zoom_in}>
       <CovidCurrentStausBodyWrapper>
