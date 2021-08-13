@@ -11,6 +11,7 @@ export const FixWrapper =  styled.div`
   }
 `
 
+
 export const FixMapIMGWrapper =  styled.div`
   position: absolute;
   top: 0;
