@@ -30,6 +30,7 @@ const JeonbukCovid = () => {
     zoom_in = window.devicePixelRatio;
     zoom_in = 1 / (zoom_in * 0.8);
     console.log(zoom_in);
+    window.location.reload();
   };
 
   return (
