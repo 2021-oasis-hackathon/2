@@ -7,6 +7,9 @@ import gwangju_img from '../img/background/Gwangju_covid_img.jpg';
 import CovidCurrentStaus from '../components/CovidCurrentStaus';
 import CovidHospitalList from '../components/CovidHospitalList';
 import CovidHospitalSearch from '../components/CovidHospitalSearch';
+import CovidSeriousPatient from '../components/CovidSeriousPatient';
+import CovidMildPatient from '../components/CovidMildPatient';
+
 
 const FixWrapper =  styled.div`
   position: absolute;
@@ -34,9 +37,14 @@ const GwangjuCovid = () =>{
     <div className="gwangju-covid-body-wrapper">
       <FixWrapper zoom_in={zoom_in}>
         <FixMapIMGWrapper>
-          <img src ={gwangju_img} alt="gwangju_map_img" className="gwangju_img"/>
+          <img
+            src={gwangju_img}
+            alt="gwangju_map_img"
+            className="gwangju_img"
+          />
         </FixMapIMGWrapper>
       </FixWrapper>
+
 
       <MarkerRenderComponet zoom_in={zoom_in} top={24.5} left={57.15} color='green'/>
       <MarkerRenderComponet zoom_in={zoom_in} top={43.4} left={53.7} color='yellow'/>
@@ -48,7 +56,7 @@ const GwangjuCovid = () =>{
       <CovidHospitalList zoom_in={zoom_in}></CovidHospitalList>
       <CovidHospitalSearch zoom_in={zoom_in}></CovidHospitalSearch>
     </div>
-  )
-}
+  );
+};
 
 export default GwangjuCovid;
