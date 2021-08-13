@@ -12,7 +12,7 @@ import CovidMildPatient from '../components/CovidMildPatient';
 
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 
-const FixWrapper =  styled.div`
+const FixWrapper = styled.div`
   position: absolute;
   width: 100%;
   zoom: ${(props) => props.zoom_in};
@@ -84,7 +84,7 @@ const GwangjuCovid = () => {
       <CovidHospitalList zoom_in={zoom_in}></CovidHospitalList>
       <CovidHospitalSearch zoom_in={zoom_in}></CovidHospitalSearch>
       <CovidSeriousPatient zoom_in={zoom_in}></CovidSeriousPatient>
-      <CovidMildPatient zoom_in={zoom_in}></CovidMildPatient>
+      <CovidMildPatient zoom_in={zoom_in} sick="2,123"></CovidMildPatient>
       <CovidRegionSelectBar zoom_in={zoom_in}></CovidRegionSelectBar>
     </div>
   );

@@ -1,17 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FixWrapper =  styled.div`
+const FixWrapper = styled.div`
   position: absolute;
   width: 100%;
-  zoom: ${props=>props.zoom_in};
+  zoom: ${(props) => props.zoom_in};
 
-  ::before{
-    content: "";
+  ::before {
+    content: '';
     display: flex;
     padding-top: 56.25%;
   }
-`
+`;
 
 const CovidMildPatientBodyWrapper = styled.div`
   position: absolute;
@@ -28,9 +28,12 @@ const CovidMildPatientBody = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius:10px;
+  border-radius: 10px;
   background-color: #dddddd;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Noto Sans KR', sans-serif;
 `;
 
 const CovidMildPatientTitle = styled.div`
@@ -39,17 +42,25 @@ const CovidMildPatientTitle = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-family: 'Noto Sans KR', sans-serif;
   color: #707070;
-  font-size: 2%;
+  font-size: 15.96px;
+  font: normal normal medium Noto Sans KR;
+  padding-top: 11.835px;
 `;
 
-const CovidMildPatient = ({zoom_in}) => {
+const CovidMildPatientData = styled.div`
+  font-size: 21.546px;
+  font-weight: bold;
+  color: #ff7b7b;
+`;
+
+const CovidMildPatient = ({ zoom_in, sick }) => {
   return (
     <FixWrapper zoom_in={zoom_in}>
       <CovidMildPatientBodyWrapper>
         <CovidMildPatientBody>
           <CovidMildPatientTitle>경증/무증상 환자</CovidMildPatientTitle>
+          <CovidMildPatientData>{sick}</CovidMildPatientData>
         </CovidMildPatientBody>
       </CovidMildPatientBodyWrapper>
     </FixWrapper>
