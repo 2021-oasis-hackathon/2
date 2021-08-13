@@ -1,12 +1,11 @@
 import React from 'react';
+import '../styles/JeonbukCovid.scss'
 
-const Jeonbuk = () =>{
-  return(
-    <div>
-        전북
+const JeonbukCovid = () => {
+  return (
+    <div className="jeonbuk-covid-body-wrapper">
     </div>
-  )
+  );
+};
 
-}
-
-export default Jeonbuk;
+export default JeonbukCovid;

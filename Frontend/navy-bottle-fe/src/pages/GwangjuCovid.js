@@ -1,11 +1,14 @@
 import React from 'react';
+import '../styles/GwangjuCovid.scss'
 
-const Gwangju = () =>{
+const GwangjuCovid = () =>{
   return(
-    <div>
-        
+    <div className="gwangju-covid-body-wrapper">
+      <div className="gwangju-covid-body">
+          
+      </div>
     </div>
   )
 }
 
-export default Gwangju;
+export default GwangjuCovid;

@@ -1,11 +1,10 @@
 import React from 'react';
 
-const Jeonnam = () =>{
-  return(
-    <div>
-        전남
+const JeonnamCovid = () => {
+  return (
+    <div className="jeonnam-covid-body-wrapper">
     </div>
-  )
-}
+  );
+};
 
-export default Jeonnam;
+export default JeonnamCovid;
