@@ -17,6 +17,7 @@ const JeonnamCovid = () => {
       <MarkerRenderComponet top={31.5} left={62.75} color='green'/>
       <MarkerRenderComponet top={26.2} left={58.7} color='green'/>
       <MarkerRenderComponet top={20.38} left={42.25} color='yellow'/>
+      <MarkerRenderComponet top={35.2} left={47.1} color='yellow'/>
       <MarkerRenderComponet top={65} left={72.74} color='red'/>
 
       <div className="jeonnam-covid-body">

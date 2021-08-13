@@ -14,8 +14,9 @@ const JeonbukCovid = () => {
       </FixWrapper>
 
       <MarkerRenderComponet top={60} left={56.57} color='green'/>
-      <MarkerRenderComponet top={50.27} left={43.13} color='yellow'/>
+      <MarkerRenderComponet top={50.27} left={43.1} color='yellow'/>
       <MarkerRenderComponet top={37} left={81.3} color='red'/>
+      <MarkerRenderComponet top={37} left={56.12} color='red'/>
 
       <div className="jeonnam-covid-body">
 
