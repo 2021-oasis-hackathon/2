@@ -1,8 +1,11 @@
 import React from 'react';
 import '../styles/JeonnamCovid.scss'
-import { FixWrapper , FixMapIMGWrapper} from '../components/fixComponent';
+import { FixWrapper , FixMapIMGWrapper,FixInfoComponantWrapper} from '../components/fixComponent';
 import jeonnam_img from '../img/background/Jeonnam_covid_img.jpg';
 import MarkerRenderComponet from '../components/MarkerRenderComponet';
+import CovidCurrentStaus from '../components/CovidCurrentStaus';
+import CovidHospitalList from '../components/CovidHospitalList';
+import CovidHospitalSearch from '../components/CovidHospitalSearch';
 
 const JeonnamCovid = () => {
   return (
@@ -20,9 +23,10 @@ const JeonnamCovid = () => {
       <MarkerRenderComponet top={35.2} left={47.1} color='yellow'/>
       <MarkerRenderComponet top={65} left={72.74} color='red'/>
 
-      <div className="jeonnam-covid-body">
-
-      </div>
+      <CovidCurrentStaus></CovidCurrentStaus>
+      <CovidHospitalList></CovidHospitalList>
+      <CovidHospitalSearch></CovidHospitalSearch>
+      
     </div>
   );
 };
