@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/JeonnamCovid.scss'
 
 const JeonnamCovid = () => {
   return (
@@ -6,6 +7,7 @@ const JeonnamCovid = () => {
       <div className="jeonnam-covid-body">
 
       </div>
+      <div className="dot"></div>
     </div>
   );
 };
