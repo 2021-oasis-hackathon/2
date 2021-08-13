@@ -7,7 +7,7 @@ const JeonnamCovid = () => {
       <div className="jeonnam-covid-body">
 
       </div>
-      <div className="dot"></div>
+      <div className="dot">dwdw</div>
     </div>
   );
 };
