@@ -1,21 +1,22 @@
 import React from 'react';
 import '../styles/GwangjuCovid.scss';
+import { FixWrapper , FixMapIMGWrapper} from '../components/fixComponent';
 import gwangju_img from '../img/background/Gwangju_covid_img.jpg';
 
 const GwangjuCovid = () =>{
   return(
     <div className="gwangju-covid-body-wrapper">
-      <div className="gwangju-map-wrapper">
-        <div className ="gwangju_img_wrapper">
+      <FixWrapper>
+        <FixMapIMGWrapper>
           <img src ={gwangju_img} alt="gwangju_map_img" className="gwangju_img"/>
-        </div>
-      </div>
+        </FixMapIMGWrapper>
+      </FixWrapper>
 
-      <div className="gwangju-map-wrapper">
+      <FixWrapper>
         <div className ="dot_wrapper">
           <div className= "dot"></div>
         </div>
-      </div>
+      </FixWrapper>
       
       <div className="gwangju-covid-body">
       </div>
