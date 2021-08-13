@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Gwangju_icon from '../img/region_icon/Gwangju_icon.png';
+import Jeonbuk_icon from '../img/region_icon/Jeonbuk_icon.png';
+import Jeonnam_icon from '../img/region_icon/Jeonnam_icon.png';
+import { Link } from 'react-router-dom';
 
 const FixWrapper =  styled.div`
   position: absolute;
@@ -54,7 +58,27 @@ const HiddenCovidRegionSelectBarBody = styled.div`
   border-radius:5px;
   background-color: #dddddd;
   display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   opacity: 0.5;
+`;
+
+const HiddinImgArea = styled.div`
+  display: flex;
+  position: relative;
+  height: 80%;
+  width: 24%;
+
+  :hover{
+    height: 90%;
+    width: 28%;
+  }
+`;
+
+const HiddenImg = styled.img`
+    width: 100%;
+    height: 100%;
 `;
 
 const CovidRegionSelectBar = ({zoom_in}) => {
@@ -77,6 +101,25 @@ const CovidRegionSelectBar = ({zoom_in}) => {
     <FixWrapper zoom_in={zoom_in}>
       <HiddenCovidRegionSelectBarBodyWrapper hiddonWidth={hiddonWidth}>
         <HiddenCovidRegionSelectBarBody>
+          <HiddinImgArea>
+            <Link to="/GwangjuCOVID">
+              <HiddenImg src={Gwangju_icon} alt="Gwangju_icon"/>
+            </Link>
+          </HiddinImgArea>
+
+
+          <HiddinImgArea>
+            <Link to="/JeonbukCOVID">
+              <HiddenImg src={Jeonbuk_icon} alt="Jeonbuk_icon"/>
+            </Link>
+          </HiddinImgArea>
+
+
+          <HiddinImgArea>
+            <Link to="/JeonnamCOVID">
+              <HiddenImg src={Jeonnam_icon} alt="Jeonnam_icon"/>
+            </Link>
+          </HiddinImgArea>
 
         </HiddenCovidRegionSelectBarBody>
       </HiddenCovidRegionSelectBarBodyWrapper>
