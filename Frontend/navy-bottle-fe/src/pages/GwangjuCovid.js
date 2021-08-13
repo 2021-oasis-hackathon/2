@@ -10,7 +10,9 @@ import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
 
-const FixWrapper = styled.div`
+import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
+
+const FixWrapper =  styled.div`
   position: absolute;
   width: 100%;
   zoom: ${(props) => props.zoom_in};
@@ -83,6 +85,7 @@ const GwangjuCovid = () => {
       <CovidHospitalSearch zoom_in={zoom_in}></CovidHospitalSearch>
       <CovidSeriousPatient zoom_in={zoom_in}></CovidSeriousPatient>
       <CovidMildPatient zoom_in={zoom_in}></CovidMildPatient>
+      <CovidRegionSelectBar zoom_in={zoom_in}></CovidRegionSelectBar>
     </div>
   );
 };
