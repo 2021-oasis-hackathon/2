@@ -6,6 +6,8 @@ import gwangju_img from '../img/background/Gwangju_covid_img.jpg';
 import CovidCurrentStaus from '../components/CovidCurrentStaus';
 import CovidHospitalList from '../components/CovidHospitalList';
 import CovidHospitalSearch from '../components/CovidHospitalSearch';
+import CovidSeriousPatient from '../components/CovidSeriousPatient';
+import CovidMildPatient from '../components/CovidMildPatient';
 
 const GwangjuCovid = () =>{
   return(
@@ -25,6 +27,8 @@ const GwangjuCovid = () =>{
       <CovidCurrentStaus></CovidCurrentStaus>
       <CovidHospitalList></CovidHospitalList>
       <CovidHospitalSearch></CovidHospitalSearch>
+      <CovidSeriousPatient></CovidSeriousPatient>
+      <CovidMildPatient></CovidMildPatient>
     </div>
   )
 }

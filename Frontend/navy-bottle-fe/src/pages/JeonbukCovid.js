@@ -6,6 +6,8 @@ import jeonbuk_img from '../img/background/Jeonbuk_covid_img.jpg';
 import CovidCurrentStaus from '../components/CovidCurrentStaus';
 import CovidHospitalList from '../components/CovidHospitalList';
 import CovidHospitalSearch from '../components/CovidHospitalSearch';
+import CovidSeriousPatient from '../components/CovidSeriousPatient';
+import CovidMildPatient from '../components/CovidMildPatient';
 
 const JeonbukCovid = () => {
   return (
@@ -24,6 +26,8 @@ const JeonbukCovid = () => {
       <CovidCurrentStaus></CovidCurrentStaus>
       <CovidHospitalList></CovidHospitalList>
       <CovidHospitalSearch></CovidHospitalSearch>
+      <CovidSeriousPatient></CovidSeriousPatient>
+      <CovidMildPatient></CovidMildPatient>
     </div>
   );
 };

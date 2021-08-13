@@ -6,6 +6,8 @@ import MarkerRenderComponet from '../components/MarkerRenderComponet';
 import CovidCurrentStaus from '../components/CovidCurrentStaus';
 import CovidHospitalList from '../components/CovidHospitalList';
 import CovidHospitalSearch from '../components/CovidHospitalSearch';
+import CovidSeriousPatient from '../components/CovidSeriousPatient';
+import CovidMildPatient from '../components/CovidMildPatient';
 
 const JeonnamCovid = () => {
   return (
@@ -26,6 +28,8 @@ const JeonnamCovid = () => {
       <CovidCurrentStaus></CovidCurrentStaus>
       <CovidHospitalList></CovidHospitalList>
       <CovidHospitalSearch></CovidHospitalSearch>
+      <CovidSeriousPatient></CovidSeriousPatient>
+      <CovidMildPatient></CovidMildPatient>
       
     </div>
   );
