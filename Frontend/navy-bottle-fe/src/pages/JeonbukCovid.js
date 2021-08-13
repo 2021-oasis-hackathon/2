@@ -10,27 +10,26 @@ import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
 
-const FixWrapper =  styled.div`
+const FixWrapper = styled.div`
   position: absolute;
   width: 100%;
-  zoom: ${props=>props.zoom_in};
+  zoom: ${(props) => props.zoom_in};
 
-  ::before{
-    content: "";
+  ::before {
+    content: '';
     display: flex;
     padding-top: 56.25%;
   }
-`
+`;
 
 const JeonbukCovid = () => {
+  let zoom_in = 1 / (window.devicePixelRatio * 0.8);
 
-  let zoom_in = 1/(window.devicePixelRatio*0.8);
-
-  window.onresize = function() {
+  window.onresize = function () {
     zoom_in = window.devicePixelRatio;
-    zoom_in = 1/(zoom_in*0.8)
-    console.log(zoom_in)
-  }
+    zoom_in = 1 / (zoom_in * 0.8);
+    console.log(zoom_in);
+  };
 
   return (
     <div className="jeonbuk-covid-body-wrapper">
@@ -44,12 +43,42 @@ const JeonbukCovid = () => {
         </FixMapIMGWrapper>
       </FixWrapper>
 
-      <MarkerRenderComponet zoom_in={zoom_in} top={60} left={56.57} color="green" />
-      <MarkerRenderComponet zoom_in={zoom_in} top={50.27} left={43.1} color="yellow" />
-      <MarkerRenderComponet zoom_in={zoom_in} top={37} left={81.3} color="red" />
-      <MarkerRenderComponet zoom_in={zoom_in} top={37} left={56.12} color="red" />
+      <MarkerRenderComponet
+        zoom_in={zoom_in}
+        top={60}
+        left={56.57}
+        color="green"
+      />
+      <MarkerRenderComponet
+        zoom_in={zoom_in}
+        top={50.27}
+        left={43.1}
+        color="yellow"
+      />
+      <MarkerRenderComponet
+        zoom_in={zoom_in}
+        top={37}
+        left={81.3}
+        color="red"
+      />
+      <MarkerRenderComponet
+        zoom_in={zoom_in}
+        top={37}
+        left={56.12}
+        color="red"
+      />
 
-      <CovidCurrentStaus city="Jeonbuk" zoom_in={zoom_in}></CovidCurrentStaus>
+      <CovidCurrentStaus
+        city="Jeonbuk"
+        zoom_in={zoom_in}
+        date="08.13.00"
+        infect="3,644"
+        infectplus="15"
+        wait="128"
+        waitplus="7"
+        cure="203"
+        cureplus="11"
+      ></CovidCurrentStaus>
       <CovidHospitalList zoom_in={zoom_in}></CovidHospitalList>
       <CovidHospitalSearch zoom_in={zoom_in}></CovidHospitalSearch>
       <CovidSeriousPatient zoom_in={zoom_in}></CovidSeriousPatient>

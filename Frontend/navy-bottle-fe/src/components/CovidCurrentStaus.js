@@ -37,35 +37,66 @@ const CovidCurrentStausBody = styled.div`
 `;
 
 const CovidCurrentStausTitle = styled.h1`
-  font-weight: bold;
-  font-size: 30px;
+  font: normal normal bold 27px Noto Sans KR;
+  padding-right: 0px;
+  padding-left: 36.708px;
 `;
 
-const CovidCurrentStausDate = styled.text``;
+const CovidCurrentStausDate = styled.text`
+  font: normal normal medium Noto Sans KR;
+  font-size: 12.688px;
+  padding-left: 3px;
+  padding-top: 18px;
+  padding-bottom: 3.192px;
+`;
 
-const CovidCurrentStausText = styled.text``;
+const CovidCurrentStausText = styled.text`
+  font: normal normal medium Noto Sans KR;
+  font-size: 15.96px;
+  padding-left: 37.082px;
+`;
 
 const CovidCurrentStausData = styled.text`
   color: #ff7b7b;
+  font: normal normal bold Noto Sans KR;
+  font-size: 28.548px;
+  padding-left: 38.304px;
   font-weight: bold;
 `;
 
-const CovidCurrentStausIncrease = styled.text``;
+const CovidCurrentStausIncrease = styled.text`
+  font: normal normal medium Noto Sans KR;
+  font-size: 12.688px;
+  padding-left: 36.708px;
+  padding-right: 0px;
+  padding-top: 4.788px;
+`;
 
 const CovidCurrentStausVertical = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 12%;
+  padding-left: 0px;
 `;
 
 const CovidCurrentStausHorizontal = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+
+  padding-top: 30.134px;
 `;
 
-const CovidCurrentStaus = ({ city, zoom_in }) => {
+const CovidCurrentStaus = ({
+  city,
+  zoom_in,
+  date,
+  infect,
+  infectplus,
+  wait,
+  waitplus,
+  cure,
+  cureplus,
+}) => {
   return (
     <FixWrapper zoom_in={zoom_in}>
       <CovidCurrentStausBodyWrapper>
@@ -75,31 +106,33 @@ const CovidCurrentStaus = ({ city, zoom_in }) => {
               <CovidCurrentStausTitle>광주광역시</CovidCurrentStausTitle>
             )}
             {city === 'Jeonbuk' && (
-              <CovidCurrentStausTitle>전북</CovidCurrentStausTitle>
+              <CovidCurrentStausTitle>전라북도</CovidCurrentStausTitle>
             )}
             {city === 'Jeonnam' && (
-              <CovidCurrentStausTitle>전남</CovidCurrentStausTitle>
+              <CovidCurrentStausTitle>전라남도</CovidCurrentStausTitle>
             )}
-            <CovidCurrentStausDate>(08.13.00시 기준)</CovidCurrentStausDate>
+            <CovidCurrentStausDate>({date}시 기준)</CovidCurrentStausDate>
           </CovidCurrentStausHorizontal>
           <CovidCurrentStausHorizontal>
             <CovidCurrentStausVertical>
               <CovidCurrentStausText>확진환자</CovidCurrentStausText>
-              <CovidCurrentStausData>3,644</CovidCurrentStausData>
+              <CovidCurrentStausData>{infect}</CovidCurrentStausData>
               <CovidCurrentStausIncrease>
-                전일대비 (+15)
+                전일대비 (+{infectplus})
               </CovidCurrentStausIncrease>
             </CovidCurrentStausVertical>
             <CovidCurrentStausVertical>
               <CovidCurrentStausText>병상대기자</CovidCurrentStausText>
-              <CovidCurrentStausData>128</CovidCurrentStausData>
-              <CovidCurrentStausIncrease>(+7)</CovidCurrentStausIncrease>
+              <CovidCurrentStausData>{wait}</CovidCurrentStausData>
+              <CovidCurrentStausIncrease>
+                (+{waitplus})
+              </CovidCurrentStausIncrease>
             </CovidCurrentStausVertical>
             <CovidCurrentStausVertical>
               <CovidCurrentStausText>치료중</CovidCurrentStausText>
-              <CovidCurrentStausData>203</CovidCurrentStausData>
+              <CovidCurrentStausData>{cure}</CovidCurrentStausData>
               <CovidCurrentStausIncrease>
-                전일대비 (+11)
+                (+{cureplus})
               </CovidCurrentStausIncrease>
             </CovidCurrentStausVertical>
           </CovidCurrentStausHorizontal>
