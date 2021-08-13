@@ -3,6 +3,8 @@ import '../styles/GwangjuCovid.scss';
 import { FixWrapper , FixMapIMGWrapper} from '../components/fixComponent';
 import MarkerRenderComponet from '../components/MarkerRenderComponet';
 import gwangju_img from '../img/background/Gwangju_covid_img.jpg';
+import CovidCurrentStaus from '../components/CovidCurrentStaus';
+import CovidHospitalList from '../components/CovidHospitalList';
 
 const GwangjuCovid = () =>{
   return(
@@ -19,8 +21,8 @@ const GwangjuCovid = () =>{
       <MarkerRenderComponet top={61} left={71.15} color='green'/>
 
 
-      <div className="gwangju-covid-body">
-      </div>
+      <CovidCurrentStaus></CovidCurrentStaus>
+      <CovidHospitalList></CovidHospitalList>
     </div>
   )
 }

@@ -4,6 +4,7 @@ import { FixWrapper , FixMapIMGWrapper,FixInfoComponantWrapper} from '../compone
 import jeonnam_img from '../img/background/Jeonnam_covid_img.jpg';
 import MarkerRenderComponet from '../components/MarkerRenderComponet';
 import CovidCurrentStaus from '../components/CovidCurrentStaus';
+import CovidHospitalList from '../components/CovidHospitalList';
 
 const JeonnamCovid = () => {
   return (
@@ -22,6 +23,7 @@ const JeonnamCovid = () => {
       <MarkerRenderComponet top={65} left={72.74} color='red'/>
 
       <CovidCurrentStaus></CovidCurrentStaus>
+      <CovidHospitalList></CovidHospitalList>
       
     </div>
   );

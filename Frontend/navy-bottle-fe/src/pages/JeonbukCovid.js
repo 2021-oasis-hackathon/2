@@ -3,6 +3,8 @@ import '../styles/JeonbukCovid.scss'
 import { FixWrapper , FixMapIMGWrapper} from '../components/fixComponent';
 import MarkerRenderComponet from '../components/MarkerRenderComponet';
 import jeonbuk_img from '../img/background/Jeonbuk_covid_img.jpg';
+import CovidCurrentStaus from '../components/CovidCurrentStaus';
+import CovidHospitalList from '../components/CovidHospitalList';
 
 const JeonbukCovid = () => {
   return (
@@ -18,9 +20,8 @@ const JeonbukCovid = () => {
       <MarkerRenderComponet top={37} left={81.3} color='red'/>
       <MarkerRenderComponet top={37} left={56.12} color='red'/>
 
-      <div className="jeonnam-covid-body">
-
-      </div>
+      <CovidCurrentStaus></CovidCurrentStaus>
+      <CovidHospitalList></CovidHospitalList>
     </div>
   );
 };
