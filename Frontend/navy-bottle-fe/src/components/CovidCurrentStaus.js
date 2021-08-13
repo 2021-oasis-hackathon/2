@@ -1,7 +1,17 @@
 import React from 'react';
-import { FixWrapper } from './fixComponent';
 import styled from 'styled-components';
 
+const FixWrapper =  styled.div`
+  position: absolute;
+  width: 100%;
+  zoom: ${props=>props.zoom_in};
+
+  ::before{
+    content: "";
+    display: flex;
+    padding-top: 56.25%;
+  }
+`
 
 const CovidCurrentStausBodyWrapper =  styled.div`
   position: absolute;
@@ -23,9 +33,9 @@ const CovidCurrentStausBody = styled.div`
   display: flex;
 `;
 
-const CovidCurrentStaus = () => {
+const CovidCurrentStaus = ({zoom_in}) => {
   return (
-    <FixWrapper>
+    <FixWrapper zoom_in={zoom_in}>
       <CovidCurrentStausBodyWrapper>
         <CovidCurrentStausBody>
               
