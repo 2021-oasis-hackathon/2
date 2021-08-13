@@ -52,9 +52,11 @@ const GwangjuCovid = () =>{
       <MarkerRenderComponet zoom_in={zoom_in} top={61} left={71.15} color='green'/>
 
 
-      <CovidCurrentStaus zoom_in={zoom_in} ></CovidCurrentStaus>
+      <CovidCurrentStaus city="Gwangju" zoom_in={zoom_in} ></CovidCurrentStaus>
       <CovidHospitalList zoom_in={zoom_in}></CovidHospitalList>
       <CovidHospitalSearch zoom_in={zoom_in}></CovidHospitalSearch>
+      <CovidSeriousPatient zoom_in={zoom_in}></CovidSeriousPatient>
+      <CovidMildPatient zoom_in={zoom_in}></CovidMildPatient>
     </div>
   );
 };

@@ -1,6 +1,17 @@
 import React from 'react';
-import { FixWrapper } from './fixComponent';
 import styled from 'styled-components';
+
+const FixWrapper =  styled.div`
+  position: absolute;
+  width: 100%;
+  zoom: ${props=>props.zoom_in};
+
+  ::before{
+    content: "";
+    display: flex;
+    padding-top: 56.25%;
+  }
+`
 
 const CovidSeriousPatientBodyWrapper =  styled.div`
   position: absolute;
@@ -16,15 +27,15 @@ const CovidSeriousPatientBody = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius:10%;
+  border-radius:10px;
   background-color: #DDDDDD;
   display: flex;
 `;
 
 
-const CovidSeriousPatient = () => {
+const CovidSeriousPatient = ({zoom_in}) => {
   return (
-    <FixWrapper>
+    <FixWrapper  zoom_in={zoom_in}>
       <CovidSeriousPatientBodyWrapper>
         <CovidSeriousPatientBody>
 

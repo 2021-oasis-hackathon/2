@@ -1,6 +1,17 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { FixWrapper } from './fixComponent';
+import React from 'react';
 import styled from 'styled-components';
+
+const FixWrapper =  styled.div`
+  position: absolute;
+  width: 100%;
+  zoom: ${props=>props.zoom_in};
+
+  ::before{
+    content: "";
+    display: flex;
+    padding-top: 56.25%;
+  }
+`
 
 const CovidMildPatientBodyWrapper = styled.div`
   position: absolute;
@@ -17,7 +28,7 @@ const CovidMildPatientBody = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 10%;
+  border-radius:10px;
   background-color: #dddddd;
   display: flex;
 `;
@@ -33,9 +44,9 @@ const CovidMildPatientTitle = styled.div`
   font-size: 2%;
 `;
 
-const CovidMildPatient = () => {
+const CovidMildPatient = ({zoom_in}) => {
   return (
-    <FixWrapper>
+    <FixWrapper zoom_in={zoom_in}>
       <CovidMildPatientBodyWrapper>
         <CovidMildPatientBody>
           <CovidMildPatientTitle>경증/무증상 환자</CovidMildPatientTitle>

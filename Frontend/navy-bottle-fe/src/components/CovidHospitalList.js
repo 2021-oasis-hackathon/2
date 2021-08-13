@@ -28,7 +28,7 @@ const CovidHospitalListBody = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius:5%;
+  border-radius:10px;
   background-color: #DDDDDD;
   display: flex;
 `;
