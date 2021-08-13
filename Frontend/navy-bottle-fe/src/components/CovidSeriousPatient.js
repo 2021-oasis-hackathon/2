@@ -16,7 +16,7 @@ const CovidSeriousPatientBody = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius:10px;
+  border-radius:10%;
   background-color: #DDDDDD;
   display: flex;
 `;
