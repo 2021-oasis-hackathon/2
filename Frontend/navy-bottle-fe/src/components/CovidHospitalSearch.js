@@ -23,10 +23,6 @@ const CovidHospitalSearchBodyWrapper =  styled.div`
   z-index: 10;
   width: 17.03%;
   height: 18.07%;
-  opacity: 0.7;
-  :hover{
-    opacity: 1;
-  }
 `;
 
 const CovidHospitalSearchBody = styled.div`
