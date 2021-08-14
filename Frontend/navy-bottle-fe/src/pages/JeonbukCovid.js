@@ -45,31 +45,45 @@ const JeonbukCovid = () => {
         </FixMapIMGWrapper>
       </FixWrapper>
 
+
+
+
       <MarkerRenderComponet
         zoom_in={zoom_in}
-        top={60}
-        left={56.57}
+        top={37.9}
+        left={58.4}
         color="green"
       />
       <MarkerRenderComponet
         zoom_in={zoom_in}
-        top={50.27}
-        left={43.1}
+        top={31.5}
+        left={62.75}
+        color="green"
+      />
+      <MarkerRenderComponet
+        zoom_in={zoom_in}
+        top={26.2}
+        left={58.7}
+        color="green"
+      />
+      <MarkerRenderComponet
+        zoom_in={zoom_in}
+        top={20.38}
+        left={42.25}
         color="yellow"
       />
       <MarkerRenderComponet
         zoom_in={zoom_in}
-        top={37}
-        left={81.3}
-        color="red"
+        top={35.2}
+        left={47.1}
+        color="yellow"
       />
       <MarkerRenderComponet
         zoom_in={zoom_in}
-        top={37}
-        left={56.12}
+        top={65}
+        left={72.74}
         color="red"
       />
-
       <CovidCurrentStaus
         city="Jeonbuk"
         zoom_in={zoom_in}
