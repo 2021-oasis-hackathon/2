@@ -25,12 +25,10 @@ const FixWrapper = styled.div`
 
 const GwangjuCovid = () => {
   let zoom_in = 1 / (window.devicePixelRatio * 0.8);
-  let size = window.innerWidth
 
   window.onresize = function () {
     zoom_in = window.devicePixelRatio;
-    zoom_in = (1 / (zoom_in * 0.8))*1536/size;
-    console.log(size);
+    zoom_in = (1 / (zoom_in * 0.8));
     window.location.reload();
   };
 
