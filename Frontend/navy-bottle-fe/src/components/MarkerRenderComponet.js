@@ -25,6 +25,12 @@ const MarkerWrapper =  styled.div`
   z-index: 1;
   width: 1.8333%;
   height: 4.51%;
+
+  transition: ease-out 0.2s;
+  :hover{
+    filter: brightness(80%);
+    cursor: pointer;
+  }
 `
 const Marker = styled.img`
   position: relative;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/GwangjuCovid.scss';
 import styled from 'styled-components';
 import { FixMapIMGWrapper } from '../components/fixComponent';
@@ -11,6 +11,7 @@ import CovidHospitalList from '../components/CovidHospitalList';
 import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
+import RenderInformation from '../components/RenderInformation';
 
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 const FixWrapper = styled.div`
@@ -33,6 +34,8 @@ const GwangjuCovid = () => {
     zoom_in = 1 / (zoom_in * 0.8);
     window.location.reload();
   };
+
+  const [renderInformation,setRenderInformation] = useState('');
 
   return (
     <div className="gwangju-covid-body-wrapper">
@@ -112,6 +115,14 @@ const GwangjuCovid = () => {
       <CovidSeriousPatient zoom_in={zoom_in} sick="1,203"></CovidSeriousPatient>
       <CovidMildPatient zoom_in={zoom_in} sick="2,123"></CovidMildPatient>
       <CovidRegionSelectBar zoom_in={zoom_in}></CovidRegionSelectBar>
+
+      {renderInformation==='' || <RenderInformation 
+        zoom_in={zoom_in} 
+        hospital_type="treatment-center"
+        hospital_name={renderInformation}
+        hospital_bed_number = "53"
+        percent={90}
+      ></RenderInformation>}
     </div>
   );
 };
