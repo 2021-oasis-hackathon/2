@@ -10,6 +10,8 @@ import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
+import CenterRenderComponet from '../components/CenterRenderComponent';
+import HospitalRenderComponet from '../components/HospitalRenderComponent';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -45,14 +47,17 @@ const JeonbukCovid = () => {
         </FixMapIMGWrapper>
       </FixWrapper>
 
-
-
-
       <MarkerRenderComponet
         zoom_in={zoom_in}
         top={37.9}
         left={58.4}
         color="green"
+      />
+      <HospitalRenderComponet
+        zoom_in={zoom_in}
+        top={42.3}
+        left={54.25}
+        name="예수병원"
       />
       <MarkerRenderComponet
         zoom_in={zoom_in}
@@ -60,11 +65,23 @@ const JeonbukCovid = () => {
         left={62.75}
         color="green"
       />
+      <HospitalRenderComponet
+        zoom_in={zoom_in}
+        top={36}
+        left={58.67}
+        name="전북대병원"
+      />
       <MarkerRenderComponet
         zoom_in={zoom_in}
         top={26.2}
         left={58.7}
         color="green"
+      />
+      <HospitalRenderComponet
+        zoom_in={zoom_in}
+        top={30.7}
+        left={54.56}
+        name="원광대병원"
       />
       <MarkerRenderComponet
         zoom_in={zoom_in}
@@ -72,17 +89,35 @@ const JeonbukCovid = () => {
         left={42.25}
         color="yellow"
       />
+      <HospitalRenderComponet
+        zoom_in={zoom_in}
+        top={25}
+        left={38.2}
+        name="군산의료원"
+      />
       <MarkerRenderComponet
         zoom_in={zoom_in}
         top={35.2}
         left={47.1}
         color="yellow"
       />
+      <CenterRenderComponet
+        zoom_in={zoom_in}
+        top={39.8}
+        left={43}
+        name="김제 생활치료센터"
+      />
       <MarkerRenderComponet
         zoom_in={zoom_in}
         top={65}
         left={72.74}
         color="red"
+      />
+      <HospitalRenderComponet
+        zoom_in={zoom_in}
+        top={69.5}
+        left={68.672}
+        name="군산의료원"
       />
       <CovidCurrentStaus
         city="Jeonbuk"
