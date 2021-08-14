@@ -13,7 +13,7 @@ const FixWrapper = styled.div`
   position: absolute;
   width: 1536px;
   zoom: ${(props) => props.zoom_in};
-
+  
   ::before {
     content: '';
     display: flex;
@@ -90,6 +90,7 @@ const MenuImg =styled.img`
   position: relative;
   object-fit: contain;
   width: ${props=>props.width}%;
+
   :hover{
     width: ${props=>props.hover_width}%;;
     cursor: pointer;
