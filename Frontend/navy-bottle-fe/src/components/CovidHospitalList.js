@@ -1,18 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FixWrapper =  styled.div`
+const FixWrapper = styled.div`
   position: absolute;
-  width: 100%;
-  zoom: ${props=>props.zoom_in};
+  width: 1536px;
+  zoom: ${(props) => props.zoom_in};
 
-  ::before{
-    content: "";
+  ::before {
+    content: '';
     display: flex;
-    padding-top: 56.25%;
+    padding-top: 864px;
   }
-`
-
+`;
 const CovidHospitalListBodyWrapper =  styled.div`
   position: absolute;
   top : 50.09%;
