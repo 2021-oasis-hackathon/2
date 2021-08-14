@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.921ac814.chunk.css",
-    "main.js": "/static/js/main.3b6fbaaa.chunk.js",
-    "main.js.map": "/static/js/main.3b6fbaaa.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.95794516.js",
-    "runtime-main.js.map": "/static/js/runtime-main.95794516.js.map",
-    "static/js/2.2e27ba20.chunk.js": "/static/js/2.2e27ba20.chunk.js",
-    "static/js/2.2e27ba20.chunk.js.map": "/static/js/2.2e27ba20.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.921ac814.chunk.css.map": "/static/css/main.921ac814.chunk.css.map",
-    "static/js/2.2e27ba20.chunk.js.LICENSE.txt": "/static/js/2.2e27ba20.chunk.js.LICENSE.txt",
-    "static/media/Gwangju_covid_img.8517460d.jpg": "/static/media/Gwangju_covid_img.8517460d.jpg",
-    "static/media/Jeonbuk_covid_img.f0921d8d.jpg": "/static/media/Jeonbuk_covid_img.f0921d8d.jpg",
-    "static/media/Jeonnam_covid_img.3a6dc31d.jpg": "/static/media/Jeonnam_covid_img.3a6dc31d.jpg"
+    "main.css": "/2021-oasis-hackathon/NavyBottle/static/css/main.921ac814.chunk.css",
+    "main.js": "/2021-oasis-hackathon/NavyBottle/static/js/main.dc918eae.chunk.js",
+    "main.js.map": "/2021-oasis-hackathon/NavyBottle/static/js/main.dc918eae.chunk.js.map",
+    "runtime-main.js": "/2021-oasis-hackathon/NavyBottle/static/js/runtime-main.5fc78635.js",
+    "runtime-main.js.map": "/2021-oasis-hackathon/NavyBottle/static/js/runtime-main.5fc78635.js.map",
+    "static/js/2.881e665f.chunk.js": "/2021-oasis-hackathon/NavyBottle/static/js/2.881e665f.chunk.js",
+    "static/js/2.881e665f.chunk.js.map": "/2021-oasis-hackathon/NavyBottle/static/js/2.881e665f.chunk.js.map",
+    "index.html": "/2021-oasis-hackathon/NavyBottle/index.html",
+    "static/css/main.921ac814.chunk.css.map": "/2021-oasis-hackathon/NavyBottle/static/css/main.921ac814.chunk.css.map",
+    "static/js/2.881e665f.chunk.js.LICENSE.txt": "/2021-oasis-hackathon/NavyBottle/static/js/2.881e665f.chunk.js.LICENSE.txt",
+    "static/media/Gwangju_covid_img.8517460d.jpg": "/2021-oasis-hackathon/NavyBottle/static/media/Gwangju_covid_img.8517460d.jpg",
+    "static/media/Jeonbuk_covid_img.f0921d8d.jpg": "/2021-oasis-hackathon/NavyBottle/static/media/Jeonbuk_covid_img.f0921d8d.jpg",
+    "static/media/Jeonnam_covid_img.3a6dc31d.jpg": "/2021-oasis-hackathon/NavyBottle/static/media/Jeonnam_covid_img.3a6dc31d.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.95794516.js",
-    "static/js/2.2e27ba20.chunk.js",
+    "static/js/runtime-main.5fc78635.js",
+    "static/js/2.881e665f.chunk.js",
     "static/css/main.921ac814.chunk.css",
-    "static/js/main.3b6fbaaa.chunk.js"
+    "static/js/main.dc918eae.chunk.js"
   ]
 }
