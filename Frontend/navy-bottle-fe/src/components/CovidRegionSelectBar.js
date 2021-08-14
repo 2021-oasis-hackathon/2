@@ -5,17 +5,17 @@ import Jeonbuk_icon from '../img/region_icon/Jeonbuk_icon.png';
 import Jeonnam_icon from '../img/region_icon/Jeonnam_icon.png';
 import { Link } from 'react-router-dom';
 
-const FixWrapper =  styled.div`
+const FixWrapper = styled.div`
   position: absolute;
-  width: 100%;
-  zoom: ${props=>props.zoom_in};
+  width: 1536px;
+  zoom: ${(props) => props.zoom_in};
 
-  ::before{
-    content: "";
+  ::before {
+    content: '';
     display: flex;
-    padding-top: 56.25%;
+    padding-top: 864px;
   }
-`
+`;
 const CovidRegionSelectBarBodyWrapper = styled.div`
   position: absolute;
   top: 4.17%;
