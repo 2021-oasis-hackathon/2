@@ -39,7 +39,7 @@ const Marker = styled.img`
   z-index: 1;
 `;
 
-const MarkerRenderComponet = ({zoom_in,top , left , color}) => {
+const MarkerRenderComponet = ({zoom_in, top , left , color}) => {
   return (
     <FixWrapper zoom_in={zoom_in}>
       <MarkerWrapper top={top} left={left} right={100-left} bottom={100-top}>
