@@ -3,6 +3,8 @@ import '../styles/GwangjuCovid.scss';
 import styled from 'styled-components';
 import { FixMapIMGWrapper } from '../components/fixComponent';
 import MarkerRenderComponet from '../components/MarkerRenderComponet';
+import HospitalRenderComponet from '../components/HospitalRenderComponent';
+import CenterRenderComponet from '../components/CenterRenderComponent';
 import gwangju_img from '../img/background/Gwangju_covid_img.jpg';
 import CovidCurrentStaus from '../components/CovidCurrentStaus';
 import CovidHospitalList from '../components/CovidHospitalList';
@@ -28,7 +30,7 @@ const GwangjuCovid = () => {
 
   window.onresize = function () {
     zoom_in = window.devicePixelRatio;
-    zoom_in = (1 / (zoom_in * 0.8));
+    zoom_in = 1 / (zoom_in * 0.8);
     window.location.reload();
   };
 
@@ -50,11 +52,23 @@ const GwangjuCovid = () => {
         left={57.15}
         color="green"
       />
+      <HospitalRenderComponet
+        zoom_in={zoom_in}
+        top={29}
+        left={53.03}
+        name="광주보훈병원"
+      />
       <MarkerRenderComponet
         zoom_in={zoom_in}
         top={43.4}
         left={53.7}
         color="yellow"
+      />
+      <CenterRenderComponet
+        zoom_in={zoom_in}
+        top={48}
+        left={49.65}
+        name="광주생활치료센터"
       />
       <MarkerRenderComponet
         zoom_in={zoom_in}
@@ -62,11 +76,24 @@ const GwangjuCovid = () => {
         left={76.4}
         color="red"
       />
+      <HospitalRenderComponet
+        zoom_in={zoom_in}
+        top={47.2}
+        left={72.32}
+        name="조선대병원"
+      />
       <MarkerRenderComponet
         zoom_in={zoom_in}
         top={61}
         left={71.15}
         color="green"
+      />
+
+      <HospitalRenderComponet
+        zoom_in={zoom_in}
+        top={65.6}
+        left={67.05}
+        name="빛고을던남대병원"
       />
 
       <CovidCurrentStaus

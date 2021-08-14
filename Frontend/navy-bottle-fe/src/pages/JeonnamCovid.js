@@ -10,6 +10,8 @@ import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
+import CenterRenderComponet from '../components/CenterRenderComponent';
+import HospitalRenderComponet from '../components/HospitalRenderComponent';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -51,11 +53,23 @@ const JeonnamCovid = () => {
         left={56.57}
         color="green"
       />
+      <HospitalRenderComponet
+        zoom_in={zoom_in}
+        top={64.5}
+        left={52.45}
+        name="강진의료원"
+      />
       <MarkerRenderComponet
         zoom_in={zoom_in}
         top={50.27}
         left={43.1}
         color="yellow"
+      />
+      <HospitalRenderComponet
+        zoom_in={zoom_in}
+        top={55}
+        left={39.05}
+        name="목포시의료원"
       />
       <MarkerRenderComponet
         zoom_in={zoom_in}
@@ -63,11 +77,23 @@ const JeonnamCovid = () => {
         left={81.3}
         color="red"
       />
+      <HospitalRenderComponet
+        zoom_in={zoom_in}
+        top={41.5}
+        left={77.25}
+        name="순천의료원"
+      />
       <MarkerRenderComponet
         zoom_in={zoom_in}
         top={37}
         left={56.12}
         color="red"
+      />
+      <CenterRenderComponet
+        zoom_in={zoom_in}
+        top={41.5}
+        left={52.1}
+        name="나주 생활치료센터"
       />
 
       <CovidCurrentStaus
