@@ -11,16 +11,15 @@ import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
 
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
-
 const FixWrapper = styled.div`
   position: absolute;
-  width: 100%;
+  width: 1536px;
   zoom: ${(props) => props.zoom_in};
 
   ::before {
     content: '';
     display: flex;
-    padding-top: 56.25%;
+    padding-top: 864px;
   }
 `;
 
@@ -29,8 +28,8 @@ const GwangjuCovid = () => {
 
   window.onresize = function () {
     zoom_in = window.devicePixelRatio;
-    zoom_in = 1 / (zoom_in * 0.8);
-    console.log(zoom_in);
+    zoom_in = (1 / (zoom_in * 0.8));
+    window.location.reload();
   };
 
   return (

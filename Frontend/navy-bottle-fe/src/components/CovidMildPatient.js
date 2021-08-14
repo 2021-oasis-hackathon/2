@@ -3,16 +3,15 @@ import styled from 'styled-components';
 
 const FixWrapper = styled.div`
   position: absolute;
-  width: 100%;
+  width: 1536px;
   zoom: ${(props) => props.zoom_in};
 
   ::before {
     content: '';
     display: flex;
-    padding-top: 56.25%;
+    padding-top: 864px;
   }
 `;
-
 const CovidMildPatientBodyWrapper = styled.div`
   position: absolute;
   top: 30.65%;

@@ -8,7 +8,7 @@ import Gwangju from './pages/GwangjuCovid'
 const App = () =>{
   return(
     <div className = "App">
-      <Route component={MainPage} path="/" exact={true}/>
+      <Route exact component={MainPage} path="/"/>
       <Route component={Jeonbuk} path="/JeonbukCOVID"/>
       <Route component={Jeonnam} path="/JeonnamCOVID"/>
       <Route component={Gwangju} path="/GwangjuCOVID"/>

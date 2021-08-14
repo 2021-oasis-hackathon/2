@@ -13,13 +13,13 @@ import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 
 const FixWrapper = styled.div`
   position: absolute;
-  width: 100%;
+  width: 1536px;
   zoom: ${(props) => props.zoom_in};
 
   ::before {
     content: '';
     display: flex;
-    padding-top: 56.25%;
+    padding-top: 864px;
   }
 `;
 
@@ -30,6 +30,7 @@ const JeonnamCovid = () => {
     zoom_in = window.devicePixelRatio;
     zoom_in = 1 / (zoom_in * 0.8);
     console.log(zoom_in);
+    window.location.reload();
   };
 
   return (
@@ -46,38 +47,26 @@ const JeonnamCovid = () => {
 
       <MarkerRenderComponet
         zoom_in={zoom_in}
-        top={37.9}
-        left={58.4}
+        top={60}
+        left={56.57}
         color="green"
       />
       <MarkerRenderComponet
         zoom_in={zoom_in}
-        top={31.5}
-        left={62.75}
-        color="green"
-      />
-      <MarkerRenderComponet
-        zoom_in={zoom_in}
-        top={26.2}
-        left={58.7}
-        color="green"
-      />
-      <MarkerRenderComponet
-        zoom_in={zoom_in}
-        top={20.38}
-        left={42.25}
+        top={50.27}
+        left={43.1}
         color="yellow"
       />
       <MarkerRenderComponet
         zoom_in={zoom_in}
-        top={35.2}
-        left={47.1}
-        color="yellow"
+        top={37}
+        left={81.3}
+        color="red"
       />
       <MarkerRenderComponet
         zoom_in={zoom_in}
-        top={65}
-        left={72.74}
+        top={37}
+        left={56.12}
         color="red"
       />
 
