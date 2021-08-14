@@ -1,5 +1,4 @@
 import React from 'react';
-import Select from 'react-select';
 import styled from 'styled-components';
 
 const FixWrapper = styled.div`
@@ -34,7 +33,6 @@ const CovidHospitalListBody = styled.div`
   box-shadow: 0px 3px 6px #00000029;
   display: flex;
   flex-direction: column;
-  align-items: center;
 `;
 
 const CovidHospitalListBodyList = styled.div`
@@ -65,7 +63,7 @@ const CovidHospitalItemBoxVer = styled.div`
   font-size: 10.8px;
   display: flex;
   flex-direction: column;
-  width: 219.2px;
+  width: 204.2px;
   height: 57.6px;
   background: #eaeaea 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #00000029;
@@ -75,24 +73,53 @@ const CovidHospitalItemBoxVer = styled.div`
   padding-left: 11.2px;
 `;
 
-const options = [
-  { value: '1인당 부담수', label: '1인당 부담수' },
-  { value: '가용 병실', label: '가용 병실' },
-  { value: '가용 인력', label: '가용 인력' },
-];
+const CovidHospitalItemBox = styled.div`
+  padding-left: 12.8px;
+`;
+
+const SelectWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 12px;
+  color: #979797;
+  font-size: 7.89px;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 140px;
+`;
+
+const Selcetbar = styled.select`
+  width: 83px;
+  height: 15px;
+  font-size: 10px;
+  border: 1px solid #979797;
+  border-radius: 8px;
+  color: #979797;
+  :focus {
+    outline: none;
+  }
+  ::after {
+    color: blue;
+  }
+  background-color: #eaeaea;
+`;
 
 const CovidHospitalItem = ({ hospital, phone, location }) => {
   return (
     <div>
-      <CovidHospitalItemBoxVer>
-        <CovidHospitalItemBoxHor>
-          <CovidHospitalItemTitle>
-            <div>{hospital}</div>
-          </CovidHospitalItemTitle>
-          <div>{phone}</div>
-        </CovidHospitalItemBoxHor>
-        <div>{location}</div>
-      </CovidHospitalItemBoxVer>
+      <CovidHospitalItemBox>
+        <CovidHospitalItemBoxVer>
+          <CovidHospitalItemBoxHor>
+            <CovidHospitalItemTitle>
+              <div>{hospital}</div>
+            </CovidHospitalItemTitle>
+            <div>{phone}</div>
+          </CovidHospitalItemBoxHor>
+          <div>{location}</div>
+        </CovidHospitalItemBoxVer>
+      </CovidHospitalItemBox>
     </div>
   );
 };
@@ -102,7 +129,13 @@ const CovidHospitalList = ({ zoom_in }) => {
     <FixWrapper zoom_in={zoom_in}>
       <CovidHospitalListBodyWrapper>
         <CovidHospitalListBody>
-          <Select options={options} />
+          <SelectWrapper>
+            <Selcetbar>
+              <option value="1인당 부담수">1인당 부담수</option>
+              <option value="가용병상">가용병상 순</option>
+              <option value="가용인력">가용인력 순</option>
+            </Selcetbar>
+          </SelectWrapper>
           <CovidHospitalListBodyList>
             <CovidHospitalItem
               hospital="광주보훈병원"
