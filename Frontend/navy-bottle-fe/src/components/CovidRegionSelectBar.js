@@ -31,12 +31,13 @@ const CovidRegionSelectBarBody = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius:3px;
+  border-radius: 3px;
   background-color: #dddddd;
   display: flex;
+  box-shadow: 0px 3px 6px #00000029;
 
-  :hover{
-      background-color: #c9c9c9;
+  :hover {
+    background-color: #c9c9c9;
   }
 `;
 
@@ -45,7 +46,7 @@ const HiddenCovidRegionSelectBarBodyWrapper = styled.div`
   top: 4.63%;
   right: 5.68%;
   z-index: 9;
-  width: ${props=>props.hiddonWidth}%;
+  width: ${(props) => props.hiddonWidth}%;
   height: 9.72%;
 
   transition: ease-in-out 1s;
@@ -55,7 +56,7 @@ const HiddenCovidRegionSelectBarBody = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius:5px;
+  border-radius: 5px;
   background-color: #dddddd;
   display: flex;
   flex-direction: row;
@@ -70,32 +71,31 @@ const HiddinImgArea = styled.div`
   height: 80%;
   width: 24%;
 
-  :hover{
+  :hover {
     height: 90%;
     width: 28%;
   }
 `;
 
 const HiddenImg = styled.img`
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 `;
 
-const CovidRegionSelectBar = ({zoom_in}) => {
-
-  const [isOpenSelectBar,setIsOpenSelectBar] = useState(false);
-  const [hiddonWidth,setHiddenWith] = useState(0);
-  useEffect(()=>{
-    if(isOpenSelectBar===false){
+const CovidRegionSelectBar = ({ zoom_in }) => {
+  const [isOpenSelectBar, setIsOpenSelectBar] = useState(false);
+  const [hiddonWidth, setHiddenWith] = useState(0);
+  useEffect(() => {
+    if (isOpenSelectBar === false) {
       setHiddenWith(0);
-    }else{
+    } else {
       setHiddenWith(23.54);
     }
-  },[isOpenSelectBar])
+  }, [isOpenSelectBar]);
 
-  const openEvent =() =>{
+  const openEvent = () => {
     setIsOpenSelectBar(!isOpenSelectBar);
-  }
+  };
 
   return (
     <FixWrapper zoom_in={zoom_in}>
@@ -103,29 +103,27 @@ const CovidRegionSelectBar = ({zoom_in}) => {
         <HiddenCovidRegionSelectBarBody>
           <HiddinImgArea>
             <Link to="/GwangjuCOVID">
-              <HiddenImg src={Gwangju_icon} alt="Gwangju_icon"/>
+              <HiddenImg src={Gwangju_icon} alt="Gwangju_icon" />
             </Link>
           </HiddinImgArea>
-
 
           <HiddinImgArea>
             <Link to="/JeonbukCOVID">
-              <HiddenImg src={Jeonbuk_icon} alt="Jeonbuk_icon"/>
+              <HiddenImg src={Jeonbuk_icon} alt="Jeonbuk_icon" />
             </Link>
           </HiddinImgArea>
-
 
           <HiddinImgArea>
             <Link to="/JeonnamCOVID">
-              <HiddenImg src={Jeonnam_icon} alt="Jeonnam_icon"/>
+              <HiddenImg src={Jeonnam_icon} alt="Jeonnam_icon" />
             </Link>
           </HiddinImgArea>
-
         </HiddenCovidRegionSelectBarBody>
       </HiddenCovidRegionSelectBarBodyWrapper>
       <CovidRegionSelectBarBodyWrapper>
-        <CovidRegionSelectBarBody onClick={(e)=>(openEvent())}>
-        </CovidRegionSelectBarBody>
+        <CovidRegionSelectBarBody
+          onClick={(e) => openEvent()}
+        ></CovidRegionSelectBarBody>
       </CovidRegionSelectBarBodyWrapper>
     </FixWrapper>
   );

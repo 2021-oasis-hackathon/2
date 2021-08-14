@@ -34,6 +34,7 @@ const CovidCurrentStausBody = styled.div`
   flex-direction: column;
   color: #707070;
   font-family: 'Noto Sans KR', sans-serif;
+  box-shadow: 0px 3px 6px #00000029;
 `;
 
 const CovidCurrentStausTitle = styled.h1`

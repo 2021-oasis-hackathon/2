@@ -14,7 +14,7 @@ const FixWrapper = styled.div`
   }
 `;
 
-const CovidHospitalSearchBodyWrapper =  styled.div`
+const CovidHospitalSearchBodyWrapper = styled.div`
   position: absolute;
   top: 77.12%;
   left: 78.02%;
@@ -29,11 +29,13 @@ const CovidHospitalSearchBody = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius:10px;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px #00000029;
   background-color: #dddddd;
   display: flex;
   flex-direction: column;
 `;
+
 
 const CovidHospitalSearchTitle = styled.div`
   display: flex;
