@@ -134,6 +134,7 @@ const CovidHospitalList = ({ zoom_in }) => {
               <option value="1인당 부담수">1인당 부담수</option>
               <option value="가용병상">가용병상 순</option>
               <option value="가용인력">가용인력 순</option>
+              <option value="가동률">가동률 순</option>
             </Selcetbar>
           </SelectWrapper>
           <CovidHospitalListBodyList>
