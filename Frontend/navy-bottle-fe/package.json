@@ -46,5 +46,6 @@
     "eslint-plugin-prettier": "^3.4.0",
     "prettier": "^2.3.2",
     "prettier-eslint": "^13.0.0"
-  }
+  },
+  "homepage": "https://github.com/2021-oasis-hackathon/NavyBottle"
 }
