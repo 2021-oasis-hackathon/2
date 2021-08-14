@@ -128,12 +128,12 @@ const MainPage = () =>{
               </MenuImgArea>
               <MenuImgArea>
                 <Link to="/JeonbukCOVID">
-                  <MenuImg src={Jeonbuk_icon} alt="Jeonbuk_icon" width = {80} hover_width={82} onMouseEnter={(e)=>setCurrentPage('Jeonnam')}></MenuImg>
+                  <MenuImg src={Jeonbuk_icon} alt="Jeonbuk_icon" width = {80} hover_width={82} onMouseEnter={(e)=>setCurrentPage('Jeonbuk')}></MenuImg>
                 </Link>
               </MenuImgArea>
               <MenuImgArea>
                 <Link to="/JeonnamCOVID">
-                  <MenuImg src={Jeonnam_icon} alt="Jeonnam_icon" width = {65} hover_width={67} onMouseEnter={(e)=>setCurrentPage('Jeonbuk')}></MenuImg>
+                  <MenuImg src={Jeonnam_icon} alt="Jeonnam_icon" width = {65} hover_width={67} onMouseEnter={(e)=>setCurrentPage('Jeonnam')}></MenuImg>
                 </Link>
               </MenuImgArea>
             </MenuMapArea>
