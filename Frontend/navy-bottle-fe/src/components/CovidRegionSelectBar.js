@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Gwangju_icon from '../img/region_icon/Gwangju_icon.png';
-import Jeonbuk_icon from '../img/region_icon/Jeonbuk_icon.png';
-import Jeonnam_icon from '../img/region_icon/Jeonnam_icon.png';
+import Gwangju_icon from '../img/Region_Main_icon/Gwangju_icon.png';
+import Jeonbuk_icon from '../img/Region_Main_icon/Jeonbuk_icon.png';
+import Jeonnam_icon from '../img/Region_Main_icon/Jeonnam_icon.png';
 import { Link } from 'react-router-dom';
 
 const FixWrapper = styled.div`
@@ -68,18 +68,17 @@ const HiddenCovidRegionSelectBarBody = styled.div`
 const HiddinImgArea = styled.div`
   display: flex;
   position: relative;
-  height: 80%;
   width: 24%;
-
-  :hover {
-    height: 90%;
-    width: 28%;
-  }
+  object-fit: contain;
 `;
 
 const HiddenImg = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
+
+  :hover {
+    width: 98%;
+  }
 `;
 
 const CovidRegionSelectBar = ({ zoom_in }) => {
