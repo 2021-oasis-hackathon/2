@@ -3,7 +3,6 @@ import '../styles/JeonnamCovid.scss';
 import styled from 'styled-components';
 import { FixMapIMGWrapper } from '../components/fixComponent';
 import jeonnam_img from '../img/background/Jeonnam_covid_img.jpg';
-import MarkerRenderComponet from '../components/MarkerRenderComponet';
 import CovidCurrentStaus from '../components/CovidCurrentStaus';
 import CovidHospitalList from '../components/CovidHospitalList';
 import CovidHospitalSearch from '../components/CovidHospitalSearch';
