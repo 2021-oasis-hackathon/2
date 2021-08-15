@@ -10,9 +10,8 @@ import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
-import CenterRenderComponet from '../components/CenterRenderComponent';
-import RenderInformation from '../components/RenderInformation';
 import HospitalInformationRender from '../components/HospitalInformationRender';
+import CenterInformationRender from '../components/CenterInformationRender';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -95,17 +94,15 @@ const JeonbukCovid = () => {
         marker_left={72.74}
         color="red"
       />
-      <MarkerRenderComponet
+
+      <CenterInformationRender
         zoom_in={zoom_in}
-        top={35.2}
-        left={47.1}
-        color="yellow"
-      />
-      <CenterRenderComponet
-        zoom_in={zoom_in}
-        top={39.8}
-        left={43}
+        center_top={39.8}
+        center_left={43}
         name="김제 생활치료센터"
+        marker_top={35.2}
+        marker_left={47.1}
+        color="yellow"
       />
 
       <CovidCurrentStaus
