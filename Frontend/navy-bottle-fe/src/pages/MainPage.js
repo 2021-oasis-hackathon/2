@@ -4,16 +4,16 @@ import JeonnamCovid from './JeonnamCovid';
 import GwangjuCovid from './GwangjuCovid';
 import '../styles/MainPage.scss';
 import styled from 'styled-components';
-import Gwangju_icon from '../img/region_icon/Gwangju_icon.png';
-import Jeonbuk_icon from '../img/region_icon/Jeonbuk_icon.png';
-import Jeonnam_icon from '../img/region_icon/Jeonnam_icon.png';
+import Gwangju_icon from '../img/Region_Main_icon/Gwangju_icon.png';
+import Jeonbuk_icon from '../img/Region_Main_icon/Jeonbuk_icon.png';
+import Jeonnam_icon from '../img/Region_Main_icon/Jeonnam_icon.png';
 import { Link } from 'react-router-dom';
 
 const FixWrapper = styled.div`
   position: absolute;
   width: 1536px;
   zoom: ${(props) => props.zoom_in};
-
+  
   ::before {
     content: '';
     display: flex;
@@ -27,7 +27,7 @@ const MainWrapper = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 50;
+  z-index: 90;
   width: 100%;
   height: 100%;
   background-color: #707070;
@@ -90,6 +90,7 @@ const MenuImg =styled.img`
   position: relative;
   object-fit: contain;
   width: ${props=>props.width}%;
+
   :hover{
     width: ${props=>props.hover_width}%;;
     cursor: pointer;
@@ -133,7 +134,7 @@ const MainPage = () =>{
               </MenuImgArea>
               <MenuImgArea>
                 <Link to="/JeonnamCOVID">
-                  <MenuImg src={Jeonnam_icon} alt="Jeonnam_icon" width = {65} hover_width={67} onMouseEnter={(e)=>setCurrentPage('Jeonnam')}></MenuImg>
+                  <MenuImg src={Jeonnam_icon} alt="Jeonnam_icon" width = {80} hover_width={82} onMouseEnter={(e)=>setCurrentPage('Jeonnam')}></MenuImg>
                 </Link>
               </MenuImgArea>
             </MenuMapArea>

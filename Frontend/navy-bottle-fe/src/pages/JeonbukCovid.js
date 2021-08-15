@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/JeonbukCovid.scss';
 import styled from 'styled-components';
 import { FixMapIMGWrapper } from '../components/fixComponent';
-import MarkerRenderComponet from '../components/MarkerRenderComponet';
 import jeonbuk_img from '../img/background/Jeonbuk_covid_img.jpg';
 import CovidCurrentStaus from '../components/CovidCurrentStaus';
 import CovidHospitalList from '../components/CovidHospitalList';
@@ -10,6 +9,9 @@ import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
+import MapInformationRender from '../components/MapInformationRender';
+import RenderInformation from '../components/RenderInformation';
+
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -24,6 +26,9 @@ const FixWrapper = styled.div`
 `;
 
 const JeonbukCovid = () => {
+
+  const [renderInformation, setRenderInformation] = useState('');
+
   let zoom_in = 1 / (window.devicePixelRatio * 0.8);
 
   window.onresize = function () {
@@ -45,45 +50,49 @@ const JeonbukCovid = () => {
         </FixMapIMGWrapper>
       </FixWrapper>
 
-
-
-
-      <MarkerRenderComponet
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        top={37.9}
-        left={58.4}
+        name="예수병원"
         color="green"
       />
-      <MarkerRenderComponet
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        top={31.5}
-        left={62.75}
+        name="전북대병원"
         color="green"
       />
-      <MarkerRenderComponet
+
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        top={26.2}
-        left={58.7}
+        name="원광대병원"
         color="green"
       />
-      <MarkerRenderComponet
+
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
+        hospital_type="hospital"
         zoom_in={zoom_in}
-        top={20.38}
-        left={42.25}
+        name="군산의료원"
         color="yellow"
       />
-      <MarkerRenderComponet
+
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        top={35.2}
-        left={47.1}
-        color="yellow"
-      />
-      <MarkerRenderComponet
-        zoom_in={zoom_in}
-        top={65}
-        left={72.74}
+        name="남원의료원"
         color="red"
       />
+
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
+        hospital_type="center"
+        zoom_in={zoom_in}
+        name="김제생활치료센터"
+        color="yellow"
+      />
+
       <CovidCurrentStaus
         city="Jeonbuk"
         zoom_in={zoom_in}
@@ -100,6 +109,16 @@ const JeonbukCovid = () => {
       <CovidSeriousPatient zoom_in={zoom_in} sick="1,203"></CovidSeriousPatient>
       <CovidMildPatient zoom_in={zoom_in} sick="2,123"></CovidMildPatient>
       <CovidRegionSelectBar zoom_in={zoom_in}></CovidRegionSelectBar>
+
+      {renderInformation === '' || (
+        <RenderInformation
+          setRenderInformation={setRenderInformation}
+          zoom_in={zoom_in}
+          hospital_name={renderInformation}
+          hospital_bed_number="35"
+          percent={28}
+        ></RenderInformation>
+      )}
     </div>
   );
 };

@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/GwangjuCovid.scss';
 import styled from 'styled-components';
 import { FixMapIMGWrapper } from '../components/fixComponent';
-import MarkerRenderComponet from '../components/MarkerRenderComponet';
 import gwangju_img from '../img/background/Gwangju_covid_img.jpg';
 import CovidCurrentStaus from '../components/CovidCurrentStaus';
 import CovidHospitalList from '../components/CovidHospitalList';
 import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
-
+import RenderInformation from '../components/RenderInformation';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
+import MapInformationRender from '../components/MapInformationRender';
+
 const FixWrapper = styled.div`
   position: absolute;
   width: 1536px;
@@ -24,11 +25,14 @@ const FixWrapper = styled.div`
 `;
 
 const GwangjuCovid = () => {
-  let zoom_in = 1 / (window.devicePixelRatio * 0.8);
 
+  const [renderInformation, setRenderInformation] = useState('');
+
+  let zoom_in = 1 / (window.devicePixelRatio * 0.8);
+  
   window.onresize = function () {
     zoom_in = window.devicePixelRatio;
-    zoom_in = (1 / (zoom_in * 0.8));
+    zoom_in = 1 / (zoom_in * 0.8);
     window.location.reload();
   };
 
@@ -44,30 +48,33 @@ const GwangjuCovid = () => {
         </FixMapIMGWrapper>
       </FixWrapper>
 
-      <MarkerRenderComponet
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        top={24.5}
-        left={57.15}
         color="green"
-      />
-      <MarkerRenderComponet
+        name="광주보훈병원"
+      ></MapInformationRender>
+
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        top={43.4}
-        left={53.7}
         color="yellow"
-      />
-      <MarkerRenderComponet
+        name="광주생활치료센터"
+      ></MapInformationRender>
+
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        top={42.7}
-        left={76.4}
         color="red"
-      />
-      <MarkerRenderComponet
+        name="조선대병원"
+      ></MapInformationRender>
+
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        top={61}
-        left={71.15}
         color="green"
-      />
+        name="빛고을전남대병원"
+      ></MapInformationRender>
 
       <CovidCurrentStaus
         city="Gwangju"
@@ -85,6 +92,16 @@ const GwangjuCovid = () => {
       <CovidSeriousPatient zoom_in={zoom_in} sick="1,203"></CovidSeriousPatient>
       <CovidMildPatient zoom_in={zoom_in} sick="2,123"></CovidMildPatient>
       <CovidRegionSelectBar zoom_in={zoom_in}></CovidRegionSelectBar>
+
+      {renderInformation === '' || (
+        <RenderInformation
+          setRenderInformation={setRenderInformation}
+          zoom_in={zoom_in}
+          hospital_name={renderInformation}
+          hospital_bed_number="53"
+          percent={90}
+        ></RenderInformation>
+      )}
     </div>
   );
 };

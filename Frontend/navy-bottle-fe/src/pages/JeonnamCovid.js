@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/JeonnamCovid.scss';
 import styled from 'styled-components';
 import { FixMapIMGWrapper } from '../components/fixComponent';
 import jeonnam_img from '../img/background/Jeonnam_covid_img.jpg';
-import MarkerRenderComponet from '../components/MarkerRenderComponet';
 import CovidCurrentStaus from '../components/CovidCurrentStaus';
 import CovidHospitalList from '../components/CovidHospitalList';
 import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
+import MapInformationRender from '../components/MapInformationRender';
+import RenderInformation from '../components/RenderInformation';
+
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -24,6 +26,9 @@ const FixWrapper = styled.div`
 `;
 
 const JeonnamCovid = () => {
+
+  const [renderInformation, setRenderInformation] = useState('');
+
   let zoom_in = 1 / (window.devicePixelRatio * 0.8);
 
   window.onresize = function () {
@@ -44,29 +49,31 @@ const JeonnamCovid = () => {
           />
         </FixMapIMGWrapper>
       </FixWrapper>
-
-      <MarkerRenderComponet
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        top={60}
-        left={56.57}
+        name="강진의료원"
         color="green"
       />
-      <MarkerRenderComponet
+
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        top={50.27}
-        left={43.1}
+        name="목포시의료원"
         color="yellow"
       />
-      <MarkerRenderComponet
+
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        top={37}
-        left={81.3}
+        name="순천의료원"
         color="red"
       />
-      <MarkerRenderComponet
+
+      <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        top={37}
-        left={56.12}
+        name="나주생활치료센터"
         color="red"
       />
 
@@ -81,11 +88,22 @@ const JeonnamCovid = () => {
         cure="203"
         cureplus="11"
       ></CovidCurrentStaus>
+
       <CovidHospitalList zoom_in={zoom_in}></CovidHospitalList>
       <CovidHospitalSearch zoom_in={zoom_in}></CovidHospitalSearch>
       <CovidSeriousPatient zoom_in={zoom_in} sick="1,203"></CovidSeriousPatient>
       <CovidMildPatient zoom_in={zoom_in} sick="2,123"></CovidMildPatient>
       <CovidRegionSelectBar zoom_in={zoom_in}></CovidRegionSelectBar>
+
+      {renderInformation === '' || (
+        <RenderInformation
+          setRenderInformation={setRenderInformation}
+          zoom_in={zoom_in}
+          hospital_name={renderInformation}
+          hospital_bed_number="35"
+          percent={28}
+        ></RenderInformation>
+      )}
     </div>
   );
 };
