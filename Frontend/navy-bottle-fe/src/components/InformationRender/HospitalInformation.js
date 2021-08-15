@@ -1,19 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BasicData } from '../Data/BasicData';
 
-const HospitalDict = {
-  '광주보훈병원':[18.06,29.74,'062-602-6114','광주 광산구 첨단월봉로 99 보훈병원'],
-  '원광대병원':[14.35,63.96,'063-859-1115','전라북도 익산시 신동 무왕로 895'],
-  '조선대병원':[20,49,'062-220-3114','광주광역시 동구 서남동 필문대로 365'],
-  '빛고을전남대병원':[30,46,'062-670-9500','광주광역시 남구 효덕동 덕남길 80'],
-  '군산의료원':[6,48,'063-472-5000','전라북도 군산시 수송동 의료원로 27'],
-  '전북대병원':[9.42,68.90,'062-1577-7877','전라북도 전주시 덕진구 금암2동 건지로 20'],
-  '예수병원':[28.15,30.36,'063-230-8114','전라북도 전주시 완산구 중화산1동 서원로 365'],
-  '남원의료원':[55.85,44.06,'063-620-1114','전라북도 남원시 고죽동 충정로 365'],
-  '강진의료원':[38.33,64.84,'061-433-3329','전라남도 강진군 서성리 305-26'],
-  '목포시의료원':[33.98,51.04,'061-260-6500','전라남도 목포시 용해동 이로로'],
-  '순천의료원':[26.20,48.65,'061-759-9114','전라남도 순천시 매곡동 서문성터길 2']
-}
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -405,7 +393,7 @@ const HospitalInformation = ({zoom_in,
   mild_bed_rate,
   setRenderInformation}) => {
 
-  const modal_info = HospitalDict[hospital_name];
+  const modal_info = BasicData[hospital_name];
   const modal_top = modal_info[0];
   const modal_left = modal_info[1];
   const phone_number = modal_info[2];
