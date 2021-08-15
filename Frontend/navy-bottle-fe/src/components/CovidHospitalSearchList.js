@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { CovidHospitalItem } from './CovidHospitalList';
-import { BasicData } from './Data/Data';
+import { BasicData, HospitalCurrentDataDict} from './Data/Data';
 import { sorted } from './logic/HospitalSort';
 
 const CovidHospitalSearchListBodyWrapper = styled.div`
@@ -46,7 +46,7 @@ const CovidHospitalSearchListBodyList = styled.div`
   color: #979797;
 `;
 
-const CovidHospitalSearchList = ({ isSearch }) => {
+const CovidHospitalSearchList = ({ isSearch, name}) => {
   return (
     (isSearch && 
       <CovidHospitalSearchListBodyWrapper>
@@ -54,15 +54,39 @@ const CovidHospitalSearchList = ({ isSearch }) => {
           <CovidHospitalSearchListTitle>
             최적 배정 리스트
           </CovidHospitalSearchListTitle>
+          {name === 'serious'&&
           <CovidHospitalSearchListBodyList>
             {(sorted).map((key,index) => (
+              'hospital'=== BasicData[key][4] &&
+              0 !== HospitalCurrentDataDict[key][1] + HospitalCurrentDataDict[key][3] &&
               <CovidHospitalItem
                 hospital={key}
                 phone={BasicData[key][2]}
                 location={BasicData[key][3]}
               />
             ))}
-          </CovidHospitalSearchListBodyList>
+          </CovidHospitalSearchListBodyList>}
+          {name === 'mild'&&
+          <CovidHospitalSearchListBodyList>
+            {(sorted).map((key,index) => (
+              'center'=== BasicData[key][4] &&
+              0 !== HospitalCurrentDataDict[key][1] + HospitalCurrentDataDict[key][3] &&
+              <CovidHospitalItem
+                hospital={key}
+                phone={BasicData[key][2]}
+                location={BasicData[key][3]}
+              />
+            ))}
+            {(sorted).map((key,index) => (
+              'hospital'=== BasicData[key][4] &&
+              0 !== HospitalCurrentDataDict[key][1] + HospitalCurrentDataDict[key][3] &&
+              <CovidHospitalItem
+                hospital={key}
+                phone={BasicData[key][2]}
+                location={BasicData[key][3]}
+              />
+            ))}
+          </CovidHospitalSearchListBodyList>}
         </CovidHospitalSearchListBody>
       </CovidHospitalSearchListBodyWrapper>
     )

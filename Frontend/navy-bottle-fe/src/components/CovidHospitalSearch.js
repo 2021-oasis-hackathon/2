@@ -136,6 +136,7 @@ const CovidHospitalSearch = ({ zoom_in }) => {
   const [seriousBackground, setSeriousBackground] = useState('#EAEAEA');
   const [mildBackground, setMildBackground] = useState('#EAEAEA');
   const [isSearch, setIsSearch] = useState(false);
+  const [buttonClick1, setButtonClick1] = useState('');
 
   const selectButton = (e) => {
     if (e.target.value === 'serious') {
@@ -151,18 +152,19 @@ const CovidHospitalSearch = ({ zoom_in }) => {
       setSeriousBackground('#bbbbbb');
       setMildBackground('#EAEAEA');
       setIsSearch(true);
+      setButtonClick1('serious');
     }
     if (buttonClick === 'mild') {
       setSeriousBackground('#EAEAEA');
       setMildBackground('#bbbbbb');
       setIsSearch(true);
+      setButtonClick1('mild');
     }
-    
   }, [buttonClick]);
 
   return (
     <FixWrapper zoom_in={zoom_in}>
-      <CovidHospitalSearchList isSearch={isSearch}></CovidHospitalSearchList>
+      <CovidHospitalSearchList isSearch={isSearch} name={buttonClick1} ></CovidHospitalSearchList>
       <CovidHospitalSearchBodyWrapper>
         <CovidHospitalSearchBody>
           <CovidHospitalSearchTitle>최적 배정</CovidHospitalSearchTitle>
