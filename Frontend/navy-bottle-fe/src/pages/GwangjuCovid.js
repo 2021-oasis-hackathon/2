@@ -99,7 +99,11 @@ const GwangjuCovid = () => {
           zoom_in={zoom_in}
           hospital_name={renderInformation}
           hospital_bed_number="53"
-          percent={90}
+          operation_rate={90}
+          hospital_worker={540}
+          hospital_congestion={17}
+          serious_bed={86}
+          mild_bed={45}
         ></RenderInformation>
       )}
     </div>
