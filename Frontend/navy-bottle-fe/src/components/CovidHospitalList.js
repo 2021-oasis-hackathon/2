@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import HospitalInfo from './logic/HospitalInfo';
+import { BasicData } from './Data/BasicData';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -134,8 +135,10 @@ const Selcetbar = styled.select`
   background-color: #eaeaea;
 `;
 
-const CovidHospitalItem = ({ hospital, phone, location }) => {
+export const CovidHospitalItem = ({ hospital, phone, location }) => {
   const [data, setData] = useState('');
+
+  
   return (
     <div>
       <CovidHospitalItemBox>
@@ -160,6 +163,9 @@ const CovidHospitalItem = ({ hospital, phone, location }) => {
 };
 
 const CovidHospitalList = ({ zoom_in }) => {
+
+
+
   return (
     <FixWrapper zoom_in={zoom_in}>
       <CovidHospitalListBodyWrapper>
@@ -171,76 +177,7 @@ const CovidHospitalList = ({ zoom_in }) => {
             </Selcetbar>
           </SelectWrapper>
           <CovidHospitalListBodyList>
-            <CovidHospitalItem
-              hospital="광주보훈병원"
-              phone="062-602-6114"
-              location="광주 광산구 첨단월봉로 99 보훈병원"
-            />
-            <CovidHospitalItem
-              hospital="원광대병원"
-              phone="063-859-1115"
-              location="전라북도 익산시 신동 무왕로 895"
-            />
-            <CovidHospitalItem
-              hospital="조선대병원"
-              phone="062-220-3114"
-              location="광주광역시 동구 서남동 필문대로 365"
-            />
-            <CovidHospitalItem
-              hospital="빛고을전남대병원"
-              phone="062-670-9500"
-              location="광주광역시 남구 효덕동 덕남길 80 "
-            />
-            <CovidHospitalItem
-              hospital="전북대병원"
-              phone="062-1577-7877"
-              location="전라북도 전주시 덕진구 금암2동 건지로 20"
-            />
-            <CovidHospitalItem
-              hospital="군산의료원"
-              phone="063-472-5000"
-              location="전라북도 군산시 수송동 의료원로 27"
-            />
-            <CovidHospitalItem
-              hospital="예수병원"
-              phone="063-230-8114"
-              location="전라북도 전주시 완산구 중화산1동 서원로 365"
-            />
-            <CovidHospitalItem
-              hospital="남원의료원"
-              phone="063-620-1114"
-              location="전라북도 남원시 고죽동 충정로 365"
-            />
-            <CovidHospitalItem
-              hospital="목포시의료원"
-              phone="061-260-6500"
-              location="전라남도 목포시 용해동 이로로"
-            />
-            <CovidHospitalItem
-              hospital="순천의료원"
-              phone="061-759-9114"
-              location="전라남도 순천시 매곡동 서문성터길 2"
-            />
-            <CovidHospitalItem
-              hospital="강진의료원"
-              phone="061-433-3329"
-              location="전라남도 강진군 서성리 305-26"
-            />
-            <CovidHospitalItem
-              hospital="광주생활치료센터"
-              phone="062-602-8900"
-              location="광주 광산구 소촌로152번길 53-84"
-            />
-            <CovidHospitalItem
-              hospital="나주생활치료센터"
-              phone="061-357-9110"
-              location="전라남도 나주시 다도면 신방로 255"
-            />
-            <CovidHospitalItem
-              hospital="김제생활치료센터"
-              phone="063-540-5600"
-              location="전라북도 김제시 부량면 벽골제로 421"
-            />
+            {Object.keys(BasicData).map((key , index) => (<CovidHospitalItem hospital={key} phone={BasicData[key][2]} location={BasicData[key][3]}/>))}
           </CovidHospitalListBodyList>
         </CovidHospitalListBody>
       </CovidHospitalListBodyWrapper>
