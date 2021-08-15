@@ -12,6 +12,7 @@ import RenderInformation from '../components/RenderInformation';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 import MapInformationRender from '../components/MapInformationRender';
 
+
 const FixWrapper = styled.div`
   position: absolute;
   width: 1536px;
