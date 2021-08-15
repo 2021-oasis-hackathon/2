@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { CovidHospitalItem } from './CovidHospitalList';
-import { BasicData } from './Data/BasicData';
+import { BasicData } from './Data/Data';
+import { sorted } from './logic/HospitalSort';
 
 const CovidHospitalSearchListBodyWrapper = styled.div`
   position: absolute;
@@ -54,7 +55,7 @@ const CovidHospitalSearchList = ({ isSearch }) => {
             최적 배정 리스트
           </CovidHospitalSearchListTitle>
           <CovidHospitalSearchListBodyList>
-            {Object.keys(BasicData).map((key) => (
+            {(sorted).map((key,index) => (
               <CovidHospitalItem
                 hospital={key}
                 phone={BasicData[key][2]}
