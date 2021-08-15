@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import HospitalInfo from './logic/HospitalInfo';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -12,7 +13,6 @@ const FixWrapper = styled.div`
     padding-top: 864px;
   }
 `;
-
 
 const CovidHospitalListBodyWrapper = styled.div`
   position: absolute;
@@ -66,7 +66,7 @@ const CovidHospitalItemBoxVer = styled.div`
   flex-direction: column;
   width: 204.2px;
   height: 57.6px;
-  background: #eaeaea 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 5px;
   opacity: 1;
@@ -91,6 +91,10 @@ const SelectWrapper = styled.div`
   margin-left: 140px;
 `;
 
+const traffic = styled.div`
+
+`;
+
 const Selcetbar = styled.select`
   width: 83px;
   height: 15px;
@@ -108,6 +112,8 @@ const Selcetbar = styled.select`
 `;
 
 const CovidHospitalItem = ({ hospital, phone, location }) => {
+  const [data, setData] = useState('');
+  const [color, setColor] = useState('');
   return (
     <div>
       <CovidHospitalItemBox>
@@ -119,6 +125,9 @@ const CovidHospitalItem = ({ hospital, phone, location }) => {
             <div>{phone}</div>
           </CovidHospitalItemBoxHor>
           <div>{location}</div>
+          <div>{data}</div>
+          <div>{color}</div>
+          <HospitalInfo name={hospital} setData={setData} setColor={setColor} />
         </CovidHospitalItemBoxVer>
       </CovidHospitalItemBox>
     </div>
@@ -132,10 +141,8 @@ const CovidHospitalList = ({ zoom_in }) => {
         <CovidHospitalListBody>
           <SelectWrapper>
             <Selcetbar>
-              <option value="1인당 부담수">1인당 부담수</option>
-              <option value="가용병상">가용병상 순</option>
-              <option value="가용인력">가용인력 순</option>
-              <option value="가동률">가동률 순</option>
+              <option value="병원">병원</option>
+              <option value="생활치료센터">생활치료센터</option>
             </Selcetbar>
           </SelectWrapper>
           <CovidHospitalListBodyList>
@@ -155,7 +162,7 @@ const CovidHospitalList = ({ zoom_in }) => {
               location="광주 동구 필문대로 365 조선대학교병원"
             />
             <CovidHospitalItem
-              hospital="조선대병원"
+              hospital="순천의료원"
               phone="1811-7474"
               location="광주 동구 필문대로 365 조선대학교병원"
             />

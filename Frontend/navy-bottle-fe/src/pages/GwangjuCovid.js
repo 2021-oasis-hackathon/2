@@ -11,8 +11,9 @@ import CovidHospitalList from '../components/CovidHospitalList';
 import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
-
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
+import HospitalInfo from '../components/logic/HospitalInfo';
+
 const FixWrapper = styled.div`
   position: absolute;
   width: 1536px;
