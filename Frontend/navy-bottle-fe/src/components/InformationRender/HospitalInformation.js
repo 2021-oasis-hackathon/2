@@ -243,9 +243,28 @@ const HospitalOPGraph= styled.div`
   display: flex;
   width: 127.818px;
   height: 127.818px;
+  align-items: center;
+  justify-content: center;
 
   background: conic-gradient(#EAEAEA  ${props=>props.operation_rate}deg , #FF7B7B ${props=>props.operation_rate}deg 360deg);
   border-radius:200px;
+`;
+
+const HospitalOPGraphHole= styled.div`
+  position: relative;
+  display: flex;
+  width: 80px;
+  height: 80px;
+
+  background: #FFFFFF;
+  border-radius: 100px;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 25px;
+  font-family: Noto Sans KR;
+  font-weight: bold;
+  color: #FF7B7B;
 `;
 
 const HospitalbedGraphWrapper= styled.div`
@@ -256,6 +275,123 @@ const HospitalbedGraphWrapper= styled.div`
   margin-top: 15.78px;
 `;
 
+const HospitalbedGraphBody = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`
+const HospitalbedGraphTop = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 37.083px;
+  width: 100%;
+`
+const HospitalbedGraphTitleWrapper = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+`
+
+const HospitalbedGraphTitle = styled.div`
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    height: 18.936px;
+    justify-content:flex-end;
+
+    color:#707070;
+    font-family: Noto Sans KR;
+    font-weight: bold;
+    font-size: 12.624px;
+`
+
+const HospitalbedGraphTitleDis = styled.div`
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    height: 14.991px;
+    justify-content:flex-end;
+
+    color:#979797;
+    font-family: Noto Sans KR;
+    font-weight: medium;
+    font-size: 10.257px;
+`
+
+const HospitalbedNumWrapper = styled.div`
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  flex-grow: 1;
+`;
+
+const HospitalbedNumTitle = styled.div`
+  position: relative;
+  flex-direction: column;
+  margin-top: 6px;
+  display: flex;
+  height: 13.413px;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: medium;
+  font-family: Noto Sans KR;
+  font-size: 10px;
+  color: #979797;
+`;
+
+const HospitalbedNum = styled.div`
+  position: relative;
+  flex-direction: column;
+  margin-top: 6px;
+  display: flex;
+  height: 18.936px;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: medium;
+  font-family: Noto Sans KR;
+  font-size: 12.624px;
+  color: #FF7B7B;
+`;
+
+const HospitalGraphWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 18.936px;
+  width: 100%;
+  margin-top: 10px;
+`;
+
+const HospitalGraphPercent= styled.div`
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  height: 100%;
+  width: 25.248px;
+  align-items: center;
+
+  color: ${props=>props.color};
+  font-weight: medium;
+  font-family: Noto Sans KR;
+  font-size: 12.624px;
+`;
+
+const HospitalGraph = styled.div`
+  position: relative;
+  display: flex;
+  flex-grow: 100;
+  margin-right: 3px;
+  margin-left: 3px;
+
+  
+  background: linear-gradient(to right, #FF7B7B ${props=>props.percent}% ,#E7E7E7 ${props=>(100-props.percent)}% );
+`;
 
 const HospitalInformation = ({zoom_in,
   hospital_name,
@@ -264,7 +400,9 @@ const HospitalInformation = ({zoom_in,
   hospital_congestion,
   operation_rate,
   serious_bed,
+  serious_bed_rate,
   mild_bed,
+  mild_bed_rate,
   setRenderInformation}) => {
 
   const modal_info = HospitalDict[hospital_name];
@@ -330,13 +468,54 @@ const HospitalInformation = ({zoom_in,
               <HospitalOPRateDis>( 가용병상 / 전체병상 )</HospitalOPRateDis>
               <HospitalOPGraphWrapper>
                 <HospitalOPGraph operation_rate={360-(operation_rate/100) *360}>
-
+                  <HospitalOPGraphHole>{operation_rate}%</HospitalOPGraphHole>
                 </HospitalOPGraph>
               </HospitalOPGraphWrapper>
             </HospitalOPRateBody>
 
+
             <HospitalbedGraphWrapper>
 
+
+              <HospitalbedGraphBody>
+                <HospitalbedGraphTop>
+                  <HospitalbedGraphTitleWrapper>
+                    <HospitalbedGraphTitle>중증전담치료병상</HospitalbedGraphTitle>
+                    <HospitalbedGraphTitleDis>(코로나 환자 기준)</HospitalbedGraphTitleDis>
+                  </HospitalbedGraphTitleWrapper>
+
+                  <HospitalbedNumWrapper>
+                    <HospitalbedNumTitle>잔여병상</HospitalbedNumTitle>
+                    <HospitalbedNum>{serious_bed}</HospitalbedNum>
+                  </HospitalbedNumWrapper>
+                </HospitalbedGraphTop>
+                <HospitalGraphWrapper>
+                  <HospitalGraphPercent color="#FF7B7B">{serious_bed_rate}%</HospitalGraphPercent>
+                  <HospitalGraph percent = {serious_bed_rate}></HospitalGraph>
+                  <HospitalGraphPercent color="#707070">{100-serious_bed_rate}%</HospitalGraphPercent>
+                </HospitalGraphWrapper>
+              </HospitalbedGraphBody>
+
+
+
+              <HospitalbedGraphBody>
+                <HospitalbedGraphTop>
+                  <HospitalbedGraphTitleWrapper>
+                    <HospitalbedGraphTitle>감염전담병원병상</HospitalbedGraphTitle>
+                    <HospitalbedGraphTitleDis>(코로나 환자 기준)</HospitalbedGraphTitleDis>
+                  </HospitalbedGraphTitleWrapper>
+
+                  <HospitalbedNumWrapper>
+                    <HospitalbedNumTitle>잔여병상</HospitalbedNumTitle>
+                    <HospitalbedNum>{mild_bed}</HospitalbedNum>
+                  </HospitalbedNumWrapper>
+                </HospitalbedGraphTop>
+                <HospitalGraphWrapper>
+                  <HospitalGraphPercent color="#FF7B7B">{mild_bed_rate}%</HospitalGraphPercent>
+                  <HospitalGraph percent = {mild_bed_rate}></HospitalGraph>
+                  <HospitalGraphPercent color="#707070">{100-mild_bed_rate}%</HospitalGraphPercent>
+                </HospitalGraphWrapper>
+              </HospitalbedGraphBody>
             </HospitalbedGraphWrapper>
           </HospitalInfoBodyBottom>
 

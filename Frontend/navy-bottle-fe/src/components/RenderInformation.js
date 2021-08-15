@@ -15,7 +15,7 @@ const HospitalTypeDict = {'광주보훈병원':['hospital'] ,
   '강진의료원':['hospital'],
   '목포시의료원':['hospital'],
   '순천의료원':['hospital'],
-  '나주생활치료센터':['center']
+  '나주생활치료센터':['center'],
 }
 
 
@@ -27,7 +27,10 @@ const RenderInformation = ({
   operation_rate,
   hospital_worker,
   hospital_congestion ,
-  serious_bed,mild_bed
+  serious_bed,
+  mild_bed,
+  serious_bed_rate,
+  mild_bed_rate
 }) => {
   const hospital_type = HospitalTypeDict[hospital_name][0];
   return (
@@ -43,7 +46,9 @@ const RenderInformation = ({
         hospital_congestion={hospital_congestion}
         operation_rate={operation_rate}
         serious_bed={serious_bed}
+        serious_bed_rate={serious_bed_rate}
         mild_bed={mild_bed}
+        mild_bed_rate={mild_bed_rate}
       ></HospitalInformation>}
     </>
   );
