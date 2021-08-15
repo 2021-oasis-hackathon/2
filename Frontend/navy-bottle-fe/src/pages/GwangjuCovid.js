@@ -9,9 +9,8 @@ import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
 import RenderInformation from '../components/RenderInformation';
-import HospitalInformationRender from '../components/HospitalInformationRender';
-import CenterInformationRender from '../components/CenterInformationRender';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
+import MapInformationRender from '../components/MapInformationRender';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -48,7 +47,8 @@ const GwangjuCovid = () => {
         </FixMapIMGWrapper>
       </FixWrapper>
 
-      <HospitalInformationRender
+      <MapInformationRender
+        hospital_type="hospital"
         zoom_in={zoom_in}
         color="green"
         name="광주보훈병원"
@@ -56,19 +56,21 @@ const GwangjuCovid = () => {
         hospital_left={53.03}
         marker_top={24.5}
         marker_left={57.15}
-      ></HospitalInformationRender>
+      ></MapInformationRender>
 
-      <CenterInformationRender
+      <MapInformationRender
+        hospital_type="center"
         zoom_in={zoom_in}
         color="yellow"
         name="광주생활치료센터"
-        center_top={48}
-        center_left={49.65}
+        hospital_top={48}
+        hospital_left={49.65}
         marker_top={43.4}
         marker_left={53.7}
-      ></CenterInformationRender>
+      ></MapInformationRender>
 
-      <HospitalInformationRender
+      <MapInformationRender
+        hospital_type="hospital"
         zoom_in={zoom_in}
         color="red"
         name="조선대병원"
@@ -76,17 +78,18 @@ const GwangjuCovid = () => {
         hospital_left={72.32}
         marker_top={42.7}
         marker_left={76.4}
-      ></HospitalInformationRender>
+      ></MapInformationRender>
 
-      <HospitalInformationRender
+      <MapInformationRender
         zoom_in={zoom_in}
+        hospital_type="hospital"
         color="green"
         name="빛고을전남대병원"
         hospital_top={65.6}
         hospital_left={67.05}
         marker_top={61}
         marker_left={71.15}
-      ></HospitalInformationRender>
+      ></MapInformationRender>
 
       <CovidCurrentStaus
         city="Gwangju"
@@ -108,7 +111,7 @@ const GwangjuCovid = () => {
       {renderInformation === '' || (
         <RenderInformation
           zoom_in={zoom_in}
-          hospital_type="treatment-center"
+          hospital_type="center"
           hospital_name={renderInformation}
           hospital_bed_number="53"
           percent={90}

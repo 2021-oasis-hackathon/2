@@ -9,8 +9,7 @@ import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
-import HospitalInformationRender from '../components/HospitalInformationRender';
-import CenterInformationRender from '../components/CenterInformationRender';
+import MapInformationRender from '../components/MapInformationRender';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -45,7 +44,8 @@ const JeonnamCovid = () => {
           />
         </FixMapIMGWrapper>
       </FixWrapper>
-      <HospitalInformationRender
+      <MapInformationRender
+        hospital_type="hospital"
         zoom_in={zoom_in}
         hospital_top={64.5}
         hospital_left={52.45}
@@ -55,7 +55,8 @@ const JeonnamCovid = () => {
         color="green"
       />
 
-      <HospitalInformationRender
+      <MapInformationRender
+        hospital_type="hospital"
         zoom_in={zoom_in}
         hospital_top={55}
         hospital_left={39.05}
@@ -65,7 +66,8 @@ const JeonnamCovid = () => {
         color="yellow"
       />
 
-      <HospitalInformationRender
+      <MapInformationRender
+        hospital_type="hospital"
         zoom_in={zoom_in}
         hospital_top={41.5}
         hospital_left={77.25}
@@ -75,10 +77,11 @@ const JeonnamCovid = () => {
         color="red"
       />
 
-      <CenterInformationRender
+      <MapInformationRender
+        hospital_type="center"
         zoom_in={zoom_in}
-        center_top={41.5}
-        center_left={52.1}
+        hospital_top={41.5}
+        hospital_left={52.1}
         name="나주 생활치료센터"
         marker_top={37}
         marker_left={56.12}
@@ -96,6 +99,7 @@ const JeonnamCovid = () => {
         cure="203"
         cureplus="11"
       ></CovidCurrentStaus>
+      
       <CovidHospitalList zoom_in={zoom_in}></CovidHospitalList>
       <CovidHospitalSearch zoom_in={zoom_in}></CovidHospitalSearch>
       <CovidSeriousPatient zoom_in={zoom_in} sick="1,203"></CovidSeriousPatient>

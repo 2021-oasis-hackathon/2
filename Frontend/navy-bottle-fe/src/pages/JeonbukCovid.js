@@ -9,8 +9,8 @@ import CovidHospitalSearch from '../components/CovidHospitalSearch';
 import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
-import HospitalInformationRender from '../components/HospitalInformationRender';
-import CenterInformationRender from '../components/CenterInformationRender';
+import MapInformationRender from '../components/MapInformationRender';
+
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -45,7 +45,8 @@ const JeonbukCovid = () => {
           />
         </FixMapIMGWrapper>
       </FixWrapper>
-      <HospitalInformationRender
+      <MapInformationRender
+        hospital_type="hospital"
         zoom_in={zoom_in}
         hospital_top={42.3}
         hospital_left={54.25}
@@ -54,7 +55,8 @@ const JeonbukCovid = () => {
         marker_left={58.4}
         color="green"
       />
-      <HospitalInformationRender
+      <MapInformationRender
+        hospital_type="hospital"
         zoom_in={zoom_in}
         hospital_top={36}
         hospital_left={58.67}
@@ -64,7 +66,8 @@ const JeonbukCovid = () => {
         color="green"
       />
 
-      <HospitalInformationRender
+      <MapInformationRender
+        hospital_type="hospital"
         zoom_in={zoom_in}
         hospital_top={30.7}
         hospital_left={54.56}
@@ -74,7 +77,8 @@ const JeonbukCovid = () => {
         color="green"
       />
 
-      <HospitalInformationRender
+      <MapInformationRender
+        hospital_type="hospital"
         zoom_in={zoom_in}
         hospital_top={25}
         hospital_left={38.2}
@@ -84,7 +88,8 @@ const JeonbukCovid = () => {
         color="yellow"
       />
 
-      <HospitalInformationRender
+      <MapInformationRender
+        hospital_type="hospital"
         zoom_in={zoom_in}
         hospital_top={69.5}
         hospital_left={68.67}
@@ -94,10 +99,11 @@ const JeonbukCovid = () => {
         color="red"
       />
 
-      <CenterInformationRender
+      <MapInformationRender
+        hospital_type="center"
         zoom_in={zoom_in}
-        center_top={39.8}
-        center_left={43}
+        hospital_top={39.8}
+        hospital_left={43}
         name="김제 생활치료센터"
         marker_top={35.2}
         marker_left={47.1}

@@ -1,5 +1,5 @@
 import React from 'react';
-import CenterRenderComponet from './CenterRenderComponent';
+import CenterRenderComponet from './MapRender/CenterRenderComponent';
 import MarkerRenderComponet from './MarkerRenderComponet';
 
 const CenterInformationRender = ({
