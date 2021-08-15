@@ -18,11 +18,11 @@ const HospitalTypeDict = {'광주보훈병원':['hospital'] ,
   '나주생활치료센터':['center']
 }
 
-const RenderInformation = ({zoom_in, hospital_name ,hospital_bed_number ,percent }) => {
+const RenderInformation = ({ setRenderInformation,zoom_in, hospital_name ,hospital_bed_number ,percent }) => {
   const hospital_type = HospitalTypeDict[hospital_name][0];
   return (
     <>
-      {hospital_type==='center' && <TreatmentInformation zoom_in={zoom_in} hospital_name={hospital_name} hospital_bed_number={hospital_bed_number} percent={percent}  />}
+      {hospital_type==='center' && <TreatmentInformation setRenderInformation={setRenderInformation} zoom_in={zoom_in} hospital_name={hospital_name} hospital_bed_number={hospital_bed_number} percent={percent}  />}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/JeonnamCovid.scss';
 import styled from 'styled-components';
 import { FixMapIMGWrapper } from '../components/fixComponent';
@@ -24,6 +24,9 @@ const FixWrapper = styled.div`
 `;
 
 const JeonnamCovid = () => {
+
+  const [renderInformation, setRenderInformation] = useState('');
+
   let zoom_in = 1 / (window.devicePixelRatio * 0.8);
 
   window.onresize = function () {
@@ -45,24 +48,28 @@ const JeonnamCovid = () => {
         </FixMapIMGWrapper>
       </FixWrapper>
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="강진의료원"
         color="green"
       />
 
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="목포시의료원"
         color="yellow"
       />
 
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="순천의료원"
         color="red"
       />
 
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="나주생활치료센터"
         color="red"

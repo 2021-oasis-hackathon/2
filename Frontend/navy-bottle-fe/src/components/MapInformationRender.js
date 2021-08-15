@@ -22,7 +22,7 @@ const MapInfoDict = {'광주보훈병원':['hospital',29,53.03,24.5,57.15] ,
 
 
 
-const MapInformationRender= ({  zoom_in, name, color }) => {
+const MapInformationRender= ({  zoom_in, name, color, setRenderInformation}) => {
 
   const map_info = MapInfoDict[name]
   const hospital_type = map_info[0] 
@@ -39,7 +39,7 @@ const MapInformationRender= ({  zoom_in, name, color }) => {
       {hospital_type==='center' &&
       <CenterRenderComponet zoom_in={zoom_in} top={hospital_top} left={hospital_left} name={name}></CenterRenderComponet>}
 
-      <MarkerRenderComponet zoom_in={zoom_in} top={marker_top} left={marker_left} color={color}></MarkerRenderComponet>
+      <MarkerRenderComponet zoom_in={zoom_in} top={marker_top} left={marker_left} color={color} setRenderInformation={setRenderInformation}  name={name}></MarkerRenderComponet>
     </>
   );
 };

@@ -39,10 +39,10 @@ const Marker = styled.img`
   z-index: 1;
 `;
 
-const MarkerRenderComponet = ({zoom_in, top , left , color}) => {
+const MarkerRenderComponet = ({zoom_in, top , left , color ,setRenderInformation , name}) => {
   return (
     <FixWrapper zoom_in={zoom_in}>
-      <MarkerWrapper top={top} left={left} right={100-left} bottom={100-top}>
+      <MarkerWrapper top={top} left={left} right={100-left} bottom={100-top} onClick={(e)=>setRenderInformation(name)}>
         {color === 'green' && <Marker src={GreenDot} alt="greenDot"/>}
         {color === 'red' && <Marker src={RedDot} alt="redDot"/>}
         {color === 'yellow' && <Marker src={YellowDot} alt="yellowDot"/>}

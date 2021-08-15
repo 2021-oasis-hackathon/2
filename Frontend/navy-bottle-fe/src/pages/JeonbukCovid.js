@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/JeonbukCovid.scss';
 import styled from 'styled-components';
 import { FixMapIMGWrapper } from '../components/fixComponent';
@@ -25,6 +25,9 @@ const FixWrapper = styled.div`
 `;
 
 const JeonbukCovid = () => {
+
+  const [renderInformation, setRenderInformation] = useState('');
+
   let zoom_in = 1 / (window.devicePixelRatio * 0.8);
 
   window.onresize = function () {
@@ -45,25 +48,29 @@ const JeonbukCovid = () => {
           />
         </FixMapIMGWrapper>
       </FixWrapper>
-      
+
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="예수병원"
         color="green"
       />
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="전북대병원"
         color="green"
       />
 
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="원광대병원"
         color="green"
       />
 
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         hospital_type="hospital"
         zoom_in={zoom_in}
         name="군산의료원"
@@ -71,12 +78,14 @@ const JeonbukCovid = () => {
       />
 
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="남원의료원"
         color="red"
       />
 
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         hospital_type="center"
         zoom_in={zoom_in}
         name="김제생활치료센터"

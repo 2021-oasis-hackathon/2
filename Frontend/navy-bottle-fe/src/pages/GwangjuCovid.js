@@ -25,15 +25,16 @@ const FixWrapper = styled.div`
 `;
 
 const GwangjuCovid = () => {
-  let zoom_in = 1 / (window.devicePixelRatio * 0.8);
 
+  const [renderInformation, setRenderInformation] = useState('');
+
+  let zoom_in = 1 / (window.devicePixelRatio * 0.8);
+  
   window.onresize = function () {
     zoom_in = window.devicePixelRatio;
     zoom_in = 1 / (zoom_in * 0.8);
     window.location.reload();
   };
-
-  const [renderInformation, setRenderInformation] = useState('');
 
   return (
     <div className="gwangju-covid-body-wrapper">
@@ -48,24 +49,28 @@ const GwangjuCovid = () => {
       </FixWrapper>
 
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         color="green"
         name="광주보훈병원"
       ></MapInformationRender>
 
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         color="yellow"
         name="광주생활치료센터"
       ></MapInformationRender>
 
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         color="red"
         name="조선대병원"
       ></MapInformationRender>
 
       <MapInformationRender
+        setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         color="green"
         name="빛고을전남대병원"
@@ -90,6 +95,7 @@ const GwangjuCovid = () => {
 
       {renderInformation === '' || (
         <RenderInformation
+          setRenderInformation={setRenderInformation}
           zoom_in={zoom_in}
           hospital_name={renderInformation}
           hospital_bed_number="53"

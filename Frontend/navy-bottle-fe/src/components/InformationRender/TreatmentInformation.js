@@ -15,11 +15,23 @@ const FixWrapper = styled.div`
   }
 `;
 
+const TreatmentInformationWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 79;
+  width: 100%;
+  height: 100%;
+  :hover{
+    cursor: pointer
+  }
+`;
+
 const TreatmentInformationBodyWrapper = styled.div`
   position: absolute;
   top: ${props=>props.top}%;
   left: ${props=>props.left}%;
-  z-index: 30;
+  z-index: 80;
   width: 17.92%;
   height: 13.15%;
 `;
@@ -167,7 +179,7 @@ const TreatmentUtilizationBarRedPart = styled.div`
   height: 100%;
 `;
 
-const TreatmentInformation = ({zoom_in,hospital_name ,hospital_bed_number,percent }) => {
+const TreatmentInformation = ({zoom_in,hospital_name ,hospital_bed_number,percent ,setRenderInformation}) => {
 
   const modal_info = TreatmentDict[hospital_name];
   const modal_top = modal_info[0];
@@ -178,6 +190,8 @@ const TreatmentInformation = ({zoom_in,hospital_name ,hospital_bed_number,percen
   return (
 
     <FixWrapper zoom_in={zoom_in}>
+      <TreatmentInformationWrapper onClick={(e)=>{setRenderInformation('')}}>
+      </TreatmentInformationWrapper>
       <TreatmentInformationBodyWrapper top={modal_top} left={modal_left}>
         <TreatmentInformationBody>
           <TreatmentInformationTitle>
