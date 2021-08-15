@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BasicData } from './Data/BasicData';
+import { BasicData } from './Data/Data';
 import TreatmentInformation from './InformationRender/TreatmentInformation';
 import HospitalInformation from './InformationRender/HospitalInformation';
 

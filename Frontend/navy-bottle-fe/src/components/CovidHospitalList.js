@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import HospitalInfo from './logic/HospitalInfo';
-import { BasicData } from './Data/BasicData';
+import { BasicData  ,HospitalCurrentDataDict} from './Data/Data';
+import { sorted } from './logic/HospitalSort';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -227,6 +228,11 @@ const CovidHospitalList = ({ zoom_in }) => {
   }, [buttonClick]);
 
 
+
+
+  
+
+
   return (
     <FixWrapper zoom_in={zoom_in}>
       <CovidHospitalListBodyWrapper>
@@ -252,7 +258,7 @@ const CovidHospitalList = ({ zoom_in }) => {
           </CovidHospitalListHeader>
 
           <CovidHospitalListBodyList>
-            {Object.keys(BasicData).map((key , index) => 
+            {sorted.map((key , index) => 
               (buttonClick===BasicData[key][4] && <CovidHospitalItem hospital={key} phone={BasicData[key][2]} location={BasicData[key][3]}/>))}
           </CovidHospitalListBodyList>
         </CovidHospitalListBody>
