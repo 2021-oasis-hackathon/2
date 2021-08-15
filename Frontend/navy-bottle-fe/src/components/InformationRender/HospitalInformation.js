@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BasicData } from '../Data/BasicData';
+import { BasicData } from '../Data/Data';
 
 
 const FixWrapper = styled.div`

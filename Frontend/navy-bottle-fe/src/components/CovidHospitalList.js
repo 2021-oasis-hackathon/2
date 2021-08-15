@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import HospitalInfo from './logic/HospitalInfo';
-import { BasicData } from './Data/BasicData';
+import { BasicData  ,HospitalCurrentDataDict} from './Data/Data';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -227,6 +227,28 @@ const CovidHospitalList = ({ zoom_in }) => {
   }, [buttonClick]);
 
 
+  const clonedeep = require('lodash.clonedeep');
+  const HospitalList = clonedeep(HospitalCurrentDataDict);
+
+  const sorted = Object.keys(HospitalList).sort(function(a,b){
+
+    const a_hospital = HospitalList[a];
+    const b_hospital = HospitalList[b];
+    const a_serious_unuse = a_hospital[1];
+    const a_mild_unuse = a_hospital[3];
+    const a_man = a_hospital[4];
+    const a_confusion_rate = (100 * (a_serious_unuse + a_mild_unuse)) / a_man;
+
+    const b_serious_unuse = b_hospital[1];
+    const b_mild_unuse = b_hospital[3];
+    const b_man = b_hospital[4];
+    const b_confusion_rate = (100 * (b_serious_unuse + b_mild_unuse)) / b_man;
+    return a_confusion_rate-b_confusion_rate
+  })
+
+  
+
+
   return (
     <FixWrapper zoom_in={zoom_in}>
       <CovidHospitalListBodyWrapper>
@@ -252,7 +274,7 @@ const CovidHospitalList = ({ zoom_in }) => {
           </CovidHospitalListHeader>
 
           <CovidHospitalListBodyList>
-            {Object.keys(BasicData).map((key , index) => 
+            {sorted.map((key , index) => 
               (buttonClick===BasicData[key][4] && <CovidHospitalItem hospital={key} phone={BasicData[key][2]} location={BasicData[key][3]}/>))}
           </CovidHospitalListBodyList>
         </CovidHospitalListBody>
