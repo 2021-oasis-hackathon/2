@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Center from '../img/marker/center.png';
+import Hospital from '../../img/marker/hospital.png';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -15,9 +15,9 @@ const FixWrapper = styled.div`
 `;
 
 const MarkerWrapper = styled.div`
-  position: absolute;
   width: 10%;
   height: 4.51%;
+  position: absolute;
   top: ${(props) => props.top}%;
   right: ${(props) => props.right}%;
   bottom: ${(props) => props.bottom}%;
@@ -29,19 +29,19 @@ const MarkerWrapper = styled.div`
 `;
 const Marker = styled.img`
   position: relative;
-  width: 12.8px;
+  width: 11.2px;
   height: 11.2px;
   z-index: 1;
 `;
 
 const MarkerText = styled.div`
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 15.78px;
+  font-size: 20px;
   font-weight: bold;
-  color: #979797;
+  color: #707070;
 `;
 
-const CenterRenderComponet = ({ zoom_in, top, left, name }) => {
+const HospitalRenderComponet = ({ zoom_in, top, left, name }) => {
   return (
     <FixWrapper zoom_in={zoom_in}>
       <MarkerWrapper
@@ -50,11 +50,11 @@ const CenterRenderComponet = ({ zoom_in, top, left, name }) => {
         right={100 - left}
         bottom={100 - top}
       >
-        <Marker src={Center} alt="center" />
+        <Marker src={Hospital} />
         <MarkerText>{name}</MarkerText>
       </MarkerWrapper>
     </FixWrapper>
   );
 };
 
-export default CenterRenderComponet;
+export default HospitalRenderComponet;

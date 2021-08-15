@@ -27,7 +27,7 @@ const MainWrapper = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 50;
+  z-index: 90;
   width: 100%;
   height: 100%;
   background-color: #707070;
