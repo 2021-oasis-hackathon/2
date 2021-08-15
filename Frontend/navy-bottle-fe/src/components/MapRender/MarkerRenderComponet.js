@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import GreenDot from '../img/marker/Green_dot.png'
-import RedDot from '../img/marker/Red_dot.png'
-import YellowDot from '../img/marker/Yellow_dot.png'
+import GreenDot from '../../img/marker/Green_dot.png'
+import RedDot from '../../img/marker/Red_dot.png'
+import YellowDot from '../../img/marker/Yellow_dot.png'
 
 const FixWrapper = styled.div`
   position: absolute;

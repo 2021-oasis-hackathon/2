@@ -1,9 +1,9 @@
 import React from 'react';
 import HospitalRenderComponet from './MapRender/HospitalRenderComponent';
-import MarkerRenderComponet from './MarkerRenderComponet';
+import MarkerRenderComponet from './MapRender/MarkerRenderComponet';
 import CenterRenderComponet from './MapRender/CenterRenderComponent';
 
-const MapInfoDict = {광주보훈병원:['hospital',29,53.03,24.5,57.15] , 
+const MapInfoDict = {'광주보훈병원':['hospital',29,53.03,24.5,57.15] , 
   '광주생활치료센터':['center',48,49.65,43.4,53.7]  ,
   '조선대병원':['hospital',47.2,72.32,42.7,76.4] ,
   '빛고을전남대병원':['hospital',65.6,67.05,61,71.15],

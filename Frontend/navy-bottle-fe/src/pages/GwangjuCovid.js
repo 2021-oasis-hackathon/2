@@ -91,7 +91,6 @@ const GwangjuCovid = () => {
       {renderInformation === '' || (
         <RenderInformation
           zoom_in={zoom_in}
-          hospital_type="center"
           hospital_name={renderInformation}
           hospital_bed_number="53"
           percent={90}
