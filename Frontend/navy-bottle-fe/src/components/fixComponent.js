@@ -1,17 +1,5 @@
 import styled from 'styled-components';
 
-export const FixWrapper =  styled.div`
-  position: absolute;
-  width: 100%;
-
-  ::before{
-    content: "";
-    display: flex;
-    padding-top: 56.25%;
-  }
-`
-
-
 export const FixMapIMGWrapper =  styled.div`
   position: absolute;
   top: 0;
