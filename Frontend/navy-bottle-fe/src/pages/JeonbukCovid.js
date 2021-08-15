@@ -10,6 +10,7 @@ import CovidSeriousPatient from '../components/CovidSeriousPatient';
 import CovidMildPatient from '../components/CovidMildPatient';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 import MapInformationRender from '../components/MapInformationRender';
+import RenderInformation from '../components/RenderInformation';
 
 
 const FixWrapper = styled.div`
@@ -108,6 +109,16 @@ const JeonbukCovid = () => {
       <CovidSeriousPatient zoom_in={zoom_in} sick="1,203"></CovidSeriousPatient>
       <CovidMildPatient zoom_in={zoom_in} sick="2,123"></CovidMildPatient>
       <CovidRegionSelectBar zoom_in={zoom_in}></CovidRegionSelectBar>
+
+      {renderInformation === '' || (
+        <RenderInformation
+          setRenderInformation={setRenderInformation}
+          zoom_in={zoom_in}
+          hospital_name={renderInformation}
+          hospital_bed_number="35"
+          percent={28}
+        ></RenderInformation>
+      )}
     </div>
   );
 };
