@@ -121,6 +121,8 @@ const JeonbukCovid = () => {
           hospital_congestion={17}
           serious_bed={86}
           mild_bed={45}
+          serious_bed_rate={86}
+          mild_bed_rate={58}
         ></RenderInformation>
       )}
     </div>
