@@ -39,6 +39,7 @@ const CovidHospitalListBody = styled.div`
 `;
 
 const CovidHospitalListBodyList = styled.div`
+  width: 100%;
   overflow: scroll;
   ::-webkit-scrollbar {
     display: none;
@@ -136,6 +137,7 @@ const CovidHospitalListButtonSerious = styled.button`
   font-size: 11.835px;
   border: none;
 
+  margin-bottom: 4px;
   :hover {
     cursor: pointer;
     background-color: #bbbbbb;
@@ -201,24 +203,24 @@ export const CovidHospitalItem = ({ hospital, phone, location }) => {
 
 const CovidHospitalList = ({ zoom_in }) => {
 
-  const [buttonClick, setButtonClick] = useState('');
+  const [buttonClick, setButtonClick] = useState('hospital');
   const [seriousBackground, setSeriousBackground] = useState('#EAEAEA');
   const [mildBackground, setMildBackground] = useState('#EAEAEA');
   const selectButton = (e) => {
-    if (e.target.value === 'serious') {
-      setButtonClick('serious');
+    if (e.target.value === 'hospital') {
+      setButtonClick('hospital');
     }
-    if (e.target.value === 'mild') {
-      setButtonClick('mild');
+    if (e.target.value === 'center') {
+      setButtonClick('center');
     }
   };
 
   useEffect(() => {
-    if (buttonClick === 'serious') {
+    if (buttonClick === 'hospital') {
       setSeriousBackground('#bbbbbb');
       setMildBackground('#EAEAEA');
     }
-    if (buttonClick === 'mild') {
+    if (buttonClick === 'center') {
       setSeriousBackground('#EAEAEA');
       setMildBackground('#bbbbbb');
     }
@@ -235,14 +237,14 @@ const CovidHospitalList = ({ zoom_in }) => {
               <CovidHospitalListButtonSerious
                 onClick={(e) => selectButton(e)}
                 background={seriousBackground}
-                value="serious"
+                value="hospital"
               >
                 병원
               </CovidHospitalListButtonSerious>
               <CovidHospitalListButtonMild
                 onClick={(e) => selectButton(e)}
                 background={mildBackground}
-                value="mild"
+                value="center"
               >
                 생활치료센터
               </CovidHospitalListButtonMild>
@@ -250,7 +252,8 @@ const CovidHospitalList = ({ zoom_in }) => {
           </CovidHospitalListHeader>
 
           <CovidHospitalListBodyList>
-            {Object.keys(BasicData).map((key , index) => (<CovidHospitalItem hospital={key} phone={BasicData[key][2]} location={BasicData[key][3]}/>))}
+            {Object.keys(BasicData).map((key , index) => 
+              (buttonClick===BasicData[key][4] && <CovidHospitalItem hospital={key} phone={BasicData[key][2]} location={BasicData[key][3]}/>))}
           </CovidHospitalListBodyList>
         </CovidHospitalListBody>
       </CovidHospitalListBodyWrapper>
