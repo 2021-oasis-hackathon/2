@@ -31,12 +31,6 @@ const JeonbukCovid = () => {
 
   let zoom_in = 1 / (window.devicePixelRatio * 0.8);
 
-  window.onresize = function () {
-    zoom_in = window.devicePixelRatio;
-    zoom_in = 1 / (zoom_in * 0.8);
-    console.log(zoom_in);
-    window.location.reload();
-  };
 
   return (
     <div className="jeonbuk-covid-body-wrapper">

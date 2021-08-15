@@ -31,11 +31,7 @@ const GwangjuCovid = () => {
 
   let zoom_in = 1 / (window.devicePixelRatio * 0.8);
   
-  window.onresize = function () {
-    zoom_in = window.devicePixelRatio;
-    zoom_in = 1 / (zoom_in * 0.8);
-    window.location.reload();
-  };
+
 
   return (
     <div className="gwangju-covid-body-wrapper">
