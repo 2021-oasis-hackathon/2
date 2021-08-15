@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import HospitalInfo from './logic/HospitalInfo';
 
@@ -34,7 +34,7 @@ const CovidHospitalListBody = styled.div`
   box-shadow: 0px 3px 6px #00000029;
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
 `;
 
 const CovidHospitalListBodyList = styled.div`
@@ -69,73 +69,112 @@ const CovidHospitalItemBoxVer = styled.div`
 `;
 
 const CovidHospitalItemBox = styled.div`
-font-family: 'Noto Sans KR', sans-serif;
-flex-direction: row;
+  font-family: 'Noto Sans KR', sans-serif;
+  flex-direction: row;
   font-size: 8px;
   margin-right: 15px;
-  margin-left:15px;
+  margin-left: 15px;
   height: 60px;
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 5px;
   opacity: 1;
   margin-top: 11.2px;
-  display:flex;
-  justify-content: space-between;
-`;
-
-const SelectWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 12px;
-  color: #979797;
-  font-size: 7.89px;
-  font-family: 'Noto Sans KR', sans-serif;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  margin-left: 140px;
+  justify-content: space-between;
 `;
 
 const Traffic = styled.div`
   display: flex;
   flex-direction: column;
-  align-items:flex-end;
+  align-items: flex-end;
   justify-content: center;
-  font-weight:bold;
-  font-size:16px;
-  margin-right: 10PX;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 10px;
   width: 15%;
 `;
 
-const Red = styled.div`
-  color:#FF7B7B;
-`;
-const Yellow = styled.div`
-  color:#FFC77D;
-`;
-const Green = styled.div`
-  color:#7CDFAE;
+const CovidHospitalListHeader = styled.div`
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  width: 86%;
+  margin-top: 10px;
+  padding-bottom: 5px;
 `;
 
-const Selcetbar = styled.select`
-  width: 83px;
-  height: 15px;
-  font-size: 10px;
-  border: 1px solid #979797;
+const CovidHospitalListTitle = styled.div`
+  display: flex;
+  position: relative;
+  font-size: 15.78px;
+  font-family: 'Noto Sans KR';
+  color: #707070;
+`;
+
+const CovidHospitalListButtonArea = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+`;
+
+const CovidHospitalListButtonSerious = styled.button`
+  display: flex;
+  padding: 0;
+  position: relative;
+  height: 17px;
+  width: 73.6px;
+  background-color: ${(props) => props.background};
   border-radius: 8px;
-  color: #979797;
-  :focus {
-    outline: none;
+  font-family: Noto Sans KR;
+  color: #707070;
+  justify-content: center;
+  align-items: center;
+  font-size: 11.835px;
+  border: none;
+
+  :hover {
+    cursor: pointer;
+    background-color: #bbbbbb;
   }
-  ::after {
-    color: blue;
+`;
+
+const CovidHospitalListButtonMild = styled.button`
+  display: flex;
+  padding: 0;
+  position: relative;
+  height: 17px;
+  width: 73.6px;
+  background-color: ${(props) => props.background};
+  border-radius: 8px;
+  font-family: Noto Sans KR;
+  color: #707070;
+  justify-content: center;
+  align-items: center;
+  font-size: 11.835px;
+  border: none;
+
+  :hover {
+    cursor: pointer;
+    background-color: #bbbbbb;
   }
-  background-color: #eaeaea;
+`;
+
+const Red = styled.div`
+  color: #ff7b7b;
+`;
+const Yellow = styled.div`
+  color: #ffc77d;
+`;
+const Green = styled.div`
+  color: #7cdfae;
 `;
 
 const CovidHospitalItem = ({ hospital, phone, location }) => {
   const [data, setData] = useState('');
+
   return (
     <div>
       <CovidHospitalItemBox>
@@ -149,9 +188,9 @@ const CovidHospitalItem = ({ hospital, phone, location }) => {
           <div>{location}</div>
         </CovidHospitalItemBoxVer>
         <Traffic>
-          {(data>66 && <Red>혼잡</Red>)}
-          {(data>33 && data<66 && <Yellow>우려</Yellow>)}
-          {(data<33 && <Green>원활</Green>)}
+          {data > 66 && <Red>혼잡</Red>}
+          {data > 33 && data < 66 && <Yellow>우려</Yellow>}
+          {data < 33 && <Green>원활</Green>}
         </Traffic>
         <HospitalInfo name={hospital} setData={setData} />
       </CovidHospitalItemBox>
@@ -160,16 +199,53 @@ const CovidHospitalItem = ({ hospital, phone, location }) => {
 };
 
 const CovidHospitalList = ({ zoom_in }) => {
+  const [buttonClick, setButtonClick] = useState('');
+  const [seriousBackground, setSeriousBackground] = useState('#EAEAEA');
+  const [mildBackground, setMildBackground] = useState('#EAEAEA');
+  const selectButton = (e) => {
+    if (e.target.value === 'serious') {
+      setButtonClick('serious');
+    }
+    if (e.target.value === 'mild') {
+      setButtonClick('mild');
+    }
+  };
+
+  useEffect(() => {
+    if (buttonClick === 'serious') {
+      setSeriousBackground('#bbbbbb');
+      setMildBackground('#EAEAEA');
+    }
+    if (buttonClick === 'mild') {
+      setSeriousBackground('#EAEAEA');
+      setMildBackground('#bbbbbb');
+    }
+  }, [buttonClick]);
+
   return (
     <FixWrapper zoom_in={zoom_in}>
       <CovidHospitalListBodyWrapper>
         <CovidHospitalListBody>
-          <SelectWrapper>
-            <Selcetbar>
-              <option value="병원">병원</option>
-              <option value="생활치료센터">생활치료센터</option>
-            </Selcetbar>
-          </SelectWrapper>
+          <CovidHospitalListHeader>
+            <CovidHospitalListTitle>혼잡지수 리스트</CovidHospitalListTitle>
+            <CovidHospitalListButtonArea>
+              <CovidHospitalListButtonSerious
+                onClick={(e) => selectButton(e)}
+                background={seriousBackground}
+                value="serious"
+              >
+                병원
+              </CovidHospitalListButtonSerious>
+              <CovidHospitalListButtonMild
+                onClick={(e) => selectButton(e)}
+                background={mildBackground}
+                value="mild"
+              >
+                생활치료센터
+              </CovidHospitalListButtonMild>
+            </CovidHospitalListButtonArea>
+          </CovidHospitalListHeader>
+
           <CovidHospitalListBodyList>
             <CovidHospitalItem
               hospital="광주보훈병원"
