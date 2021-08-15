@@ -134,7 +134,7 @@ const Selcetbar = styled.select`
   background-color: #eaeaea;
 `;
 
-const CovidHospitalItem = ({ hospital, phone, location }) => {
+export const CovidHospitalItem = ({ hospital, phone, location }) => {
   const [data, setData] = useState('');
   return (
     <div>
