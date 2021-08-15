@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { AiOutlineSearch } from 'react-icons/ai';
+import CovidHospitalSearchList from './CovidHospitalSearchList';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -36,7 +37,6 @@ const CovidHospitalSearchBody = styled.div`
   flex-direction: column;
 `;
 
-
 const CovidHospitalSearchTitle = styled.div`
   display: flex;
   position: relative;
@@ -47,7 +47,7 @@ const CovidHospitalSearchTitle = styled.div`
   color: #707070;
 `;
 
-const CovidHospitalSearchButtonArea= styled.div`
+const CovidHospitalSearchButtonArea = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -58,13 +58,13 @@ const CovidHospitalSearchButtonArea= styled.div`
   height: 35.505px;
 `;
 
-const CovidHospitalSearchButtonSerious= styled.button`
+const CovidHospitalSearchButtonSerious = styled.button`
   display: flex;
   padding: 0;
   position: relative;
   height: 100%;
   width: 96.258px;
-  background-color:  ${props=>props.background} ;
+  background-color: ${(props) => props.background};
   border-radius: 3.945px;
   font-family: Noto Sans KR;
   color: #707070;
@@ -73,19 +73,19 @@ const CovidHospitalSearchButtonSerious= styled.button`
   font-size: 11.835px;
   border: none;
 
-  :hover{
+  :hover {
     cursor: pointer;
     background-color: #bbbbbb;
   }
 `;
 
-const CovidHospitalSearchButtonMild= styled.button`
+const CovidHospitalSearchButtonMild = styled.button`
   display: flex;
   padding: 0;
   position: relative;
   height: 100%;
   width: 96.258px;
-  background-color: ${props=>props.background} ;
+  background-color: ${(props) => props.background};
   border-radius: 3.945px;
   font-family: Noto Sans KR;
   color: #707070;
@@ -94,7 +94,7 @@ const CovidHospitalSearchButtonMild= styled.button`
   font-size: 11.835px;
   border: none;
 
-  :hover{
+  :hover {
     cursor: pointer;
     background-color: #bbbbbb;
   }
@@ -111,9 +111,9 @@ const CovidHospitalSearchAdressArea = styled.div`
   color: #707070;
   width: 205.14px;
   height: 22.092px;
-  background-color: #EAEAEA;
-  border-radius:11.046px;
-  border : 1.5px solid #979797;
+  background-color: #eaeaea;
+  border-radius: 11.046px;
+  border: 1.5px solid #979797;
 
   align-items: center;
   justify-content: center;
@@ -123,7 +123,7 @@ const CovidHospitalSearchInput = styled.input`
   display: flex;
   flex-grow: 1;
   margin: 5px 4px;
-  background-color: #EAEAEA;
+  background-color: #eaeaea;
   border: none;
   outline: none;
   font-family: Noto Sans KR;
@@ -131,45 +131,60 @@ const CovidHospitalSearchInput = styled.input`
   font-size: 11px;
 `;
 
+const CovidHospitalSearch = ({ zoom_in }) => {
+  const [buttonClick, setButtonClick] = useState('');
+  const [seriousBackground, setSeriousBackground] = useState('#EAEAEA');
+  const [mildBackground, setMildBackground] = useState('#EAEAEA');
+  const [isSearch, setIsSearch] = useState(false);
 
-const CovidHospitalSearch = ({zoom_in}) => {
-
-  const [buttonClick , setButtonClick] = useState('');
-  const [seriousBackground , setSeriousBackground] = useState('#EAEAEA');
-  const [mildBackground , setMildBackground] = useState('#EAEAEA');
-  const selectButton = (e) =>{
-    if(e.target.value==='serious'){
+  const selectButton = (e) => {
+    if (e.target.value === 'serious') {
       setButtonClick('serious');
     }
-    if(e.target.value==='mild'){
+    if (e.target.value === 'mild') {
       setButtonClick('mild');
     }
-  }
+  };
 
-  useEffect(()=>{
-    if(buttonClick==='serious'){
+  useEffect(() => {
+    if (buttonClick === 'serious') {
       setSeriousBackground('#bbbbbb');
       setMildBackground('#EAEAEA');
+      setIsSearch(true);
     }
-    if(buttonClick==='mild'){
+    if (buttonClick === 'mild') {
       setSeriousBackground('#EAEAEA');
       setMildBackground('#bbbbbb');
+      setIsSearch(true);
     }
-
-  },[buttonClick])
+    
+  }, [buttonClick]);
 
   return (
     <FixWrapper zoom_in={zoom_in}>
+      <CovidHospitalSearchList isSearch={isSearch}></CovidHospitalSearchList>
       <CovidHospitalSearchBodyWrapper>
         <CovidHospitalSearchBody>
           <CovidHospitalSearchTitle>최적 배정</CovidHospitalSearchTitle>
           <CovidHospitalSearchButtonArea>
-            <CovidHospitalSearchButtonSerious onClick={(e)=>selectButton(e)} background={seriousBackground} value="serious">위중/중증상 환자</CovidHospitalSearchButtonSerious>
-            <CovidHospitalSearchButtonMild onClick={(e)=>selectButton(e)} background={mildBackground} value="mild">경증/무증상 환자</CovidHospitalSearchButtonMild>
+            <CovidHospitalSearchButtonSerious
+              onClick={(e) => selectButton(e)}
+              background={seriousBackground}
+              value="serious"
+            >
+              위중/중증상 환자
+            </CovidHospitalSearchButtonSerious>
+            <CovidHospitalSearchButtonMild
+              onClick={(e) => selectButton(e)}
+              background={mildBackground}
+              value="mild"
+            >
+              경증/무증상 환자
+            </CovidHospitalSearchButtonMild>
           </CovidHospitalSearchButtonArea>
           <CovidHospitalSearchAdressArea>
-            <CovidHospitalSearchInput/>
-            <AiOutlineSearch/>
+            <CovidHospitalSearchInput />
+            <AiOutlineSearch />
           </CovidHospitalSearchAdressArea>
         </CovidHospitalSearchBody>
       </CovidHospitalSearchBodyWrapper>
