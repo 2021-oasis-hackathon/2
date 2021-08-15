@@ -49,28 +49,24 @@ const JeonnamCovid = () => {
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="강진의료원"
-        color="green"
       />
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="목포시의료원"
-        color="yellow"
       />
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="순천의료원"
-        color="red"
       />
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="나주생활치료센터"
-        color="red"
       />
 
       <CovidCurrentStaus

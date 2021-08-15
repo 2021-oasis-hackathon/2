@@ -48,43 +48,35 @@ const JeonbukCovid = () => {
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="예수병원"
-        color="green"
       />
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="전북대병원"
-        color="green"
       />
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="원광대병원"
-        color="green"
       />
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
-        hospital_type="hospital"
         zoom_in={zoom_in}
         name="군산의료원"
-        color="yellow"
       />
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="남원의료원"
-        color="red"
       />
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
-        hospital_type="center"
         zoom_in={zoom_in}
         name="김제생활치료센터"
-        color="yellow"
       />
 
       <CovidCurrentStaus

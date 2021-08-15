@@ -47,28 +47,24 @@ const GwangjuCovid = () => {
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        color="green"
         name="광주보훈병원"
       ></MapInformationRender>
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        color="yellow"
         name="광주생활치료센터"
       ></MapInformationRender>
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        color="red"
         name="조선대병원"
       ></MapInformationRender>
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        color="green"
         name="빛고을전남대병원"
       ></MapInformationRender>
 

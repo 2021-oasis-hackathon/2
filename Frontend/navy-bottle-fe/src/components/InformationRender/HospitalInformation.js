@@ -415,6 +415,7 @@ const HospitalInformation = ({zoom_in,
   return (
     <FixWrapper zoom_in={zoom_in}>
       <HospitalInformationWrapper onClick={(e)=>{setRenderInformation('')}}/>
+
       <HospitalInformationBodyWrapper top={modal_top} left={modal_left}>
         <HospitalInformationBody>
 
