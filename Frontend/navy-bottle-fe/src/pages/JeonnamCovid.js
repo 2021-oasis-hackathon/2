@@ -12,6 +12,7 @@ import CovidMildPatient from '../components/CovidMildPatient';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 import CenterRenderComponet from '../components/CenterRenderComponent';
 import HospitalRenderComponet from '../components/HospitalRenderComponent';
+import HospitalInformationRender from '../components/HospitalInformationRender';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -46,43 +47,36 @@ const JeonnamCovid = () => {
           />
         </FixMapIMGWrapper>
       </FixWrapper>
-
-      <MarkerRenderComponet
+      <HospitalInformationRender
         zoom_in={zoom_in}
-        top={60}
-        left={56.57}
+        hospital_top={64.5}
+        hospital_left={52.45}
+        name="강진의료원"
+        marker_top={60}
+        marker_left={56.57}
         color="green"
       />
-      <HospitalRenderComponet
+
+      <HospitalInformationRender
         zoom_in={zoom_in}
-        top={64.5}
-        left={52.45}
-        name="강진의료원"
-      />
-      <MarkerRenderComponet
-        zoom_in={zoom_in}
-        top={50.27}
-        left={43.1}
+        hospital_top={55}
+        hospital_left={39.05}
+        name="목포시의료원"
+        marker_top={50.27}
+        marker_left={43.1}
         color="yellow"
       />
-      <HospitalRenderComponet
+
+      <HospitalInformationRender
         zoom_in={zoom_in}
-        top={55}
-        left={39.05}
-        name="목포시의료원"
-      />
-      <MarkerRenderComponet
-        zoom_in={zoom_in}
-        top={37}
-        left={81.3}
+        hospital_top={41.5}
+        hospital_left={77.25}
+        name="순천의료원"
+        marker_top={37}
+        marker_left={81.3}
         color="red"
       />
-      <HospitalRenderComponet
-        zoom_in={zoom_in}
-        top={41.5}
-        left={77.25}
-        name="순천의료원"
-      />
+
       <MarkerRenderComponet
         zoom_in={zoom_in}
         top={37}
