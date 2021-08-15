@@ -45,46 +45,26 @@ const JeonnamCovid = () => {
         </FixMapIMGWrapper>
       </FixWrapper>
       <MapInformationRender
-        hospital_type="hospital"
         zoom_in={zoom_in}
-        hospital_top={64.5}
-        hospital_left={52.45}
         name="강진의료원"
-        marker_top={60}
-        marker_left={56.57}
         color="green"
       />
 
       <MapInformationRender
-        hospital_type="hospital"
         zoom_in={zoom_in}
-        hospital_top={55}
-        hospital_left={39.05}
         name="목포시의료원"
-        marker_top={50.27}
-        marker_left={43.1}
         color="yellow"
       />
 
       <MapInformationRender
-        hospital_type="hospital"
         zoom_in={zoom_in}
-        hospital_top={41.5}
-        hospital_left={77.25}
         name="순천의료원"
-        marker_top={37}
-        marker_left={81.3}
         color="red"
       />
 
       <MapInformationRender
-        hospital_type="center"
         zoom_in={zoom_in}
-        hospital_top={41.5}
-        hospital_left={52.1}
-        name="나주 생활치료센터"
-        marker_top={37}
-        marker_left={56.12}
+        name="나주생활치료센터"
         color="red"
       />
 
@@ -99,7 +79,7 @@ const JeonnamCovid = () => {
         cure="203"
         cureplus="11"
       ></CovidCurrentStaus>
-      
+
       <CovidHospitalList zoom_in={zoom_in}></CovidHospitalList>
       <CovidHospitalSearch zoom_in={zoom_in}></CovidHospitalSearch>
       <CovidSeriousPatient zoom_in={zoom_in} sick="1,203"></CovidSeriousPatient>

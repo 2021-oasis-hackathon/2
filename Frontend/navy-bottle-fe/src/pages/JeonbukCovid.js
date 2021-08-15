@@ -45,68 +45,41 @@ const JeonbukCovid = () => {
           />
         </FixMapIMGWrapper>
       </FixWrapper>
+      
       <MapInformationRender
-        hospital_type="hospital"
         zoom_in={zoom_in}
-        hospital_top={42.3}
-        hospital_left={54.25}
         name="예수병원"
-        marker_top={37.9}
-        marker_left={58.4}
         color="green"
       />
       <MapInformationRender
-        hospital_type="hospital"
         zoom_in={zoom_in}
-        hospital_top={36}
-        hospital_left={58.67}
         name="전북대병원"
-        marker_top={31.5}
-        marker_left={62.75}
         color="green"
       />
 
       <MapInformationRender
-        hospital_type="hospital"
         zoom_in={zoom_in}
-        hospital_top={30.7}
-        hospital_left={54.56}
         name="원광대병원"
-        marker_top={26.2}
-        marker_left={58.7}
         color="green"
       />
 
       <MapInformationRender
         hospital_type="hospital"
         zoom_in={zoom_in}
-        hospital_top={25}
-        hospital_left={38.2}
         name="군산의료원"
-        marker_top={20.38}
-        marker_left={42.25}
         color="yellow"
       />
 
       <MapInformationRender
-        hospital_type="hospital"
         zoom_in={zoom_in}
-        hospital_top={69.5}
-        hospital_left={68.67}
         name="남원의료원"
-        marker_top={65}
-        marker_left={72.74}
         color="red"
       />
 
       <MapInformationRender
         hospital_type="center"
         zoom_in={zoom_in}
-        hospital_top={39.8}
-        hospital_left={43}
-        name="김제 생활치료센터"
-        marker_top={35.2}
-        marker_left={47.1}
+        name="김제생활치료센터"
         color="yellow"
       />
 

@@ -48,47 +48,27 @@ const GwangjuCovid = () => {
       </FixWrapper>
 
       <MapInformationRender
-        hospital_type="hospital"
         zoom_in={zoom_in}
         color="green"
         name="광주보훈병원"
-        hospital_top={29}
-        hospital_left={53.03}
-        marker_top={24.5}
-        marker_left={57.15}
       ></MapInformationRender>
 
       <MapInformationRender
-        hospital_type="center"
         zoom_in={zoom_in}
         color="yellow"
         name="광주생활치료센터"
-        hospital_top={48}
-        hospital_left={49.65}
-        marker_top={43.4}
-        marker_left={53.7}
       ></MapInformationRender>
 
       <MapInformationRender
-        hospital_type="hospital"
         zoom_in={zoom_in}
         color="red"
         name="조선대병원"
-        hospital_top={47.2}
-        hospital_left={72.32}
-        marker_top={42.7}
-        marker_left={76.4}
       ></MapInformationRender>
 
       <MapInformationRender
         zoom_in={zoom_in}
-        hospital_type="hospital"
         color="green"
         name="빛고을전남대병원"
-        hospital_top={65.6}
-        hospital_left={67.05}
-        marker_top={61}
-        marker_left={71.15}
       ></MapInformationRender>
 
       <CovidCurrentStaus
