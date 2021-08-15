@@ -22,7 +22,7 @@ const MarkerWrapper =  styled.div`
   right: ${props=>props.right}%;
   bottom: ${props=>props.bottom}%;
   left: ${props=>props.left}%;
-  z-index: 1;
+  z-index: 60;
   width: 1.8333%;
   height: 4.51%;
 
@@ -36,7 +36,7 @@ const Marker = styled.img`
   position: relative;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 60;
 `;
 
 const MarkerRenderComponet = ({zoom_in, top , left , color ,setRenderInformation , name}) => {

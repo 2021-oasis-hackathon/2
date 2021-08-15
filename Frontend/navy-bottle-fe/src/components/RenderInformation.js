@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TreatmentInformation from './InformationRender/TreatmentInformation';
-
+import HospitalInformation from './InformationRender/HospitalInformation';
 const HospitalTypeDict = {'광주보훈병원':['hospital'] , 
   '광주생활치료센터':['center']  ,
   '조선대병원':['hospital'] ,
@@ -18,11 +18,33 @@ const HospitalTypeDict = {'광주보훈병원':['hospital'] ,
   '나주생활치료센터':['center']
 }
 
-const RenderInformation = ({ setRenderInformation,zoom_in, hospital_name ,hospital_bed_number ,percent }) => {
+
+const RenderInformation = ({ 
+  setRenderInformation,
+  zoom_in, 
+  hospital_name ,
+  hospital_bed_number ,
+  operation_rate,
+  hospital_worker,
+  hospital_congestion ,
+  serious_bed,mild_bed
+}) => {
   const hospital_type = HospitalTypeDict[hospital_name][0];
   return (
     <>
-      {hospital_type==='center' && <TreatmentInformation setRenderInformation={setRenderInformation} zoom_in={zoom_in} hospital_name={hospital_name} hospital_bed_number={hospital_bed_number} percent={percent}  />}
+      {hospital_type==='center' && <TreatmentInformation setRenderInformation={setRenderInformation} zoom_in={zoom_in} hospital_name={hospital_name} hospital_bed_number={hospital_bed_number} percent={operation_rate}  />}
+      {hospital_type==='hospital' && 
+      <HospitalInformation 
+        setRenderInformation={setRenderInformation}  
+        zoom_in={zoom_in} 
+        hospital_name={hospital_name}
+        hospital_bed_number={hospital_bed_number}
+        hospital_worker ={hospital_worker}
+        hospital_congestion={hospital_congestion}
+        operation_rate={operation_rate}
+        serious_bed={serious_bed}
+        mild_bed={mild_bed}
+      ></HospitalInformation>}
     </>
   );
 };
