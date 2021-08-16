@@ -20,4 +20,5 @@ from django.conf.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('api_user.urls'), name='api_user'),
+    path('covid/', include('covid_data.urls'), name='api_covid_data'),
 ]
