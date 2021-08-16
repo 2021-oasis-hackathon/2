@@ -14,7 +14,7 @@ const HospitalInfo = ({ name, setData,setColor}) => {
   const utilization_rate = (100*(serious_unuse + mild_unuse) / total_bed).toFixed(0);
   const utilization_rate_serious = (100*serious_unuse / serious_total).toFixed(0);
   const utilization_rate_mild = (100*mild_unuse / mild_total).toFixed(0);
-  const confusion_rate = (100 * (serious_unuse + mild_unuse)) / man;
+  const confusion_rate = (100 * (serious_total-serious_unuse +mild_total- mild_unuse)) / man;
 
   setData(confusion_rate);
   

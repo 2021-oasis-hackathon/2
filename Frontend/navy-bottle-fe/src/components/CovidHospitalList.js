@@ -192,8 +192,8 @@ export const CovidHospitalItem = ({ hospital, phone, location }) => {
           <div>{location}</div>
         </CovidHospitalItemBoxVer>
         <Traffic>
-          {data > 66 && <Red>혼잡</Red>}
-          {data > 33 && data < 66 && <Yellow>우려</Yellow>}
+          {data >= 66 && <Red>혼잡</Red>}
+          {data >= 33 && data < 66 && <Yellow>우려</Yellow>}
           {data < 33 && <Green>원활</Green>}
         </Traffic>
         <HospitalInfo name={hospital} setData={setData} />
