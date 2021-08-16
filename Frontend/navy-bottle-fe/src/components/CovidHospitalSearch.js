@@ -164,7 +164,11 @@ const CovidHospitalSearch = ({ zoom_in }) => {
 
   return (
     <FixWrapper zoom_in={zoom_in}>
-      <CovidHospitalSearchList isSearch={isSearch} name={buttonClick1} ></CovidHospitalSearchList>
+      <CovidHospitalSearchList
+        isSearch={isSearch}
+        setIsSearch={setIsSearch}
+        name={buttonClick1}
+      ></CovidHospitalSearchList>
       <CovidHospitalSearchBodyWrapper>
         <CovidHospitalSearchBody>
           <CovidHospitalSearchTitle>최적 배정</CovidHospitalSearchTitle>

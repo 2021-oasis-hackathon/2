@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CovidHospitalItem } from './CovidHospitalList';
-import { BasicData, HospitalCurrentDataDict} from './Data/Data';
+import { BasicData, HospitalCurrentDataDict } from './Data/Data';
 import { sorted } from './logic/HospitalSort';
 
 const CovidHospitalSearchListBodyWrapper = styled.div`
@@ -10,7 +10,7 @@ const CovidHospitalSearchListBodyWrapper = styled.div`
   left: 59.53%;
   bottom: 0;
   right: 0;
-  z-index: 10;
+  z-index: 80;
   width: 17.03%;
   height: 18.07%;
 `;
@@ -45,51 +45,83 @@ const CovidHospitalSearchListBodyList = styled.div`
   }
   color: #979797;
 `;
+const CovidHospitalSearchWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 79;
+  width: 100%;
+  height: 100%;
+  :hover {
+    cursor: pointer;
+  }
+`;
 
-const CovidHospitalSearchList = ({ isSearch, name}) => {
+const CovidHospitalSearchList = ({ setIsSearch, isSearch, name }) => {
   return (
-    (isSearch && 
-      <CovidHospitalSearchListBodyWrapper>
-        <CovidHospitalSearchListBody>
-          <CovidHospitalSearchListTitle>
-            최적 배정 리스트
-          </CovidHospitalSearchListTitle>
-          {name === 'serious'&&
-          <CovidHospitalSearchListBodyList>
-            {(sorted).map((key,index) => (
-              'hospital'=== BasicData[key][4] &&
-              0 !== HospitalCurrentDataDict[key][1] + HospitalCurrentDataDict[key][3] &&
-              <CovidHospitalItem
-                hospital={key}
-                phone={BasicData[key][2]}
-                location={BasicData[key][3]}
-              />
-            ))}
-          </CovidHospitalSearchListBodyList>}
-          {name === 'mild'&&
-          <CovidHospitalSearchListBodyList>
-            {(sorted).map((key,index) => (
-              'center'=== BasicData[key][4] &&
-              0 !== HospitalCurrentDataDict[key][1] + HospitalCurrentDataDict[key][3] &&
-              <CovidHospitalItem
-                hospital={key}
-                phone={BasicData[key][2]}
-                location={BasicData[key][3]}
-              />
-            ))}
-            {(sorted).map((key,index) => (
-              'hospital'=== BasicData[key][4] &&
-              0 !== HospitalCurrentDataDict[key][1] + HospitalCurrentDataDict[key][3] &&
-              <CovidHospitalItem
-                hospital={key}
-                phone={BasicData[key][2]}
-                location={BasicData[key][3]}
-              />
-            ))}
-          </CovidHospitalSearchListBodyList>}
-        </CovidHospitalSearchListBody>
-      </CovidHospitalSearchListBodyWrapper>
-    )
+    <>
+      {isSearch && (
+        <>
+          <CovidHospitalSearchWrapper
+            onClick={(e) => setIsSearch(false)}
+          ></CovidHospitalSearchWrapper>
+          <CovidHospitalSearchListBodyWrapper>
+            <CovidHospitalSearchListBody>
+              <CovidHospitalSearchListTitle>
+                최적 배정 리스트
+              </CovidHospitalSearchListTitle>
+              {name === 'serious' && (
+                <CovidHospitalSearchListBodyList>
+                  {sorted.map(
+                    (key, index) =>
+                      'hospital' === BasicData[key][4] &&
+                      0 !==
+                        HospitalCurrentDataDict[key][1] +
+                          HospitalCurrentDataDict[key][3] && (
+                        <CovidHospitalItem
+                          hospital={key}
+                          phone={BasicData[key][2]}
+                          location={BasicData[key][3]}
+                        />
+                      )
+                  )}
+                </CovidHospitalSearchListBodyList>
+              )}
+              {name === 'mild' && (
+                <CovidHospitalSearchListBodyList>
+                  {sorted.map(
+                    (key, index) =>
+                      'center' === BasicData[key][4] &&
+                      0 !==
+                        HospitalCurrentDataDict[key][1] +
+                          HospitalCurrentDataDict[key][3] && (
+                        <CovidHospitalItem
+                          hospital={key}
+                          phone={BasicData[key][2]}
+                          location={BasicData[key][3]}
+                        />
+                      )
+                  )}
+                  {sorted.map(
+                    (key, index) =>
+                      'hospital' === BasicData[key][4] &&
+                      0 !==
+                        HospitalCurrentDataDict[key][1] +
+                          HospitalCurrentDataDict[key][3] && (
+                        <CovidHospitalItem
+                          hospital={key}
+                          phone={BasicData[key][2]}
+                          location={BasicData[key][3]}
+                        />
+                      )
+                  )}
+                </CovidHospitalSearchListBodyList>
+              )}
+            </CovidHospitalSearchListBody>
+          </CovidHospitalSearchListBodyWrapper>
+        </>
+      )}
+    </>
   );
 };
 

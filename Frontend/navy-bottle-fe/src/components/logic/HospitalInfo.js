@@ -1,7 +1,7 @@
 import React from 'react';
 import { HospitalCurrentDataDict } from '../Data/Data';
 
-const HospitalInfo = ({ name, setData,setColor}) => {
+const HospitalInfo = ({ name, setData}) => {
 
 
   const hospital_info = HospitalCurrentDataDict[name];
