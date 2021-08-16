@@ -12,7 +12,7 @@ import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 import MapInformationRender from '../components/MapInformationRender';
 import RenderInformation from '../components/RenderInformation';
 import { HospitalCurrentDataDict } from '../components/Data/Data';
-import { useLocation} from 'react-router-dom';
+import { useLocation, withRouter} from 'react-router-dom';
 
 
 const FixWrapper = styled.div`
@@ -33,7 +33,12 @@ const JeonnamCovid = () => {
   const [renderInformation, setRenderInformation] = useState('');
 
   useEffect(()=>{
-    setRenderInformation(location.state.render_hospital)
+    if(location.state === undefined){
+      setRenderInformation('')
+    }
+    else{
+      setRenderInformation(location.state.render_hospital)
+    }
   },[location])
 
 
@@ -113,4 +118,4 @@ const JeonnamCovid = () => {
   );
 };
 
-export default JeonnamCovid;
+export default withRouter(JeonnamCovid);

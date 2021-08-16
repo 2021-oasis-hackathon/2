@@ -11,8 +11,7 @@ import CovidMildPatient from '../components/CovidMildPatient';
 import RenderInformation from '../components/RenderInformation';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 import MapInformationRender from '../components/MapInformationRender';
-import { useLocation} from 'react-router-dom';
-
+import { useLocation , withRouter} from 'react-router-dom';
 import { HospitalCurrentDataDict } from '../components/Data/Data';
 
 const FixWrapper = styled.div`
@@ -32,7 +31,12 @@ const GwangjuCovid = () => {
   const [renderInformation, setRenderInformation] = useState('');
 
   useEffect(()=>{
-    setRenderInformation(location.state.render_hospital)
+    if(location.state === undefined){
+      setRenderInformation('')
+    }
+    else{
+      setRenderInformation(location.state.render_hospital)
+    }
   },[location])
 
 
@@ -110,4 +114,4 @@ const GwangjuCovid = () => {
   );
 };
 
-export default GwangjuCovid;
+export default withRouter(GwangjuCovid);
