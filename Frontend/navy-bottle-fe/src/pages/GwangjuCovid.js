@@ -11,6 +11,7 @@ import CovidMildPatient from '../components/CovidMildPatient';
 import RenderInformation from '../components/RenderInformation';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 import MapInformationRender from '../components/MapInformationRender';
+import { useLocation} from 'react-router-dom';
 
 import { HospitalCurrentDataDict } from '../components/Data/Data';
 
@@ -27,7 +28,12 @@ const FixWrapper = styled.div`
 `;
 
 const GwangjuCovid = () => {
+  let location = useLocation();
   const [renderInformation, setRenderInformation] = useState('');
+
+  useEffect(()=>{
+    setRenderInformation(location.state.render_hospital)
+  },[location])
 
 
   let zoom_in = 1 / (window.devicePixelRatio * 0.8);
