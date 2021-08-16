@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BasicData } from '../Data/Data';
+import { BasicData, HospitalCurrentDataDict } from '../Data/Data';
 
+const clonedeep = require('lodash.clonedeep');
+const HospitalList = [clonedeep(BasicData)];
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -105,7 +107,7 @@ const HospitalAdress = styled.div`
   font-weight: medium;
 `;
 
-const Hospitalimage = styled.div`
+const HospitalImageArea = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -113,6 +115,12 @@ const Hospitalimage = styled.div`
   height: 100%;
   background-color: #dddddd;
 `;
+
+const HospitalImage = styled.img`
+  position:relative;
+  width:100%;
+  height:100%;
+`
 
 const HospitalNumberWrapper = styled.div`
   position: relative;
@@ -421,6 +429,7 @@ const HospitalInformation = ({zoom_in,
   serious_bed_rate,
   mild_bed,
   mild_bed_rate,
+  hospital_names,
   setRenderInformation}) => {
 
   const modal_info = BasicData[hospital_name];
@@ -428,7 +437,6 @@ const HospitalInformation = ({zoom_in,
   const modal_left = modal_info[1];
   const phone_number = modal_info[2];
   const adress = modal_info[3];
-
   return (
     <FixWrapper zoom_in={zoom_in}>
       <HospitalInformationWrapper onClick={(e)=>{setRenderInformation('')}}/>
@@ -476,7 +484,10 @@ const HospitalInformation = ({zoom_in,
                 </HospitalNumberComponent>
               </HospitalNumberWrapper>
             </HospitalInformationBasic>
-            <Hospitalimage></Hospitalimage>
+            <HospitalImageArea>
+              {Object.keys(BasicData).map((key,index) => 
+                (phone_number === BasicData[key][2] && <HospitalImage src={BasicData[key][6]}/>))}
+            </HospitalImageArea>
           </HospitalInformationBodyTop>
 
         
