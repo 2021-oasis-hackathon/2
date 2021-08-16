@@ -139,19 +139,34 @@ const CovidRegionSelectBar = ({ zoom_in }) => {
       <HiddenCovidRegionSelectBarBodyWrapper hiddonWidth={hiddonWidth}>
         <HiddenCovidRegionSelectBarBody>
           <HiddinImgArea>
-            <Link to="/GwangjuCOVID">
+            <Link to={{
+              pathname : '/GwangjuCOVID',
+              state : {
+                render_hospital : ''
+              }
+            }}>
               <HiddenImg src={Gwangju_icon} alt="Gwangju_icon" />
             </Link>
           </HiddinImgArea>
 
           <HiddinImgArea>
-            <Link to="/JeonbukCOVID">
+            <Link to={{
+              pathname : '/JeonbukCOVID',
+              state : {
+                render_hospital : ''
+              }
+            }}>
               <HiddenImg src={Jeonbuk_icon} alt="Jeonbuk_icon" />
             </Link>
           </HiddinImgArea>
-
+          
           <HiddinImgArea>
-            <Link to="/JeonnamCOVID">
+            <Link to={{
+              pathname : '/JeonnamCOVID',
+              state : {
+                render_hospital : ''
+              }
+            }}>
               <HiddenImg src={Jeonnam_icon} alt="Jeonnam_icon" />
             </Link>
           </HiddinImgArea>

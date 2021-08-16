@@ -123,17 +123,32 @@ const MainPage = () =>{
             <MenuTitle>지역 선택</MenuTitle>
             <MenuMapArea>
               <MenuImgArea>
-                <Link to="/GwangjuCOVID">
+                <Link to={{
+                  pathname : '/GwangjuCOVID',
+                  state : {
+                    render_hospital : ''
+                  }
+                }}>
                   <MenuImg src={Gwangju_icon} alt="Gwangju_icon" width = {80} hover_width={82} onMouseEnter={(e)=>setCurrentPage('Gwangju')}></MenuImg>
                 </Link>
               </MenuImgArea>
               <MenuImgArea>
-                <Link to="/JeonbukCOVID">
+                <Link to={{
+                  pathname : '/JeonbukCOVID',
+                  state : {
+                    render_hospital : ''
+                  }
+                }}>
                   <MenuImg src={Jeonbuk_icon} alt="Jeonbuk_icon" width = {80} hover_width={82} onMouseEnter={(e)=>setCurrentPage('Jeonbuk')}></MenuImg>
                 </Link>
               </MenuImgArea>
               <MenuImgArea>
-                <Link to="/JeonnamCOVID">
+                <Link to={{
+                  pathname : '/JeonnamCOVID',
+                  state : {
+                    render_hospital : ''
+                  }
+                }}>
                   <MenuImg src={Jeonnam_icon} alt="Jeonnam_icon" width = {80} hover_width={82} onMouseEnter={(e)=>setCurrentPage('Jeonnam')}></MenuImg>
                 </Link>
               </MenuImgArea>
