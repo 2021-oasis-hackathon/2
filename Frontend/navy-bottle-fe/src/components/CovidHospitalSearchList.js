@@ -75,9 +75,7 @@ const CovidHospitalSearchList = ({ setIsSearch, isSearch, name }) => {
                   {sorted.map(
                     (key, index) =>
                       'hospital' === BasicData[key][4] &&
-                      0 !==
-                        HospitalCurrentDataDict[key][1] +
-                          HospitalCurrentDataDict[key][3] && (
+                      0 !== HospitalCurrentDataDict[key][1] && (
                         <CovidHospitalItem
                           hospital={key}
                           phone={BasicData[key][2]}
