@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import HospitalRenderComponet from './MapRender/HospitalRenderComponent';
 import MarkerRenderComponet from './MapRender/MarkerRenderComponet';
 import CenterRenderComponet from './MapRender/CenterRenderComponent';
-
+import { HospitalCurrentDataDict } from './Data/Data';
 const MapInfoDict = {'광주보훈병원':['hospital',29,53.03,24.5,57.15] , 
   '광주생활치료센터':['center',48,49.65,43.4,53.7]  ,
   '조선대병원':['hospital',47.2,72.32,42.7,76.4] ,
@@ -22,7 +22,7 @@ const MapInfoDict = {'광주보훈병원':['hospital',29,53.03,24.5,57.15] ,
 
 
 
-const MapInformationRender= ({  zoom_in, name, color, setRenderInformation}) => {
+const MapInformationRender= ({  zoom_in, name, setRenderInformation}) => {
 
   const map_info = MapInfoDict[name]
   const hospital_type = map_info[0] 
@@ -30,6 +30,9 @@ const MapInformationRender= ({  zoom_in, name, color, setRenderInformation}) => 
   const hospital_left = map_info[2]
   const marker_top = map_info[3] 
   const marker_left = map_info[4] 
+
+  const hospital_congestion=100 * (HospitalCurrentDataDict[name][0]-HospitalCurrentDataDict[name][1] + HospitalCurrentDataDict[name][2]-HospitalCurrentDataDict[name][3]) / HospitalCurrentDataDict[name][4].toFixed(0);
+
 
   return (
     <>
@@ -39,7 +42,7 @@ const MapInformationRender= ({  zoom_in, name, color, setRenderInformation}) => 
       {hospital_type==='center' &&
       <CenterRenderComponet zoom_in={zoom_in} top={hospital_top} left={hospital_left} name={name}></CenterRenderComponet>}
 
-      <MarkerRenderComponet zoom_in={zoom_in} top={marker_top} left={marker_left} color={color} setRenderInformation={setRenderInformation}  name={name}></MarkerRenderComponet>
+      <MarkerRenderComponet zoom_in={zoom_in} top={marker_top} left={marker_left} color={hospital_congestion} setRenderInformation={setRenderInformation}  name={name}></MarkerRenderComponet>
     </>
   );
 };

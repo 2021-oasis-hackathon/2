@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const TreatmentDict = {'광주생활치료센터':[37.96,32.40,'062-613-8900','광주 광산구 소촌로152번길 53-84'],
-  '김제생활치료센터':[31.01,25.86,'063-546-1366','전라북도 김제시 신풍동 487-30'],
-  '나주생활치료센터':[31.11,33.54,'061-357-9110','전라남도 나주시 다도면 신방로 255']}
+import { BasicData } from '../Data/Data';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -183,7 +180,7 @@ const TreatmentUtilizationBarRedPart = styled.div`
 
 const TreatmentInformation = ({zoom_in,hospital_name ,hospital_bed_number,percent ,setRenderInformation}) => {
 
-  const modal_info = TreatmentDict[hospital_name];
+  const modal_info = BasicData[hospital_name];
   const modal_top = modal_info[0];
   const modal_left = modal_info[1];
   const phone_number = modal_info[2];
@@ -209,7 +206,7 @@ const TreatmentInformation = ({zoom_in,hospital_name ,hospital_bed_number,percen
             <TreatmentUtilization>
               <TreatmentUtilizationTop>
                 <TreatmentUtilizationTitle>가동률</TreatmentUtilizationTitle>
-                <TreatmentUtilizationTitleDis>(가용병상 / 전체병상)</TreatmentUtilizationTitleDis>
+                <TreatmentUtilizationTitleDis>(사용병상 / 전체병상)</TreatmentUtilizationTitleDis>
               </TreatmentUtilizationTop>
               <TreatmentUtilizationBar>
                 <TreatmentUtilizationBarGrayPart>
