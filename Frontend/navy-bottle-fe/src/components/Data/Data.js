@@ -6,7 +6,7 @@ export const BasicData = {'광주보훈병원':[18.06,29.74,'062-602-6114','광�
   '군산의료원':[6,48,'063-472-5000','전라북도 군산시 수송동 의료원로 27','hospital','JeonbukCOVID','img/kunsanmed.png'],
   '전북대병원':[9.42,68.90,'062-1577-7877','전라북도 전주시 덕진구 금암2동 건지로 20','hospital','JeonbukCOVID','img/jeonbukhos.png'],
   '예수병원':[28.15,30.36,'063-230-8114','전라북도 전주시 완산구 중화산1동 서원로 365','hospital','JeonbukCOVID','img/jesushos.png'],
-  '남원의료원':[55.85,44.06,'063-620-1114','전라북도 남원시 고죽동 충정로 365','hospital','hospital','JeonbukCOVID','img/namwonmed.png'],
+  '남원의료원':[55.85,44.06,'063-620-1114','전라북도 남원시 고죽동 충정로 365','hospital','JeonbukCOVID','img/namwonmed.png'],
   '강진의료원':[38.33,64.84,'061-433-3329','전라남도 강진군 서성리 305-26','hospital','JeonnamCOVID','img/gangjinmed.png'],
   '목포시의료원':[33.98,51.04,'061-260-6500','전라남도 목포시 용해동 이로로','hospital','JeonnamCOVID','img/mokpomed.png'],
   '순천의료원':[26.20,48.65,'061-759-9114','전라남도 순천시 매곡동 서문성터길 2','hospital','JeonnamCOVID','img/suncheonmed.png'],
