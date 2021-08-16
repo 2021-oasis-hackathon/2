@@ -11,6 +11,7 @@ import CovidMildPatient from '../components/CovidMildPatient';
 import RenderInformation from '../components/RenderInformation';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 import MapInformationRender from '../components/MapInformationRender';
+
 import { HospitalCurrentDataDict } from '../components/Data/Data';
 
 const FixWrapper = styled.div`
@@ -30,7 +31,6 @@ const GwangjuCovid = () => {
 
 
   let zoom_in = 1 / (window.devicePixelRatio * 0.8);
-
 
   return (
     <div className="gwangju-covid-body-wrapper">
