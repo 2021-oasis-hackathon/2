@@ -384,6 +384,22 @@ const HospitalGraph = styled.div`
   background-color : #E7E7E7;
 `;
 
+const HospitalGraphWhite = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 100;
+  margin-right: 3px;
+  margin-left: 3px;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #979797;
+  font-size: 10.257px;
+  font-family: Noto Sans KR;
+`;
+
 const HospitalGraphbar = styled.div`
   position: relative;
   display: flex;
@@ -479,7 +495,6 @@ const HospitalInformation = ({zoom_in,
 
             <HospitalbedGraphWrapper>
 
-              {isNaN(serious_bed_rate) ||
               <HospitalbedGraphBody>
                 <HospitalbedGraphTop>
                   <HospitalbedGraphTitleWrapper>
@@ -492,14 +507,20 @@ const HospitalInformation = ({zoom_in,
                   </HospitalbedNumWrapper>
                 </HospitalbedGraphTop>
                 <HospitalGraphWrapper>
+                  {isNaN(serious_bed_rate) ||
+                <>
                   <HospitalGraphPercent color="#FF7B7B">{serious_bed_rate}%</HospitalGraphPercent>
                   <HospitalGraph><HospitalGraphbar percent = {serious_bed_rate}></HospitalGraphbar></HospitalGraph>
                   <HospitalGraphPercent color="#707070">{100-serious_bed_rate}%</HospitalGraphPercent>
+                </>}
+                  {isNaN(serious_bed_rate) && 
+                    <HospitalGraphWhite>구비된 병상 없음</HospitalGraphWhite>
+                  }
                 </HospitalGraphWrapper>
-              </HospitalbedGraphBody>}
+              </HospitalbedGraphBody>
 
 
-              {isNaN(mild_bed_rate) ||
+              
               <HospitalbedGraphBody>
                 <HospitalbedGraphTop>
                   <HospitalbedGraphTitleWrapper>
@@ -513,11 +534,14 @@ const HospitalInformation = ({zoom_in,
                   </HospitalbedNumWrapper>
                 </HospitalbedGraphTop>
                 <HospitalGraphWrapper>
-                  {isNaN(mild_bed_rate) || <HospitalGraphPercent color="#FF7B7B">{mild_bed_rate}%</HospitalGraphPercent>}
-                  {isNaN(mild_bed_rate) || <HospitalGraph><HospitalGraphbar percent = {mild_bed_rate}></HospitalGraphbar></HospitalGraph>}
-                  {isNaN(mild_bed_rate) || <HospitalGraphPercent color="#707070">{100-mild_bed_rate}%</HospitalGraphPercent>}
+                  {isNaN(mild_bed_rate) ||
+                <>
+                  <HospitalGraphPercent color="#FF7B7B">{mild_bed_rate}%</HospitalGraphPercent>
+                  <HospitalGraph><HospitalGraphbar percent = {mild_bed_rate}></HospitalGraphbar></HospitalGraph>
+                  <HospitalGraphPercent color="#707070">{100-mild_bed_rate}%</HospitalGraphPercent>
+                </>}
                 </HospitalGraphWrapper>
-              </HospitalbedGraphBody>}
+              </HospitalbedGraphBody>
 
             </HospitalbedGraphWrapper>
           </HospitalInfoBodyBottom>
