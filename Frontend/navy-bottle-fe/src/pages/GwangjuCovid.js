@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/GwangjuCovid.scss';
 import styled from 'styled-components';
 import { FixMapIMGWrapper } from '../components/fixComponent';
@@ -11,6 +11,8 @@ import CovidMildPatient from '../components/CovidMildPatient';
 import RenderInformation from '../components/RenderInformation';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 import MapInformationRender from '../components/MapInformationRender';
+
+import { HospitalCurrentDataDict } from '../components/Data/Data';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -26,6 +28,7 @@ const FixWrapper = styled.div`
 
 const GwangjuCovid = () => {
   const [renderInformation, setRenderInformation] = useState('');
+
 
   let zoom_in = 1 / (window.devicePixelRatio * 0.8);
 
@@ -44,28 +47,24 @@ const GwangjuCovid = () => {
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        color="green"
         name="광주보훈병원"
       ></MapInformationRender>
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        color="yellow"
         name="광주생활치료센터"
       ></MapInformationRender>
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        color="red"
         name="조선대병원"
       ></MapInformationRender>
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
-        color="green"
         name="빛고을전남대병원"
       ></MapInformationRender>
 
@@ -91,14 +90,14 @@ const GwangjuCovid = () => {
           setRenderInformation={setRenderInformation}
           zoom_in={zoom_in}
           hospital_name={renderInformation}
-          hospital_bed_number="53"
-          operation_rate={90}
-          hospital_worker={540}
-          hospital_congestion={17}
-          serious_bed={86}
-          mild_bed={45}
-          serious_bed_rate={86}
-          mild_bed_rate={58}
+          hospital_bed_number={HospitalCurrentDataDict[renderInformation][1]+HospitalCurrentDataDict[renderInformation][3]}
+          operation_rate={(100*(HospitalCurrentDataDict[renderInformation][0]-HospitalCurrentDataDict[renderInformation][1] + HospitalCurrentDataDict[renderInformation][2]-HospitalCurrentDataDict[renderInformation][3]) / (HospitalCurrentDataDict[renderInformation][0]+HospitalCurrentDataDict[renderInformation][2])).toFixed(0)}
+          hospital_worker={HospitalCurrentDataDict[renderInformation][4]}
+          hospital_congestion={(100 * (HospitalCurrentDataDict[renderInformation][0]-HospitalCurrentDataDict[renderInformation][1] + HospitalCurrentDataDict[renderInformation][2]-HospitalCurrentDataDict[renderInformation][3]) / HospitalCurrentDataDict[renderInformation][4]).toFixed(0)}
+          serious_bed={HospitalCurrentDataDict[renderInformation][1]}
+          mild_bed={HospitalCurrentDataDict[renderInformation][3]}
+          serious_bed_rate={(100*(HospitalCurrentDataDict[renderInformation][0]-HospitalCurrentDataDict[renderInformation][1]) / HospitalCurrentDataDict[renderInformation][0]).toFixed(0)}
+          mild_bed_rate={(100*(HospitalCurrentDataDict[renderInformation][2]-HospitalCurrentDataDict[renderInformation][3]) / HospitalCurrentDataDict[renderInformation][2]).toFixed(0)}
         ></RenderInformation>
       )}
     </div>

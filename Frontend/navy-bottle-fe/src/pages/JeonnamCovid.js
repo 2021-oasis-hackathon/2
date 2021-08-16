@@ -11,6 +11,7 @@ import CovidMildPatient from '../components/CovidMildPatient';
 import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 import MapInformationRender from '../components/MapInformationRender';
 import RenderInformation from '../components/RenderInformation';
+import { HospitalCurrentDataDict } from '../components/Data/Data';
 
 
 const FixWrapper = styled.div`
@@ -48,28 +49,24 @@ const JeonnamCovid = () => {
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="강진의료원"
-        color="green"
       />
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="목포시의료원"
-        color="yellow"
       />
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="순천의료원"
-        color="red"
       />
 
       <MapInformationRender
         setRenderInformation={setRenderInformation}
         zoom_in={zoom_in}
         name="나주생활치료센터"
-        color="red"
       />
 
       <CovidCurrentStaus
@@ -95,14 +92,15 @@ const JeonnamCovid = () => {
           setRenderInformation={setRenderInformation}
           zoom_in={zoom_in}
           hospital_name={renderInformation}
-          hospital_bed_number="53"
-          operation_rate={65}
-          hospital_worker={540}
-          hospital_congestion={17}
-          serious_bed={86}
-          mild_bed={45}
-          serious_bed_rate={86}
-          mild_bed_rate={58}
+          hospital_bed_number={HospitalCurrentDataDict[renderInformation][1]+HospitalCurrentDataDict[renderInformation][3]}
+          operation_rate={(100*(HospitalCurrentDataDict[renderInformation][0]-HospitalCurrentDataDict[renderInformation][1] + HospitalCurrentDataDict[renderInformation][2]-HospitalCurrentDataDict[renderInformation][3]) / (HospitalCurrentDataDict[renderInformation][0]+HospitalCurrentDataDict[renderInformation][2])).toFixed(0)}
+          hospital_worker={HospitalCurrentDataDict[renderInformation][4]}
+          hospital_congestion={(100 * (HospitalCurrentDataDict[renderInformation][0]-HospitalCurrentDataDict[renderInformation][1] + HospitalCurrentDataDict[renderInformation][2]-HospitalCurrentDataDict[renderInformation][3]) / HospitalCurrentDataDict[renderInformation][4]).toFixed(0)}
+          serious_bed={HospitalCurrentDataDict[renderInformation][1]}
+          mild_bed={HospitalCurrentDataDict[renderInformation][3]}
+          serious_bed_rate={(100*(HospitalCurrentDataDict[renderInformation][0]-HospitalCurrentDataDict[renderInformation][1]) / HospitalCurrentDataDict[renderInformation][0]).toFixed(0)}
+          mild_bed_rate={(100*(HospitalCurrentDataDict[renderInformation][2]-HospitalCurrentDataDict[renderInformation][3]) / HospitalCurrentDataDict[renderInformation][2]).toFixed(0)}
+
         ></RenderInformation>
       )}
     </div>

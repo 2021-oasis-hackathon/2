@@ -206,7 +206,7 @@ const TreatmentInformation = ({zoom_in,hospital_name ,hospital_bed_number,percen
             <TreatmentUtilization>
               <TreatmentUtilizationTop>
                 <TreatmentUtilizationTitle>가동률</TreatmentUtilizationTitle>
-                <TreatmentUtilizationTitleDis>(가용병상 / 전체병상)</TreatmentUtilizationTitleDis>
+                <TreatmentUtilizationTitleDis>(사용병상 / 전체병상)</TreatmentUtilizationTitleDis>
               </TreatmentUtilizationTop>
               <TreatmentUtilizationBar>
                 <TreatmentUtilizationBarGrayPart>
