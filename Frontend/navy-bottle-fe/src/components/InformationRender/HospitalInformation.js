@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BasicData } from '../Data/Data';
+import { BasicData, HospitalCurrentDataDict } from '../Data/Data';
 
+const clonedeep = require('lodash.clonedeep');
+const HospitalList = [clonedeep(BasicData)];
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -105,7 +107,7 @@ const HospitalAdress = styled.div`
   font-weight: medium;
 `;
 
-const Hospitalimage = styled.div`
+const HospitalImageArea = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -113,6 +115,12 @@ const Hospitalimage = styled.div`
   height: 100%;
   background-color: #dddddd;
 `;
+
+const HospitalImage = styled.img`
+  position:relative;
+  width:100%;
+  height:100%;
+`
 
 const HospitalNumberWrapper = styled.div`
   position: relative;
@@ -261,13 +269,14 @@ const HospitalbedGraphWrapper= styled.div`
   flex-grow: 1;
   flex-direction: column;
   margin-top: 15.78px;
+  justify-content: space-evenly;
 `;
 
 const HospitalbedGraphBody = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  margin-bottom: 20px;
 `
 const HospitalbedGraphTop = styled.div`
   position: relative;
@@ -383,6 +392,22 @@ const HospitalGraph = styled.div`
   background-color : #E7E7E7;
 `;
 
+const HospitalGraphWhite = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 100;
+  margin-right: 3px;
+  margin-left: 3px;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #979797;
+  font-size: 10.257px;
+  font-family: Noto Sans KR;
+`;
+
 const HospitalGraphbar = styled.div`
   position: relative;
   display: flex;
@@ -404,6 +429,7 @@ const HospitalInformation = ({zoom_in,
   serious_bed_rate,
   mild_bed,
   mild_bed_rate,
+  hospital_names,
   setRenderInformation}) => {
 
   const modal_info = BasicData[hospital_name];
@@ -411,7 +437,6 @@ const HospitalInformation = ({zoom_in,
   const modal_left = modal_info[1];
   const phone_number = modal_info[2];
   const adress = modal_info[3];
-
   return (
     <FixWrapper zoom_in={zoom_in}>
       <HospitalInformationWrapper onClick={(e)=>{setRenderInformation('')}}/>
@@ -459,7 +484,10 @@ const HospitalInformation = ({zoom_in,
                 </HospitalNumberComponent>
               </HospitalNumberWrapper>
             </HospitalInformationBasic>
-            <Hospitalimage></Hospitalimage>
+            <HospitalImageArea>
+              {Object.keys(BasicData).map((key,index) => 
+                (phone_number === BasicData[key][2] && <HospitalImage src={BasicData[key][6]}/>))}
+            </HospitalImageArea>
           </HospitalInformationBodyTop>
 
         
@@ -478,28 +506,32 @@ const HospitalInformation = ({zoom_in,
 
             <HospitalbedGraphWrapper>
 
-
               <HospitalbedGraphBody>
                 <HospitalbedGraphTop>
                   <HospitalbedGraphTitleWrapper>
                     <HospitalbedGraphTitle>중증전담치료병상</HospitalbedGraphTitle>
                     <HospitalbedGraphTitleDis>(코로나 환자 기준)</HospitalbedGraphTitleDis>
                   </HospitalbedGraphTitleWrapper>
-
                   <HospitalbedNumWrapper>
                     <HospitalbedNumTitle>잔여병상</HospitalbedNumTitle>
                     <HospitalbedNum>{serious_bed}</HospitalbedNum>
                   </HospitalbedNumWrapper>
                 </HospitalbedGraphTop>
                 <HospitalGraphWrapper>
-                  {isNaN(serious_bed_rate) || <HospitalGraphPercent color="#FF7B7B">{serious_bed_rate}%</HospitalGraphPercent>}
-                  {isNaN(serious_bed_rate)|| <HospitalGraph><HospitalGraphbar percent = {serious_bed_rate}></HospitalGraphbar></HospitalGraph>}
-                  {isNaN(serious_bed_rate) || <HospitalGraphPercent color="#707070">{100-serious_bed_rate}%</HospitalGraphPercent>}
+                  {isNaN(serious_bed_rate) ||
+                <>
+                  <HospitalGraphPercent color="#FF7B7B">{serious_bed_rate}%</HospitalGraphPercent>
+                  <HospitalGraph><HospitalGraphbar percent = {serious_bed_rate}></HospitalGraphbar></HospitalGraph>
+                  <HospitalGraphPercent color="#707070">{100-serious_bed_rate}%</HospitalGraphPercent>
+                </>}
+                  {isNaN(serious_bed_rate) && 
+                    <HospitalGraphWhite>구비된 병상 없음</HospitalGraphWhite>
+                  }
                 </HospitalGraphWrapper>
               </HospitalbedGraphBody>
 
 
-
+              
               <HospitalbedGraphBody>
                 <HospitalbedGraphTop>
                   <HospitalbedGraphTitleWrapper>
@@ -513,11 +545,15 @@ const HospitalInformation = ({zoom_in,
                   </HospitalbedNumWrapper>
                 </HospitalbedGraphTop>
                 <HospitalGraphWrapper>
-                  {isNaN(mild_bed_rate) || <HospitalGraphPercent color="#FF7B7B">{mild_bed_rate}%</HospitalGraphPercent>}
-                  {isNaN(mild_bed_rate) || <HospitalGraph><HospitalGraphbar percent = {mild_bed_rate}></HospitalGraphbar></HospitalGraph>}
-                  {isNaN(mild_bed_rate) || <HospitalGraphPercent color="#707070">{100-mild_bed_rate}%</HospitalGraphPercent>}
+                  {isNaN(mild_bed_rate) ||
+                <>
+                  <HospitalGraphPercent color="#FF7B7B">{mild_bed_rate}%</HospitalGraphPercent>
+                  <HospitalGraph><HospitalGraphbar percent = {mild_bed_rate}></HospitalGraphbar></HospitalGraph>
+                  <HospitalGraphPercent color="#707070">{100-mild_bed_rate}%</HospitalGraphPercent>
+                </>}
                 </HospitalGraphWrapper>
               </HospitalbedGraphBody>
+
             </HospitalbedGraphWrapper>
           </HospitalInfoBodyBottom>
 
