@@ -469,7 +469,7 @@ const HospitalInformation = ({zoom_in,
             </HospitalInformationBasic>
             <HospitalImageArea>
               {Object.keys(BasicData).map((key,index) => 
-                (phone_number === BasicData[key][2] && <HospitalImage src={BasicData[key][5]}/>))}
+                (phone_number === BasicData[key][2] && <HospitalImage src={BasicData[key][6]}/>))}
             </HospitalImageArea>
           </HospitalInformationBodyTop>
 
