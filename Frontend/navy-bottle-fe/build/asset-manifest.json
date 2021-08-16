@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/NavyBottle/static/css/main.921ac814.chunk.css",
+    "main.js": "/NavyBottle/static/js/main.80923387.chunk.js",
+    "main.js.map": "/NavyBottle/static/js/main.80923387.chunk.js.map",
+    "runtime-main.js": "/NavyBottle/static/js/runtime-main.87a3c41e.js",
+    "runtime-main.js.map": "/NavyBottle/static/js/runtime-main.87a3c41e.js.map",
+    "static/js/2.27257b59.chunk.js": "/NavyBottle/static/js/2.27257b59.chunk.js",
+    "static/js/2.27257b59.chunk.js.map": "/NavyBottle/static/js/2.27257b59.chunk.js.map",
+    "index.html": "/NavyBottle/index.html",
+    "static/css/main.921ac814.chunk.css.map": "/NavyBottle/static/css/main.921ac814.chunk.css.map",
+    "static/js/2.27257b59.chunk.js.LICENSE.txt": "/NavyBottle/static/js/2.27257b59.chunk.js.LICENSE.txt",
+    "static/media/Gwangju_covid_img.a2e6caea.jpg": "/NavyBottle/static/media/Gwangju_covid_img.a2e6caea.jpg",
+    "static/media/Gwangju_icon.014b40a1.png": "/NavyBottle/static/media/Gwangju_icon.014b40a1.png",
+    "static/media/Jeonbuk_covid_img.97629c2b.jpg": "/NavyBottle/static/media/Jeonbuk_covid_img.97629c2b.jpg",
+    "static/media/Jeonbuk_icon.c98810de.png": "/NavyBottle/static/media/Jeonbuk_icon.c98810de.png",
+    "static/media/Jeonnam_covid_img.fd69859f.jpg": "/NavyBottle/static/media/Jeonnam_covid_img.fd69859f.jpg",
+    "static/media/Jeonnam_icon.f67967af.png": "/NavyBottle/static/media/Jeonnam_icon.f67967af.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.87a3c41e.js",
+    "static/js/2.27257b59.chunk.js",
+    "static/css/main.921ac814.chunk.css",
+    "static/js/main.80923387.chunk.js"
+  ]
+}
