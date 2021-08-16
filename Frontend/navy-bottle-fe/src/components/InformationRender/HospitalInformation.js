@@ -261,13 +261,14 @@ const HospitalbedGraphWrapper= styled.div`
   flex-grow: 1;
   flex-direction: column;
   margin-top: 15.78px;
+  justify-content: space-evenly;
 `;
 
 const HospitalbedGraphBody = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  margin-bottom: 20px;
 `
 const HospitalbedGraphTop = styled.div`
   position: relative;
@@ -478,28 +479,27 @@ const HospitalInformation = ({zoom_in,
 
             <HospitalbedGraphWrapper>
 
-
+              {isNaN(serious_bed_rate) ||
               <HospitalbedGraphBody>
                 <HospitalbedGraphTop>
                   <HospitalbedGraphTitleWrapper>
                     <HospitalbedGraphTitle>중증전담치료병상</HospitalbedGraphTitle>
                     <HospitalbedGraphTitleDis>(코로나 환자 기준)</HospitalbedGraphTitleDis>
                   </HospitalbedGraphTitleWrapper>
-
                   <HospitalbedNumWrapper>
                     <HospitalbedNumTitle>잔여병상</HospitalbedNumTitle>
                     <HospitalbedNum>{serious_bed}</HospitalbedNum>
                   </HospitalbedNumWrapper>
                 </HospitalbedGraphTop>
                 <HospitalGraphWrapper>
-                  {isNaN(serious_bed_rate) || <HospitalGraphPercent color="#FF7B7B">{serious_bed_rate}%</HospitalGraphPercent>}
-                  {isNaN(serious_bed_rate)|| <HospitalGraph><HospitalGraphbar percent = {serious_bed_rate}></HospitalGraphbar></HospitalGraph>}
-                  {isNaN(serious_bed_rate) || <HospitalGraphPercent color="#707070">{100-serious_bed_rate}%</HospitalGraphPercent>}
+                  <HospitalGraphPercent color="#FF7B7B">{serious_bed_rate}%</HospitalGraphPercent>
+                  <HospitalGraph><HospitalGraphbar percent = {serious_bed_rate}></HospitalGraphbar></HospitalGraph>
+                  <HospitalGraphPercent color="#707070">{100-serious_bed_rate}%</HospitalGraphPercent>
                 </HospitalGraphWrapper>
-              </HospitalbedGraphBody>
+              </HospitalbedGraphBody>}
 
 
-
+              {isNaN(mild_bed_rate) ||
               <HospitalbedGraphBody>
                 <HospitalbedGraphTop>
                   <HospitalbedGraphTitleWrapper>
@@ -517,7 +517,8 @@ const HospitalInformation = ({zoom_in,
                   {isNaN(mild_bed_rate) || <HospitalGraph><HospitalGraphbar percent = {mild_bed_rate}></HospitalGraphbar></HospitalGraph>}
                   {isNaN(mild_bed_rate) || <HospitalGraphPercent color="#707070">{100-mild_bed_rate}%</HospitalGraphPercent>}
                 </HospitalGraphWrapper>
-              </HospitalbedGraphBody>
+              </HospitalbedGraphBody>}
+
             </HospitalbedGraphWrapper>
           </HospitalInfoBodyBottom>
 
