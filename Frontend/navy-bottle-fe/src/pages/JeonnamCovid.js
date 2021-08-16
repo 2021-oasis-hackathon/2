@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import '../styles/JeonnamCovid.scss';
 import styled from 'styled-components';
 import { FixMapIMGWrapper } from '../components/fixComponent';
@@ -12,6 +12,7 @@ import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 import MapInformationRender from '../components/MapInformationRender';
 import RenderInformation from '../components/RenderInformation';
 import { HospitalCurrentDataDict } from '../components/Data/Data';
+import { useLocation, withRouter} from 'react-router-dom';
 
 
 const FixWrapper = styled.div`
@@ -28,7 +29,18 @@ const FixWrapper = styled.div`
 
 const JeonnamCovid = () => {
 
+  let location = useLocation();
   const [renderInformation, setRenderInformation] = useState('');
+
+  useEffect(()=>{
+    if(location.state === undefined){
+      setRenderInformation('')
+    }
+    else{
+      setRenderInformation(location.state.render_hospital)
+    }
+  },[location])
+
 
   let zoom_in = 1 / (window.devicePixelRatio * 0.8);
 
@@ -100,11 +112,10 @@ const JeonnamCovid = () => {
           mild_bed={HospitalCurrentDataDict[renderInformation][3]}
           serious_bed_rate={(100*(HospitalCurrentDataDict[renderInformation][0]-HospitalCurrentDataDict[renderInformation][1]) / HospitalCurrentDataDict[renderInformation][0]).toFixed(0)}
           mild_bed_rate={(100*(HospitalCurrentDataDict[renderInformation][2]-HospitalCurrentDataDict[renderInformation][3]) / HospitalCurrentDataDict[renderInformation][2]).toFixed(0)}
-
         ></RenderInformation>
       )}
     </div>
   );
 };
 
-export default JeonnamCovid;
+export default withRouter(JeonnamCovid);

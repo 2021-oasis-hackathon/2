@@ -9,9 +9,9 @@ const App = () =>{
   return(
     <div className = "App">
       <Route exact component={MainPage} path="/"/>
-      <Route component={Jeonbuk} path="/JeonbukCOVID"/>
-      <Route component={Jeonnam} path="/JeonnamCOVID"/>
-      <Route component={Gwangju} path="/GwangjuCOVID"/>
+      <Route component={Jeonbuk} path="/JeonbukCOVID" render={props => <Jeonbuk {...props}/>}/>
+      <Route component={Jeonnam} path="/JeonnamCOVID" render={props => <Jeonnam {...props}/>}/>
+      <Route component={Gwangju} path="/GwangjuCOVID" render={props => <Gwangju {...props}/>}/>
     </div>
   )
 }

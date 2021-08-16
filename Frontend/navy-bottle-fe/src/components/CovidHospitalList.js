@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import HospitalInfo from './logic/HospitalInfo';
 import { BasicData  ,HospitalCurrentDataDict} from './Data/Data';
 import { sorted } from './logic/HospitalSort';
+import { Link } from 'react-router-dom';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -69,22 +70,25 @@ const CovidHospitalItemBoxVer = styled.div`
   flex-grow: 1;
   margin-left: 10px;
   line-height: 12px;
+  color: #979797;
 `;
 
 const CovidHospitalItemBox = styled.div`
   font-family: 'Noto Sans KR', sans-serif;
   flex-direction: row;
   font-size: 8px;
-  margin-right: 15px;
-  margin-left: 15px;
-  height: 60px;
+  height: 100%;
+  width: 100%;
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 5px;
   opacity: 1;
-  margin-top: 11.2px;
   display: flex;
   justify-content: space-between;
+
+  :hover{
+    cursor: pointer;
+  }
 `;
 
 const Traffic = styled.div`
@@ -176,29 +180,59 @@ const Green = styled.div`
   color: #7cdfae;
 `;
 
+
+const LinkWrapper = styled.div`
+font-family: 'Noto Sans KR', sans-serif;
+  flex-direction: row;
+  font-size: 8px;
+  margin-right: 15px;
+  margin-left: 15px;
+  height: 60px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 5px;
+  opacity: 1;
+  margin-top: 11.2px;
+  display: flex;
+  justify-content: space-between;
+
+  :hover{
+    cursor: pointer;
+  }
+`;
+
 export const CovidHospitalItem = ({ hospital, phone, location }) => {
   const [data, setData] = useState('');
 
+  const hospital_url = BasicData[hospital][5];
+
   return (
-    <div>
-      <CovidHospitalItemBox>
-        <CovidHospitalItemBoxVer>
-          <CovidHospitalItemBoxHor>
-            <CovidHospitalItemTitle>
-              <div>{hospital}</div>
-            </CovidHospitalItemTitle>
-            <div>{phone}</div>
-          </CovidHospitalItemBoxHor>
-          <div>{location}</div>
-        </CovidHospitalItemBoxVer>
-        <Traffic>
-          {data >= 66 && <Red>혼잡</Red>}
-          {data >= 33 && data < 66 && <Yellow>우려</Yellow>}
-          {data < 33 && <Green>원활</Green>}
-        </Traffic>
-        <HospitalInfo name={hospital} setData={setData} />
-      </CovidHospitalItemBox>
-    </div>
+    <LinkWrapper>
+      <Link to={{
+        pathname : `/${hospital_url}`,
+        state : {
+          render_hospital : hospital
+        }
+      }}>
+        <CovidHospitalItemBox>
+          <CovidHospitalItemBoxVer>
+            <CovidHospitalItemBoxHor>
+              <CovidHospitalItemTitle>
+                <div>{hospital}</div>
+              </CovidHospitalItemTitle>
+              <div>{phone}</div>
+            </CovidHospitalItemBoxHor>
+            <div>{location}</div>
+          </CovidHospitalItemBoxVer>
+          <Traffic>
+            {data >= 66 && <Red>혼잡</Red>}
+            {data >= 33 && data < 66 && <Yellow>우려</Yellow>}
+            {data < 33 && <Green>원활</Green>}
+          </Traffic>
+          <HospitalInfo name={hospital} setData={setData} />
+        </CovidHospitalItemBox>
+      </Link>
+    </LinkWrapper>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import '../styles/JeonbukCovid.scss';
 import styled from 'styled-components';
 import { FixMapIMGWrapper } from '../components/fixComponent';
@@ -12,6 +12,7 @@ import CovidRegionSelectBar from '../components/CovidRegionSelectBar';
 import MapInformationRender from '../components/MapInformationRender';
 import RenderInformation from '../components/RenderInformation';
 import { HospitalCurrentDataDict } from '../components/Data/Data';
+import { useLocation, withRouter} from 'react-router-dom';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -27,7 +28,17 @@ const FixWrapper = styled.div`
 
 const JeonbukCovid = () => {
 
+  let location = useLocation();
   const [renderInformation, setRenderInformation] = useState('');
+
+  useEffect(()=>{
+    if(location.state === undefined){
+      setRenderInformation('')
+    }
+    else{
+      setRenderInformation(location.state.render_hospital)
+    }
+  },[location])
 
   let zoom_in = 1 / (window.devicePixelRatio * 0.8);
 
@@ -116,4 +127,4 @@ const JeonbukCovid = () => {
   );
 };
 
-export default JeonbukCovid;
+export default withRouter(JeonbukCovid);
