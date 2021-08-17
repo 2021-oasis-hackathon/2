@@ -11,6 +11,8 @@ class CovidData(models.Model):
     confirmed_increase = models.CharField(max_length=128, null=False)
     quarantine = models.CharField(max_length=128, null=False)
     dead = models.CharField(max_length=128, null=False)
+    quarantine_increase = models.CharField(max_length=128, null=False)
+    dead_increase = models.CharField(max_length=128, null=False)
 
     class Meta:
         db_table = "CovidData"

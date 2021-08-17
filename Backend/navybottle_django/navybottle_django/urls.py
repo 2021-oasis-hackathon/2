@@ -22,5 +22,4 @@ from rest_framework import routers
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('covid/', include('api_covid.urls'), name='api_covid'),  # include 함수를 통해 api_usr의 urls.py로 라우팅 해준다.
-    path('covid/doc',get_swagger_view(title='Rest API Document'))
 ]
