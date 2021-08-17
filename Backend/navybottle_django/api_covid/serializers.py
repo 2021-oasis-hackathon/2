@@ -1,8 +1,7 @@
-from rest_framework import serializers
 from .models import CovidData
+from rest_framework import serializers
 
-
-class UserSerializer(serializers.ModelSerializer):
+class CovidDataserializers(serializers.ModelSerializer):
     class Meta:
         model = CovidData
         fields = '__all__'
