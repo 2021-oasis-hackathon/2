@@ -133,5 +133,5 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRONJOBS = [
-    ('*/5 * * * *','/srv/NavyBottle/Backend/navybottle_django/covid_pipeline.GetData','>> /tmp/log/ggbc_cron.log')
+    ('*/5 * * * *','/srv/NavyBottle/Backend/navybottle_django/covid_pipeline.GetData')
 ]
