@@ -170,6 +170,10 @@ const CovidHospitalListButtonMild = styled.button`
   }
 `;
 
+const CovidHospitalListTime = styled.text`
+  color:#FF7B7B;
+`
+
 const Red = styled.div`
   color: #ff7b7b;
 `;
@@ -201,7 +205,7 @@ font-family: 'Noto Sans KR', sans-serif;
   }
 `;
 
-export const CovidHospitalItem = ({ hospital, phone, location }) => {
+export const CovidHospitalItem = ({ hospital, phone, location,isTime=false,time }) => {
   const [data, setData] = useState('');
 
   const hospital_url = BasicData[hospital][5];
@@ -223,6 +227,8 @@ export const CovidHospitalItem = ({ hospital, phone, location }) => {
               <div>{phone}</div>
             </CovidHospitalItemBoxHor>
             <div>{location}</div>
+            {isTime && <div>소요시간{'  '}
+              <CovidHospitalListTime>{time}분</CovidHospitalListTime></div>}
           </CovidHospitalItemBoxVer>
           <Traffic>
             {data >= 66 && <Red>혼잡</Red>}

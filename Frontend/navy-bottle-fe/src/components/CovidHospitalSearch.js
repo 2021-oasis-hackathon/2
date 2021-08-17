@@ -151,14 +151,14 @@ const CovidHospitalSearch = ({ zoom_in }) => {
     if (buttonClick === 'serious') {
       setSeriousBackground('#bbbbbb');
       setMildBackground('#EAEAEA');
-      setIsSearch(true);
       setButtonClick1('serious');
+      setIsSearch(true);
     }
     if (buttonClick === 'mild') {
       setSeriousBackground('#EAEAEA');
       setMildBackground('#bbbbbb');
-      setIsSearch(true);
       setButtonClick1('mild');
+      setIsSearch(true);
     }
   }, [buttonClick]);
 

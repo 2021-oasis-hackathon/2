@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import { CovidHospitalItem } from './CovidHospitalList';
 import { BasicData, HospitalCurrentDataDict } from './Data/Data';
@@ -58,6 +58,7 @@ const CovidHospitalSearchWrapper = styled.div`
 `;
 
 const CovidHospitalSearchList = ({ setIsSearch, isSearch, name }) => {
+
   return (
     <>
       {isSearch && (
@@ -80,6 +81,7 @@ const CovidHospitalSearchList = ({ setIsSearch, isSearch, name }) => {
                           hospital={key}
                           phone={BasicData[key][2]}
                           location={BasicData[key][3]}
+                          isTime={true}
                         />
                       )
                   )}
@@ -97,6 +99,7 @@ const CovidHospitalSearchList = ({ setIsSearch, isSearch, name }) => {
                           hospital={key}
                           phone={BasicData[key][2]}
                           location={BasicData[key][3]}
+                          isTime={true}
                         />
                       )
                   )}
@@ -110,6 +113,7 @@ const CovidHospitalSearchList = ({ setIsSearch, isSearch, name }) => {
                           hospital={key}
                           phone={BasicData[key][2]}
                           location={BasicData[key][3]}
+                          isTime={true}
                         />
                       )
                   )}
