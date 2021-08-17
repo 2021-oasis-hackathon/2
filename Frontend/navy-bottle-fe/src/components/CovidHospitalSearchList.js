@@ -57,7 +57,7 @@ const CovidHospitalSearchWrapper = styled.div`
   }
 `;
 
-const CovidHospitalSearchList = ({ setIsSearch, isSearch, name }) => {
+const CovidHospitalSearchList = ({ setIsSearch, isSearch, name, time }) => {
 
   return (
     <>
@@ -82,6 +82,7 @@ const CovidHospitalSearchList = ({ setIsSearch, isSearch, name }) => {
                           phone={BasicData[key][2]}
                           location={BasicData[key][3]}
                           isTime={true}
+                          time = {time}
                         />
                       )
                   )}
@@ -100,6 +101,7 @@ const CovidHospitalSearchList = ({ setIsSearch, isSearch, name }) => {
                           phone={BasicData[key][2]}
                           location={BasicData[key][3]}
                           isTime={true}
+                          time = {time}
                         />
                       )
                   )}
@@ -114,6 +116,7 @@ const CovidHospitalSearchList = ({ setIsSearch, isSearch, name }) => {
                           phone={BasicData[key][2]}
                           location={BasicData[key][3]}
                           isTime={true}
+                          time = {time}
                         />
                       )
                   )}

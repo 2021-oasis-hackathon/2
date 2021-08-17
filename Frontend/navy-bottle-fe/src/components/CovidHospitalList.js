@@ -16,7 +16,7 @@ const FixWrapper = styled.div`
     padding-top: 864px;
   }
 `;
-
+ 
 const CovidHospitalListBodyWrapper = styled.div`
   position: absolute;
   top: 50.09%;

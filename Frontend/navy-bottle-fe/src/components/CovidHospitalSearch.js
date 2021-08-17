@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { AiOutlineSearch } from 'react-icons/ai';
 import CovidHospitalSearchList from './CovidHospitalSearchList';
+import GoogleMap from './logic/Geo';
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -137,6 +138,15 @@ const CovidHospitalSearch = ({ zoom_in }) => {
   const [mildBackground, setMildBackground] = useState('#EAEAEA');
   const [isSearch, setIsSearch] = useState(false);
   const [buttonClick1, setButtonClick1] = useState('');
+  const [Geom, setGeom] = useState({});
+
+  const handleChange = async (props) => {
+    const currentAddr = document.getElementById('address').value;
+    if (currentAddr) {
+      const { lat, lng } = await GoogleMap(currentAddr);
+      setGeom({ lat: lat, lng: lng });
+    }
+  };
 
   const selectButton = (e) => {
     if (e.target.value === 'serious') {
@@ -168,10 +178,14 @@ const CovidHospitalSearch = ({ zoom_in }) => {
         isSearch={isSearch}
         setIsSearch={setIsSearch}
         name={buttonClick1}
+        time={Geom[0]}
       ></CovidHospitalSearchList>
       <CovidHospitalSearchBodyWrapper>
         <CovidHospitalSearchBody>
-          <CovidHospitalSearchTitle>최적 배정</CovidHospitalSearchTitle>
+          <CovidHospitalSearchTitle>
+            최적 배정
+            <GoogleMap />
+          </CovidHospitalSearchTitle>
           <CovidHospitalSearchButtonArea>
             <CovidHospitalSearchButtonSerious
               onClick={(e) => selectButton(e)}
@@ -190,7 +204,7 @@ const CovidHospitalSearch = ({ zoom_in }) => {
           </CovidHospitalSearchButtonArea>
           <CovidHospitalSearchAdressArea>
             <CovidHospitalSearchInput />
-            <AiOutlineSearch />
+            <AiOutlineSearch id="address" onChange={handleChange} />
           </CovidHospitalSearchAdressArea>
         </CovidHospitalSearchBody>
       </CovidHospitalSearchBodyWrapper>
