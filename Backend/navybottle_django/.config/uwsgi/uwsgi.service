@@ -1,0 +1,15 @@
+[Unit]
+Description=uWSGI service
+After=syslog.target
+
+[Service]
+ExecStart=/home/ubuntu/myvenv/bin/uwsgi -i /srv/NavyBottle/Backend/navybottle_django/.config/uwsgi/navybottle_django.ini
+
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
