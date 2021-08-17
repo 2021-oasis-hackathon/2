@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api_covid',
     'rest_framework_swagger',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRONJOBS = [
+    ('0 */1 * * *','navybottle_django.covid_pipeline.GetData')
+]

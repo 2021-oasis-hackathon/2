@@ -5,10 +5,9 @@ from .models import CovidData
 from rest_framework import status
 
 
-class UserView(APIView):
+class CovidDataView(APIView):
     """
     GET /covid
-    GET /covid/{locaton}
     """
     def get(self, request):
         covid_queryset = CovidData.objects.all()
