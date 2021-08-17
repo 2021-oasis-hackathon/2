@@ -97,7 +97,9 @@ const CovidCurrentStaus = ({
   const [infect ,setInfect] = useState('')
   const [infectplus ,setInfectplus] = useState('')
   const [wait , setWait] = useState('')
+  const [waiInc , setWaitInc] = useState('')
   const [cure ,setCure] = useState('')
+  const [cureInc , setCureInc] = useState('')
   const city_dict = {'Gwangju' : '광주' ,'Jeonbuk':'전북','Jeonnam':'전남'}
   const getcovid_url = '/covid/';
 
@@ -122,6 +124,8 @@ const CovidCurrentStaus = ({
           setInfectplus(covid_data[i]['confirmed_increase']);
           setWait( covid_data[i]['quarantine']);
           setCure(covid_data[i]['dead']);
+          setWaitInc(covid_data[i]['quarantine_increase'])
+          setCureInc(covid_data[i]['dead_increase'])
         }
       }
     }
@@ -155,14 +159,14 @@ const CovidCurrentStaus = ({
               <CovidCurrentStausText>격리중</CovidCurrentStausText>
               <CovidCurrentStausData>{wait}</CovidCurrentStausData>
               <CovidCurrentStausIncrease>
-                (+5)
+                (+{waiInc})
               </CovidCurrentStausIncrease>
             </CovidCurrentStausVertical>
             <CovidCurrentStausVertical>
               <CovidCurrentStausText>사망자</CovidCurrentStausText>
               <CovidCurrentStausData>{cure}</CovidCurrentStausData>
               <CovidCurrentStausIncrease>
-                (+4)
+                (+{cureInc})
               </CovidCurrentStausIncrease>
             </CovidCurrentStausVertical>
           </CovidCurrentStausHorizontal>
