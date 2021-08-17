@@ -1,6 +1,6 @@
 import Geocode from 'react-geocode';
 
-Geocode.setApiKey('AIzaSyDiWOX-yDB2gsMLyidfJY2OExa8_uq6MAY');
+Geocode.setApiKey('');
 Geocode.setLanguage('ko');
 Geocode.setRegion('ko');
 Geocode.enableDebug();
