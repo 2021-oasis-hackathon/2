@@ -178,7 +178,7 @@ const CovidHospitalSearch = ({ zoom_in }) => {
               background={seriousBackground}
               value="serious"
             >
-              위중/중증상 환자
+              위중/중증 환자
             </CovidHospitalSearchButtonSerious>
             <CovidHospitalSearchButtonMild
               onClick={(e) => selectButton(e)}
