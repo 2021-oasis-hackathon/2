@@ -76,7 +76,11 @@ def GetData():
 
             for index , k in enumerate( covid_info ):
                 if(k[0] == i['gubun']):
-                    covid_info[index][6] = str(int(covid_info[index][6]) - int(yesterday_quarantine_increase))
+                    k = (int(covid_info[index][6]) - int(yesterday_quarantine_increase))
+                    if(k>0):
+                        covid_info[index][6] = '+' + str(k)
+                    else:
+                        covid_info[index][6] = str(k)
                     covid_info[index][7] = str(int(covid_info[index][7]) - int(yesterday_dead_increase))
 
 
