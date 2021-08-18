@@ -3,6 +3,21 @@
 
 # 🚑🚑 Pandaemic Manager 🚑🚑 
 
+
+## 🏥 How to start:
+
+### 🏥 Frontend:
+Pandaemic Manager의 Frontend code 최종 완성본은 develop branch에 있다.   
+다음은 frontend file 실행 순서이다. 
+
+1. Node.js v14.17.4 / yarn 1.22.11v 을 다운 받는다.
+2. github에서 pull을 받고 develop 브랜치로 이동한다. 
+3. root folder에서 다음과 같은 명령어를 입력한다.
+    ~~~
+    cd NavyBottle/Frontend/navy-bottle-fe
+    ~~~
+
+
 ## 🏥 Project Background:
   ~~~ 
   2020.01.20 
