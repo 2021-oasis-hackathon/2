@@ -59,7 +59,7 @@ const CovidSeriousPatient = ({ zoom_in, sick }) => {
     <FixWrapper zoom_in={zoom_in}>
       <CovidSeriousPatientBodyWrapper>
         <CovidSeriousPatientBody>
-          <CovidSeriousPatientTitle>위증/중증상 환자</CovidSeriousPatientTitle>
+          <CovidSeriousPatientTitle>위증/중증 <br></br> 환자</CovidSeriousPatientTitle>
           <CovidSeriousPatientData>{sick}</CovidSeriousPatientData>
         </CovidSeriousPatientBody>
       </CovidSeriousPatientBodyWrapper>
