@@ -159,7 +159,7 @@ const CovidCurrentStaus = ({
               <CovidCurrentStausText>격리중</CovidCurrentStausText>
               <CovidCurrentStausData>{wait}</CovidCurrentStausData>
               <CovidCurrentStausIncrease>
-                (+{waiInc})
+                ({waiInc})
               </CovidCurrentStausIncrease>
             </CovidCurrentStausVertical>
             <CovidCurrentStausVertical>
