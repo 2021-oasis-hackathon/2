@@ -93,13 +93,13 @@ const CovidCurrentStaus = ({
   zoom_in,
 }) => {
 
-  const [date , setDate] = useState('')
-  const [infect ,setInfect] = useState('')
-  const [infectplus ,setInfectplus] = useState('')
-  const [wait , setWait] = useState('')
-  const [waiInc , setWaitInc] = useState('')
-  const [cure ,setCure] = useState('')
-  const [cureInc , setCureInc] = useState('')
+  const [date , setDate] = useState('2021년 08월 17일 00시')
+  const [infect ,setInfect] = useState('3727')
+  const [infectplus ,setInfectplus] = useState('18')
+  const [wait , setWait] = useState('227')
+  const [waiInc , setWaitInc] = useState('-11')
+  const [cure ,setCure] = useState('24')
+  const [cureInc , setCureInc] = useState('0')
   const city_dict = {'Gwangju' : '광주' ,'Jeonbuk':'전북','Jeonnam':'전남'}
   const getcovid_url = '/covid/';
 
@@ -159,7 +159,7 @@ const CovidCurrentStaus = ({
               <CovidCurrentStausText>격리중</CovidCurrentStausText>
               <CovidCurrentStausData>{wait}</CovidCurrentStausData>
               <CovidCurrentStausIncrease>
-                (+{waiInc})
+                ({waiInc})
               </CovidCurrentStausIncrease>
             </CovidCurrentStausVertical>
             <CovidCurrentStausVertical>
