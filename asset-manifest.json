@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/NavyBottle/static/css/main.c55651f8.chunk.css",
-    "main.js": "/NavyBottle/static/js/main.3f1dc52f.chunk.js",
-    "main.js.map": "/NavyBottle/static/js/main.3f1dc52f.chunk.js.map",
+    "main.js": "/NavyBottle/static/js/main.aef09668.chunk.js",
+    "main.js.map": "/NavyBottle/static/js/main.aef09668.chunk.js.map",
     "runtime-main.js": "/NavyBottle/static/js/runtime-main.87a3c41e.js",
     "runtime-main.js.map": "/NavyBottle/static/js/runtime-main.87a3c41e.js.map",
-    "static/js/2.d0c8e2ff.chunk.js": "/NavyBottle/static/js/2.d0c8e2ff.chunk.js",
-    "static/js/2.d0c8e2ff.chunk.js.map": "/NavyBottle/static/js/2.d0c8e2ff.chunk.js.map",
+    "static/js/2.55e4e8a3.chunk.js": "/NavyBottle/static/js/2.55e4e8a3.chunk.js",
+    "static/js/2.55e4e8a3.chunk.js.map": "/NavyBottle/static/js/2.55e4e8a3.chunk.js.map",
     "index.html": "/NavyBottle/index.html",
     "static/css/main.c55651f8.chunk.css.map": "/NavyBottle/static/css/main.c55651f8.chunk.css.map",
-    "static/js/2.d0c8e2ff.chunk.js.LICENSE.txt": "/NavyBottle/static/js/2.d0c8e2ff.chunk.js.LICENSE.txt",
+    "static/js/2.55e4e8a3.chunk.js.LICENSE.txt": "/NavyBottle/static/js/2.55e4e8a3.chunk.js.LICENSE.txt",
     "static/media/Gwangju_covid_img.a2e6caea.jpg": "/NavyBottle/static/media/Gwangju_covid_img.a2e6caea.jpg",
     "static/media/Gwangju_icon.014b40a1.png": "/NavyBottle/static/media/Gwangju_icon.014b40a1.png",
     "static/media/Jeonbuk_covid_img.97629c2b.jpg": "/NavyBottle/static/media/Jeonbuk_covid_img.97629c2b.jpg",
@@ -19,8 +19,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.87a3c41e.js",
-    "static/js/2.d0c8e2ff.chunk.js",
+    "static/js/2.55e4e8a3.chunk.js",
     "static/css/main.c55651f8.chunk.css",
-    "static/js/main.3f1dc52f.chunk.js"
+    "static/js/main.aef09668.chunk.js"
   ]
 }
