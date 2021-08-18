@@ -101,7 +101,7 @@ const CovidCurrentStaus = ({
   const [cure ,setCure] = useState('')
   const [cureInc , setCureInc] = useState('')
   const city_dict = {'Gwangju' : '광주' ,'Jeonbuk':'전북','Jeonnam':'전남'}
-  const getcovid_url = '/covid/';
+  const getcovid_url = 'http://ec2-15-165-19-108.ap-northeast-2.compute.amazonaws.com/covid/';
 
   let [covid_data,setCovid_data] = useState([])
 
