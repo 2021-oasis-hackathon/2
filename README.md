@@ -12,11 +12,13 @@ Pandaemic Manager의 Frontend code 최종 완성본은 develop branch에 있다.
 
 1. Node.js v14.17.4 / yarn 1.22.11v 을 다운 받는다.
 2. github에서 pull을 받고 develop 브랜치로 이동한다. 
-3. root folder에서 다음과 같은 명령어를 입력한다.
+3. root folder에서 다음과 같은 명령어를 순서대로 입력한다.
     ~~~
-    cd NavyBottle/Frontend/navy-bottle-fe
+    $ cd NavyBottle/Frontend/navy-bottle-fe
+    $ yarn 
+    $ yarn start 
     ~~~
-
+4. "localhost:3000/"을 chrome url창에 입력하여 웹 페이지를 확인할 수 있다 
 
 ## 🏥 Project Background:
   ~~~ 
