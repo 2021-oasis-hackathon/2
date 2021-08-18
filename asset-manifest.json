@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/NavyBottle/static/css/main.c55651f8.chunk.css",
-    "main.js": "/NavyBottle/static/js/main.aef09668.chunk.js",
-    "main.js.map": "/NavyBottle/static/js/main.aef09668.chunk.js.map",
+    "main.js": "/NavyBottle/static/js/main.d2f6e710.chunk.js",
+    "main.js.map": "/NavyBottle/static/js/main.d2f6e710.chunk.js.map",
     "runtime-main.js": "/NavyBottle/static/js/runtime-main.87a3c41e.js",
     "runtime-main.js.map": "/NavyBottle/static/js/runtime-main.87a3c41e.js.map",
     "static/js/2.55e4e8a3.chunk.js": "/NavyBottle/static/js/2.55e4e8a3.chunk.js",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.87a3c41e.js",
     "static/js/2.55e4e8a3.chunk.js",
     "static/css/main.c55651f8.chunk.css",
-    "static/js/main.aef09668.chunk.js"
+    "static/js/main.d2f6e710.chunk.js"
   ]
 }
