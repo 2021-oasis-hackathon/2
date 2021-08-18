@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Gwangju_icon from '../img/Region_Main_icon/Gwangju_icon.png';
-import Jeonbuk_icon from '../img/Region_Main_icon/Jeonbuk_icon.png';
-import Jeonnam_icon from '../img/Region_Main_icon/Jeonnam_icon.png';
+import Gwangju_icon from '../img/Region_icon/Gwangju_icon.png';
+import Jeonbuk_icon from '../img/Region_icon/Jeonbuk_icon.png';
+import Jeonnam_icon from '../img/Region_icon/Jeonnam_icon.png';
 import { Link } from 'react-router-dom';
 import { AiOutlineLeft } from 'react-icons/ai';
 
