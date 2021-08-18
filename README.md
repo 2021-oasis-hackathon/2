@@ -6,7 +6,10 @@
 
 ## 🏥 How to start:
 
-### 🏥 Frontend:
+  - Browser compatibility: 
+    ⚠️⚠️⚠️ We suggest using Chrome as fullscreen [F11] ⚠️⚠️⚠️
+
+### Frontend:
 Pandaemic Manager의 Frontend code 최종 완성본은 develop branch에 있다.   
 다음은 frontend file 실행 순서이다. 
 
@@ -19,6 +22,53 @@ Pandaemic Manager의 Frontend code 최종 완성본은 develop branch에 있다.
     $ yarn start 
     ~~~
 4. "localhost:3000/"을 chrome url창에 입력하여 웹 페이지를 확인할 수 있다 
+
+
+### Backend:
+Pandaemic Manager의 Backend code 최종 완성본은 develop-backend branch에 있다.   
+
+backend의 경우 aws EC2 linux server와 nginx uwsgi 이용해서 배포하였다. 
+
+<details>
+<summary>서버가 보내는 정보를 확인하는 방법은 다음과 같다.</summary>
+<div markdown="1">
+
+    1. PostMan을 다운 받는다.
+    2. Get Method를 이용해서 http://ec2-15-165-19-108.ap-northeast-2.compute.amazonaws.com/covid/ 요청을 보낸다
+    3. Json 파일이 오는지 확인한다.
+
+</div>
+</details>
+
+
+<details>
+<summary>Local에서 Backend를 돌리는 방법</summary>
+<div markdown="1">
+    
+#### Local에서 돌리기 전에 안내사항   
+- Local에는 Nginx , uwsgi와 같은 배포 툴이 설치 되어있지 않으며 공공기관 API를 받아오는 python 파일은 구축되어 있지만 이를 주기적으로 실행시키는 Crontab 매크로가 설정되어 있지 않다.
+
+#### Local에서 Backend를 돌리는 방법
+1. git clone을 이용해서 코드를 받아온 후에 git checkout develop-backend 브랜치로 들어간다.
+2. 루트 폴더에서 NavyBottle/Backend/navybottle_django 의 requestments.txt를 이용해서 python 가상환경을 설치한다.
+3. 가상환경을 실행하고 NavyBottle/Backend/navybottle_django 위치에서 다음 코드를 입력한다.
+
+    ~~~
+    python manage.py makemigrations
+    python manage.py migrate
+    ~~~
+
+4. DB가 성공적으로 migration 되었으면 NavyBottle/Backend/navybottle_django/covid_pipline.py를 실행한다 (linux server에서는 crontab을 이용해서 이 과정이 30분에 한 번씩 일어난다)
+5. 성공적으로 파일이 실행 되면 다음과 같은 명령어를 입력하여 dJango서버를 실행한다
+    ~~~
+    python manage.py runserver
+    ~~~
+6. localhost:[포트 번호]/covid/ 의 Rest API를 postman에서 제대로 정보가 보내지는지 확인한다     
+    
+
+</div>
+</details>
+
 
 ## 🏥 Project Background:
   ~~~ 
@@ -91,6 +141,4 @@ Pandaemic Manager의 Frontend code 최종 완성본은 develop branch에 있다.
     
     More: using resftul API from Google Map & 공공데이터 포털
     
-  - Browser compatibility: 
-    ⚠️⚠️⚠️ We suggest using Chrome as fullscreen [F11] ⚠️⚠️⚠️
     
