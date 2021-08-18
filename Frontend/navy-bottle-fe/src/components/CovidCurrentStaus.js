@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios'
 
 const FixWrapper = styled.div`
   position: absolute;
@@ -90,14 +91,46 @@ const CovidCurrentStausHorizontal = styled.div`
 const CovidCurrentStaus = ({
   city,
   zoom_in,
-  date,
-  infect,
-  infectplus,
-  wait,
-  waitplus,
-  cure,
-  cureplus,
 }) => {
+
+  const [date , setDate] = useState('')
+  const [infect ,setInfect] = useState('')
+  const [infectplus ,setInfectplus] = useState('')
+  const [wait , setWait] = useState('')
+  const [waiInc , setWaitInc] = useState('')
+  const [cure ,setCure] = useState('')
+  const [cureInc , setCureInc] = useState('')
+  const city_dict = {'Gwangju' : '광주' ,'Jeonbuk':'전북','Jeonnam':'전남'}
+  const getcovid_url = '/covid/';
+
+  let [covid_data,setCovid_data] = useState([])
+
+  axios.get(getcovid_url).then(function(response){
+    setCovid_data(response.data);
+  })
+    .catch(function(error){
+      console.log(error);
+    })
+
+  useEffect(()=>{
+    if(covid_data!==[])
+    {
+      for(let i=0; i<covid_data.length; i++)
+      {
+        if(covid_data[i]['location'] === city_dict[city])
+        {
+          setDate(covid_data[i]['update_date']);
+          setInfect(covid_data[i]['confirmed_patient']);
+          setInfectplus(covid_data[i]['confirmed_increase']);
+          setWait( covid_data[i]['quarantine']);
+          setCure(covid_data[i]['dead']);
+          setWaitInc(covid_data[i]['quarantine_increase'])
+          setCureInc(covid_data[i]['dead_increase'])
+        }
+      }
+    }
+  },[covid_data])
+
   return (
     <FixWrapper zoom_in={zoom_in}>
       <CovidCurrentStausBodyWrapper>
@@ -112,7 +145,7 @@ const CovidCurrentStaus = ({
             {city === 'Jeonnam' && (
               <CovidCurrentStausTitle>전라남도</CovidCurrentStausTitle>
             )}
-            <CovidCurrentStausDate>({date}시 기준)</CovidCurrentStausDate>
+            <CovidCurrentStausDate>({date} 기준)</CovidCurrentStausDate>
           </CovidCurrentStausHorizontal>
           <CovidCurrentStausHorizontal>
             <CovidCurrentStausVertical>
@@ -123,17 +156,17 @@ const CovidCurrentStaus = ({
               </CovidCurrentStausIncrease>
             </CovidCurrentStausVertical>
             <CovidCurrentStausVertical>
-              <CovidCurrentStausText>병상대기자</CovidCurrentStausText>
+              <CovidCurrentStausText>격리중</CovidCurrentStausText>
               <CovidCurrentStausData>{wait}</CovidCurrentStausData>
               <CovidCurrentStausIncrease>
-                (+{waitplus})
+                (+{waiInc})
               </CovidCurrentStausIncrease>
             </CovidCurrentStausVertical>
             <CovidCurrentStausVertical>
-              <CovidCurrentStausText>치료중</CovidCurrentStausText>
+              <CovidCurrentStausText>사망자</CovidCurrentStausText>
               <CovidCurrentStausData>{cure}</CovidCurrentStausData>
               <CovidCurrentStausIncrease>
-                (+{cureplus})
+                (+{cureInc})
               </CovidCurrentStausIncrease>
             </CovidCurrentStausVertical>
           </CovidCurrentStausHorizontal>

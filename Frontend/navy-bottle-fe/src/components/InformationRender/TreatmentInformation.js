@@ -21,15 +21,15 @@ const TreatmentInformationWrapper = styled.div`
   z-index: 79;
   width: 100%;
   height: 100%;
-  :hover{
-    cursor: pointer
+  :hover {
+    cursor: pointer;
   }
 `;
 
 const TreatmentInformationBodyWrapper = styled.div`
   position: absolute;
-  top: ${props=>props.top}%;
-  left: ${props=>props.left}%;
+  top: ${(props) => props.top}%;
+  left: ${(props) => props.left}%;
   z-index: 80;
   width: 17.92%;
   height: 13.15%;
@@ -40,7 +40,7 @@ const TreatmentInformationBody = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  background-color: #FFFFFF ;
+  background-color: #ffffff;
   box-shadow: 3px 6px 10px #00000029;
   display: flex;
   flex-direction: column;
@@ -73,7 +73,7 @@ const TreatmentPhone = styled.div`
   align-items: baseline;
   justify-content: start;
   font-family: Noto Sans KR;
-  font-weight:medium;
+  font-weight: medium;
   color: #979797;
   margin-left: 5px;
 `;
@@ -85,7 +85,7 @@ const TreatmentAdress = styled.div`
   margin-top: 5px;
   font-size: 10px;
   font-family: Noto Sans KR;
-  font-weight:medium;
+  font-weight: medium;
   justify-content: flex-start;
   align-items: baseline;
   color: #979797;
@@ -96,7 +96,7 @@ const TreatmentInfo = styled.div`
   flex-direction: row;
   flex-grow: 1;
   margin-left: 11.046px;
-  margin-top: 10px;  
+  margin-top: 10px;
 `;
 
 const TreatmentBed = styled.div`
@@ -109,7 +109,7 @@ const TreatmentBedTitle = styled.div`
   font-size: 12.624px;
   font-family: Noto Sans KR;
   font-weight: bold;
-  color:#707070;
+  color: #707070;
 `;
 
 const TreatmentBedNum = styled.div`
@@ -119,7 +119,7 @@ const TreatmentBedNum = styled.div`
   margin-left: 11.046px;
   margin-top: 10px;
   font-size: 21.303px;
-  color: #FF7B7B;
+  color: #ff7b7b;
   font-weight: bold;
 `;
 
@@ -135,20 +135,19 @@ const TreatmentUtilizationTop = styled.div`
   flex-direction: row;
 `;
 
-
 const TreatmentUtilizationTitle = styled.div`
   display: flex;
   font-size: 12.624px;
   font-family: Noto Sans KR;
   font-weight: bold;
-  color:#707070;
+  color: #707070;
 `;
 
 const TreatmentUtilizationTitleDis = styled.div`
   display: flex;
   font-size: 10px;
   font-family: Noto Sans KR;
-  color:#979797;
+  color: #979797;
   align-items: flex-end;
   margin-left: 5px;
 `;
@@ -164,22 +163,49 @@ const TreatmentUtilizationBar = styled.div`
 const TreatmentUtilizationBarGrayPart = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: #E7E7E7;
-  width: 180px;
+  background-color: #e7e7e7;
+  width: 133px;
   height: 20.514px;
+  margin-left: 3px;
+  margin-right: 3px;
 `;
-
 
 const TreatmentUtilizationBarRedPart = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: #FF7B7B;
-  width: ${props=>props.percent}%;
+  background-color: #ff7b7b;
+  width: ${(props) => props.percent}%;
   height: 100%;
 `;
 
-const TreatmentInformation = ({zoom_in,hospital_name ,hospital_bed_number,percent ,setRenderInformation}) => {
+const TreatmentUtilizationHor = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
 
+const TreatmentGraphPercent = styled.div`
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  height: 100%;
+  width: 25.248px;
+  align-items: center;
+
+  color: ${(props) => props.color};
+  font-weight: medium;
+  font-family: Noto Sans KR;
+  font-size: 12.624px;
+`;
+
+const TreatmentInformation = ({
+  zoom_in,
+  hospital_name,
+  hospital_bed_number,
+  percent,
+  setRenderInformation,
+}) => {
   const modal_info = BasicData[hospital_name];
   const modal_top = modal_info[0];
   const modal_left = modal_info[1];
@@ -187,10 +213,12 @@ const TreatmentInformation = ({zoom_in,hospital_name ,hospital_bed_number,percen
   const adress = modal_info[3];
 
   return (
-
     <FixWrapper zoom_in={zoom_in}>
-      <TreatmentInformationWrapper onClick={(e)=>{setRenderInformation('')}}>
-      </TreatmentInformationWrapper>
+      <TreatmentInformationWrapper
+        onClick={(e) => {
+          setRenderInformation('');
+        }}
+      ></TreatmentInformationWrapper>
       <TreatmentInformationBodyWrapper top={modal_top} left={modal_left}>
         <TreatmentInformationBody>
           <TreatmentInformationTitle>
@@ -206,14 +234,24 @@ const TreatmentInformation = ({zoom_in,hospital_name ,hospital_bed_number,percen
             <TreatmentUtilization>
               <TreatmentUtilizationTop>
                 <TreatmentUtilizationTitle>가동률</TreatmentUtilizationTitle>
-                <TreatmentUtilizationTitleDis>(사용병상 / 전체병상)</TreatmentUtilizationTitleDis>
+                <TreatmentUtilizationTitleDis>
+                  (사용병상 / 전체병상)
+                </TreatmentUtilizationTitleDis>
               </TreatmentUtilizationTop>
               <TreatmentUtilizationBar>
-                <TreatmentUtilizationBarGrayPart>
-                  <TreatmentUtilizationBarRedPart percent = {percent}>
-                        
-                  </TreatmentUtilizationBarRedPart>
-                </TreatmentUtilizationBarGrayPart>
+                <TreatmentUtilizationHor>
+                  <TreatmentGraphPercent color="#FF7B7B">
+                    {percent}%
+                  </TreatmentGraphPercent>
+                  <TreatmentUtilizationBarGrayPart>
+                    <TreatmentUtilizationBarRedPart
+                      percent={percent}
+                    ></TreatmentUtilizationBarRedPart>
+                  </TreatmentUtilizationBarGrayPart>
+                  <TreatmentGraphPercent color="#707070">
+                    {100 - percent}%
+                  </TreatmentGraphPercent>
+                </TreatmentUtilizationHor>
               </TreatmentUtilizationBar>
             </TreatmentUtilization>
           </TreatmentInfo>
